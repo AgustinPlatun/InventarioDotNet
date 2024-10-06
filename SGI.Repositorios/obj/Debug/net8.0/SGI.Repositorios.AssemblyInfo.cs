@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SGI.Repositorios")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+22b9f6badf6ca16fe7102df44ebc1b4d72b94da1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23e94b6b489a49efd5a4454e08e26cee13110dbe")]
 [assembly: System.Reflection.AssemblyProductAttribute("SGI.Repositorios")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SGI.Repositorios")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

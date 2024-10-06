@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGI.Repositorios", "SGI.Repositorios.csproj", "{C33E995F-6AF0-401B-B6FC-45DBB9C4EAE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGI.Repositorios", "SGI.Repositorios.csproj", "{284318E6-4A43-4BF4-BAF7-C85628AA3AD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C33E995F-6AF0-401B-B6FC-45DBB9C4EAE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C33E995F-6AF0-401B-B6FC-45DBB9C4EAE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C33E995F-6AF0-401B-B6FC-45DBB9C4EAE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C33E995F-6AF0-401B-B6FC-45DBB9C4EAE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{284318E6-4A43-4BF4-BAF7-C85628AA3AD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{284318E6-4A43-4BF4-BAF7-C85628AA3AD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{284318E6-4A43-4BF4-BAF7-C85628AA3AD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{284318E6-4A43-4BF4-BAF7-C85628AA3AD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {9FB7408E-2E43-4546-BF12-0A94AA3385F9}
+		SolutionGuid = {360FA6B1-67CA-4B27-A80A-D4201A86B3A0}
 	EndGlobalSection
 EndGlobal
