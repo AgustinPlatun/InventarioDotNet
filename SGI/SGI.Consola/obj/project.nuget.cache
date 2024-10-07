@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "C01XwzkotTI=",
   "success": true,
   "projectFilePath": "C:\\Users\\agusp\\Desktop\\InventarioDotnet\\SGI\\SGI.Consola\\SGI.Consola.csproj",
+=======
+  "dgSpecHash": "8qIV6YYxllk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\franb\\Desktop\\proyectoFinal\\SGI\\SGI.Consola\\SGI.Consola.csproj",
+>>>>>>> 99069468d4a8789e537163a779fd6059bb8ac2d5
   "expectedPackageFiles": [],
   "logs": []
 }

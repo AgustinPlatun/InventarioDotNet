@@ -27,25 +27,41 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\agusp\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
+    "C:\\Users\\franb\\.nuget\\packages\\": {}
+>>>>>>> 99069468d4a8789e537163a779fd6059bb8ac2d5
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\agusp\\Desktop\\InventarioDotnet\\SGI\\SGI.Consola\\SGI.Consola.csproj",
       "projectName": "SGI.Consola",
       "projectPath": "C:\\Users\\agusp\\Desktop\\InventarioDotnet\\SGI\\SGI.Consola\\SGI.Consola.csproj",
       "packagesPath": "C:\\Users\\agusp\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\agusp\\Desktop\\InventarioDotnet\\SGI\\SGI.Consola\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\franb\\Desktop\\proyectoFinal\\SGI\\SGI.Consola\\SGI.Consola.csproj",
+      "projectName": "SGI.Consola",
+      "projectPath": "C:\\Users\\franb\\Desktop\\proyectoFinal\\SGI\\SGI.Consola\\SGI.Consola.csproj",
+      "packagesPath": "C:\\Users\\franb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\franb\\Desktop\\proyectoFinal\\SGI\\SGI.Consola\\obj\\",
+>>>>>>> 99069468d4a8789e537163a779fd6059bb8ac2d5
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\agusp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+        "C:\\Users\\franb\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> 99069468d4a8789e537163a779fd6059bb8ac2d5
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -58,8 +74,13 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\agusp\\Desktop\\InventarioDotnet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj": {
               "projectPath": "C:\\Users\\agusp\\Desktop\\InventarioDotnet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj"
+=======
+            "C:\\Users\\franb\\Desktop\\proyectoFinal\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj": {
+              "projectPath": "C:\\Users\\franb\\Desktop\\proyectoFinal\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj"
+>>>>>>> 99069468d4a8789e537163a779fd6059bb8ac2d5
             }
           }
         }
