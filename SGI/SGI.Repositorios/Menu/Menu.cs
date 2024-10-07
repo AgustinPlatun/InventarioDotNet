@@ -10,12 +10,12 @@ public class Menu{
     }
 
     public void invocarMenu(){
-    Console.WriteLine("---------------------------------------------------------------");
+    Console.WriteLine("------------------------------------------------------------");
     Console.WriteLine("--------------------------- MENU ---------------------------");
-    Console.WriteLine("--------- INGRESAR 1 PARA AGREGAR UN PRODUCTO ---------");
-     Console.WriteLine("--------- INGRESAR 2 PARA AGREGAR UNA TRANSACCION ---------");
-    Console.WriteLine("--------- INGRESAR 0 PARA SALIR ---------");
-    Console.WriteLine("---------------------------------------------------------------");
+    Console.WriteLine("------------ INGRESAR 1 PARA AGREGAR UN PRODUCTO -----------");
+    Console.WriteLine("---------- INGRESAR 2 PARA AGREGAR UNA TRANSACCION ---------");
+    Console.WriteLine("------------------ INGRESAR 0 PARA SALIR -------------------");
+    Console.WriteLine("------------------------------------------------------------");
     }
 
 public void elegirOpciones(){
