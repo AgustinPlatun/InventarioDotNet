@@ -29,6 +29,9 @@ public void elegirOpciones(){
     case "1":
         crearProducto();
         break;
+    case "2": 
+        crearTransaccion();
+        break;
 
     default:
         Console.WriteLine("---------------------------------------------");
@@ -54,4 +57,23 @@ private void crearProducto(){
         writer.WriteLine($"{p.Id}, {p.Nombre}, {p.Descripcion}, {p.PrecioUnitario}, {p.StockDisponible}, {p.FechaCreacion}, {p.FechaUltimaModificacion}, {p.CategoriaId}");
     }
 }
+
+private void crearTransaccion() {
+    Console.Write("Ingresar ID de la transaccion : ");String id = Console.ReadLine() ?? "0";
+    Console.Write("Ingresar ID del PRODUCTO : ");String idProd = Console.ReadLine() ?? "0";
+    Console.Write("Ingresar TIPO DE TRANSACCION (entrada o salida) : ");String tipo= Console.ReadLine() ?? "";
+    Console.Write("Ingresar cantidad del producto : "); String cant = Console.ReadLine() ?? "0"; 
+    DateTime fecha = DateTime.Now;  
+
+    Transaccion t = new Transaccion (int.Parse(id), int.Parse(idProd), tipo, int.Parse(cant),fecha); 
+    
+    string documentoTransaccion ="../SGI.Repositorios/Transaccion/Transacciones.txt";
+
+    using (StreamWriter writer = new StreamWriter(documentoTransaccion,true)) { 
+        writer.WriteLine($"{t.getId()},{t.getProductoId()},{t.getTipo()},{t.getCantidad()},{t.getFecha()}");
+    }
+
+}
+
+
 }
