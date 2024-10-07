@@ -27,19 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Santiago\\.nuget\\packages\\": {}
+    "C:\\Users\\franb\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraEntregaProyectoDotnet\\SGI\\SGI.Consola\\SGI.Consola.csproj",
+      "projectUniqueName": "C:\\Users\\franb\\Desktop\\proyectoFinal\\SGI\\SGI.Consola\\SGI.Consola.csproj",
       "projectName": "SGI.Consola",
-      "projectPath": "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraEntregaProyectoDotnet\\SGI\\SGI.Consola\\SGI.Consola.csproj",
-      "packagesPath": "C:\\Users\\Santiago\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraEntregaProyectoDotnet\\SGI\\SGI.Consola\\obj\\",
+      "projectPath": "C:\\Users\\franb\\Desktop\\proyectoFinal\\SGI\\SGI.Consola\\SGI.Consola.csproj",
+      "packagesPath": "C:\\Users\\franb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\franb\\Desktop\\proyectoFinal\\SGI\\SGI.Consola\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Santiago\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\franb\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -51,8 +51,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraEntregaProyectoDotnet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj": {
-              "projectPath": "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraEntregaProyectoDotnet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj"
+            "C:\\Users\\franb\\Desktop\\proyectoFinal\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj": {
+              "projectPath": "C:\\Users\\franb\\Desktop\\proyectoFinal\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj"
             }
           }
         }
