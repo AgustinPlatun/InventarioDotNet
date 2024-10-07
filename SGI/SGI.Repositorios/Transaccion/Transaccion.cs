@@ -9,13 +9,13 @@ public class Transaccion {
     protected int id; 
     private int _productoId; 
     int _cantidad;
-    Boolean _tipo; 
+    String _tipo; 
     DateTime _fechaTransaccion; 
 
-    public Transaccion(int unId, int idProd, int unaCant, Boolean unTipo, DateTime unafecha) { 
+    public Transaccion(int unId, int idProd, String unTipo,int unaCant, DateTime unafecha) { 
         this.id=unId;
         this._productoId=idProd;
-        this._tipo=unTipo;
+        this.validadorTipo(unTipo);
         this.validarCantidad(unaCant); 
         this.validarStock(unaCant);
         this._fechaTransaccion=unafecha;       
@@ -28,7 +28,7 @@ public class Transaccion {
     }
     private void validarStock(int unaCant) {
         String rutaArchivo="Producto/productos.txt"; 
-        if (this._tipo==false) { 
+        if (this.getTipo().Equals(("salida"))) { 
             try 
                 {
                     foreach (String linea in File.ReadLines(rutaArchivo)){
@@ -49,6 +49,17 @@ public class Transaccion {
         }
     }
 
+
+    private void validadorTipo(String untipo) {
+        untipo.ToLower(); 
+        if (!untipo.Equals("salida")&&!untipo.Equals("entrada")){ 
+            throw new ArgumentException (" NO SE INGRESO EL TIPO DE TRANSACCION (SALIDA O ENTRADA)"); 
+        }
+        else
+            this._tipo=untipo;
+    }
+
+
     public int getId() { 
         return this.id; 
     }
@@ -61,7 +72,7 @@ public class Transaccion {
         return this._cantidad;
     }
 
-    public Boolean getTipo(){ 
+    public String getTipo(){ 
         return this._tipo;
     }
 
