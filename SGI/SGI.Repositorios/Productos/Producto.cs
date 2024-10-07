@@ -1,20 +1,18 @@
 using System;
-
 namespace SGI.Repositorios
+
 {
     public class Producto
     {
-        // Campos privados
-        private int id;
-        private string nombre;
-        private string descripcion;
-        private double precioUnitario;
-        private int stockDisponible;
-        private DateTime fechaCreacion;
-        private DateTime fechaUltimaModificacion;
-        private int categoriaId;
+        int id;
+        string nombre;
+        string descripcion;
+        double precioUnitario;
+        int stockDisponible;
+        DateTime fechaCreacion;
+        DateTime fechaUltimaModificacion;
+        int categoriaId;
 
-        // Constructor
         public Producto(int id, string nombre, string descripcion, double precioUnitario, int stockDisponible)
         {
             this.id = id;
@@ -25,11 +23,24 @@ namespace SGI.Repositorios
             this.precioUnitario = precioUnitario;
             ValidarStockDisponible(stockDisponible);
             this.stockDisponible = stockDisponible;
-            this.fechaCreacion = DateTime.Now; // Asigna la fecha de creación actual
-            this.fechaUltimaModificacion = DateTime.Now; // Asigna la fecha de modificación actual
+            this.fechaCreacion = DateTime.Now;
+            this.fechaUltimaModificacion = DateTime.Now;
+        }
+        public Producto(int id, string nombre, string descripcion, double precioUnitario, int stockDisponible,DateTime fechaCreacion,DateTime fechaUltimaModificacion,int categoriaId)
+        {
+            this.id = id;
+            ValidarNombre(nombre);
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            ValidarPrecioUnitario(precioUnitario);
+            this.precioUnitario = precioUnitario;
+            ValidarStockDisponible(stockDisponible);
+            this.stockDisponible = stockDisponible;
+            this.fechaCreacion = fechaCreacion;
+            this.fechaUltimaModificacion = fechaUltimaModificacion;
+            this.categoriaId = categoriaId;
         }
 
-        // Propiedades públicas
         public int Id
         {
             get { return id; }
@@ -42,14 +53,18 @@ namespace SGI.Repositorios
             {
                 ValidarNombre(value);
                 nombre = value;
-                fechaUltimaModificacion = DateTime.Now; // Actualiza la fecha de modificación
+                fechaUltimaModificacion = DateTime.Now;
             }
         }
 
         public string Descripcion
         {
             get { return descripcion; }
-            set { descripcion = value; }
+            set 
+            { 
+                descripcion = value;
+                fechaUltimaModificacion = DateTime.Now;
+            }
         }
 
         public double PrecioUnitario
@@ -59,7 +74,7 @@ namespace SGI.Repositorios
             {
                 ValidarPrecioUnitario(value);
                 precioUnitario = value;
-                fechaUltimaModificacion = DateTime.Now; // Actualiza la fecha de modificación
+                fechaUltimaModificacion = DateTime.Now;
             }
         }
 
@@ -68,9 +83,8 @@ namespace SGI.Repositorios
             get { return stockDisponible; }
             set
             {
-                ValidarStockDisponible(value);
                 stockDisponible = value;
-                fechaUltimaModificacion = DateTime.Now; // Actualiza la fecha de modificación
+                fechaUltimaModificacion = DateTime.Now;
             }
         }
 
@@ -87,10 +101,13 @@ namespace SGI.Repositorios
         public int CategoriaId
         {
             get { return categoriaId; }
-            set { categoriaId = value; }
+            set 
+            { 
+                categoriaId = value;
+                fechaUltimaModificacion = DateTime.Now; 
+            }
         }
 
-        // Métodos de validación
         private void ValidarNombre(string nombre)
         {
             if (string.IsNullOrWhiteSpace(nombre))
@@ -115,7 +132,6 @@ namespace SGI.Repositorios
             }
         }
 
-        // Método para imprimir información del producto
         public void Imprimir()
         {
             Console.WriteLine($"ID: {id}, Nombre: {nombre}, Descripción: {descripcion}, Precio: {precioUnitario}, Stock: {stockDisponible}");
