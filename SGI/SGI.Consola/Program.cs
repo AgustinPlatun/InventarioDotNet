@@ -10,5 +10,3 @@ while(!menu.opcion.Equals("0"))
     menu.elegirOpciones();
 }
 Console.ReadKey();
-
-//asdsad
