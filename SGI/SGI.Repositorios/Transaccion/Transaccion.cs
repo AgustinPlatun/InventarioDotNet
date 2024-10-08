@@ -28,40 +28,36 @@ public class Transaccion {
             throw new ValidationException (" NO SE CUMPLEN LAS REGLAS DE VALIDACION  : STOCK < 0");
     }
     private void validarStock(int unaCant) {
-        String rutaArchivo= "../SGI.Repositorios/Productos/Productos.txt"; 
-        if (this.getTipo().Equals(("salida"))) 
-        { 
-            try 
-            {
-                using (StreamReader reader = new StreamReader(rutaArchivo))
-                {    
-                    while (!reader.EndOfStream)
-                    {
-                        String line = reader.ReadLine();
-                        String []campos = line.Split(",");
-                        int cantAct = int.Parse(campos[4]);
-                        Console.WriteLine($"cantidad actual: {cantAct}");
-                        if (this._productoId == int.Parse(campos[0])) 
-                        { 
-                            if (cantAct >= unaCant) 
-                            {
-                             this._cantidad=unaCant;
-                             Console.WriteLine($"{unaCant}");
-                            }
-                            else 
-                            {
-                                    throw new ArgumentException($" EL STOCK NO ES SUFICIENTE PARA LA CANTIDAD REQUERIDA ");                           
-                            }
+    string rutaArchivo = "../SGI.Repositorios/Productos/Productos.txt";
+
+    if (this.getTipo().Equals("salida")) {
+        using (StreamReader reader = new StreamReader(rutaArchivo)) {
+            bool productoEncontrado = false;
+
+            try {
+                while (!reader.EndOfStream) {
+                    string linea = reader.ReadLine();
+                    string[] campos = linea.Split(",");
+
+                    if (this._productoId == int.Parse(campos[0])) {
+                        productoEncontrado = true;
+                        if (int.Parse(campos[4]) < unaCant) {
+                            throw new ArgumentException("EL STOCK NO ES SUFICIENTE PARA LA CANTIDAD REQUERIDA ");
                         }
+                        return;
                     }
                 }
-            }
-            catch 
-                {
-                    throw new ArgumentException($" EL ID DEL PRODUCTO NO CORRESPONDE A LA TRANSACCION ");
+
+                if (!productoEncontrado) {
+                    throw new ArgumentException("EL ID DEL PRODUCTO NO CORRESPONDE A LA TRANSACCION");
                 }
+            } catch (Exception ex) {
+                throw new Exception(ex.Message);
+            }
         }
     }
+}
+
 
 
     private void validadorTipo(String untipo) {
