@@ -3,6 +3,7 @@ using System;
 namespace SGI.Repositorios;
     public class Categoria
     {
+        private String path = "../SGI.Repositorios/listadoCategorias.txt";
         private int _id;
         private String _nombre;
         private String _descripcion;
@@ -12,8 +13,6 @@ namespace SGI.Repositorios;
         // Constructores de instancia
         public Categoria(int id, String nombre, String descripcion)
         {
-            StreamWriter archivo = new StreamWriter("../SGI.Repositorios/listadoCategorias.txt");
-
             _id = id;
             _nombre = nombre;
             CategoriaValidador validadorCat= new CategoriaValidador(nombre);
@@ -21,8 +20,10 @@ namespace SGI.Repositorios;
             _descripcion = descripcion;
             _fechaCreacion = DateTime.Now;
             _fechaUltimaModificacion = DateTime.Now;
-            archivo.WriteLine($"{_id},{_nombre},{_descripcion},{_fechaCreacion},{_fechaUltimaModificacion}");
-            archivo.Close();
+                using (StreamWriter arch = new StreamWriter(path,true))
+    {
+        arch.WriteLine($"{_id},{nombre},{descripcion},{_fechaCreacion},{_fechaUltimaModificacion}");
+    }
         }
 
         /* 
@@ -36,7 +37,7 @@ namespace SGI.Repositorios;
                 return _id;
             }
         }
-        public String nombre
+        public String Nombre
         {
             get
             {
@@ -48,7 +49,7 @@ namespace SGI.Repositorios;
                 _fechaUltimaModificacion = DateTime.Now;
             }
         }
-        public String descripcion
+        public String Descripcion
         {
             get
             {
@@ -56,18 +57,18 @@ namespace SGI.Repositorios;
             }
             set
             {
-                descripcion = descripcion;
+                _descripcion = value;
                 _fechaUltimaModificacion = DateTime.Now;
             }
         }
-        public DateTime fechaUltimaModificacion 
+        public DateTime FechaUltimaModificacion 
         {
             get
             {
                 return _fechaUltimaModificacion;
             }
         }
-        public DateTime fechaCreacion
+        public DateTime FechaCreacion
         {
             get
             {
