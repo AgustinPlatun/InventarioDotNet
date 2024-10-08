@@ -1,5 +1,6 @@
 using System;
 namespace SGI.Repositorios;
+
 public class Menu{
     private string _opcion = "1";
 
@@ -10,12 +11,12 @@ public class Menu{
     }
 
     public void invocarMenu(){
-    Console.WriteLine("---------------------------------------------------------------");
+    Console.WriteLine("------------------------------------------------------------");
     Console.WriteLine("--------------------------- MENU ---------------------------");
-    Console.WriteLine("--------- INGRESAR 1 PARA AGREGAR UN PRODUCTO ---------");
-     Console.WriteLine("--------- INGRESAR 2 PARA AGREGAR UNA TRANSACCION ---------");
-    Console.WriteLine("--------- INGRESAR 0 PARA SALIR ---------");
-    Console.WriteLine("---------------------------------------------------------------");
+    Console.WriteLine("------------ INGRESAR 1 PARA AGREGAR UN PRODUCTO -----------");
+    Console.WriteLine("---------- INGRESAR 2 PARA AGREGAR UNA TRANSACCION ---------");
+    Console.WriteLine("------------------ INGRESAR 0 PARA SALIR -------------------");
+    Console.WriteLine("------------------------------------------------------------");
     }
 
 public void elegirOpciones(){
@@ -53,7 +54,7 @@ private void crearProducto(){
 
     using (StreamWriter writer = new StreamWriter(documentoDeProductos, true))
     {
-        writer.WriteLine($"{p.Id}, {p.Nombre}, {p.Descripcion}, {p.PrecioUnitario}, {p.StockDisponible}, {p.FechaCreacion}, {p.FechaUltimaModificacion}, {p.CategoriaId}");
+        writer.WriteLine($"{p.Id},{p.Nombre},{p.Descripcion},{p.PrecioUnitario},{p.StockDisponible},{p.FechaCreacion},{p.FechaUltimaModificacion},{p.CategoriaId}");
     }
 }
 
