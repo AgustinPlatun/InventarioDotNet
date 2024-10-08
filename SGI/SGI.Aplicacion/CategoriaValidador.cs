@@ -1,5 +1,7 @@
-public class CategoriaValidador(String nombre){
-         public void validacionException()
+namespace SGI.Aplicacion;
+static class CategoriaValidador
+{
+    public static void validacionException(string nombre)
         {
             if (string.IsNullOrWhiteSpace(nombre))
             {
@@ -7,4 +9,3 @@ public class CategoriaValidador(String nombre){
             }
         }   
 }
-// Sujeto a cambios. mañana preguntar.
