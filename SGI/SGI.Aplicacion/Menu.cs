@@ -11,12 +11,13 @@ public class Menu{
     }
 
     public void invocarMenu(){
-    Console.WriteLine("------------------------------------------------------------");
-    Console.WriteLine("--------------------------- MENU ---------------------------");
-    Console.WriteLine("------------ INGRESAR 1 PARA AGREGAR UN PRODUCTO -----------");
-    Console.WriteLine("---------- INGRESAR 2 PARA AGREGAR UNA TRANSACCION ---------");
-    Console.WriteLine("------------------ INGRESAR 0 PARA SALIR -------------------");
-    Console.WriteLine("------------------------------------------------------------");
+    Console.WriteLine("---------------------------SISTEMA DE GESTION DE INVENTARIO---------------------------");
+    Console.WriteLine("-------------------------              MENU                 -------------------------");
+    Console.WriteLine("---------------------         1- Agregar un producto.     ---------------------");
+    Console.WriteLine("---------------------         2- Agregar una transaccion. ---------------------");
+    Console.WriteLine("---------------------         3- Agregar una categoria.   ---------------------");
+    Console.WriteLine("---------------------         0- Salir.                   ---------------------");
+    Console.WriteLine("-------------------------------------------------------------------------------------");
     }
 
 public void elegirOpciones(){
@@ -32,6 +33,9 @@ public void elegirOpciones(){
     case "2": 
         crearTransaccion();
         break;
+    case "3":
+        crearCategoria();
+        break;
 
     default:
         Console.WriteLine("---------------------------------------------");
@@ -41,7 +45,19 @@ public void elegirOpciones(){
 }
 }
 
-private void crearProducto(){
+private void crearCategoria()
+{
+    Console.Write("-Ingresar ID de la categoria:"); 
+    int id = int.Parse(Console.ReadLine() ?? "-1");
+    Console.Write("-Ingresar nombre de la categoria:");
+    String nombre = Console.ReadLine();
+    Console.Write("-Ingresar descripcion de la categoria:");
+    String descripcion = Console.ReadLine() ?? "";
+    Categoria cat1 = new Categoria(id,nombre,descripcion);
+
+}
+private void crearProducto()
+{
     Console.Write("Ingresar id del producto :");String id = Console.ReadLine() ?? "0";
     Console.Write("Ingresar nombre :");String nombre = Console.ReadLine() ?? " ";
     Console.Write("Ingresar descripcion :");String descripcion = Console.ReadLine() ?? " ";
@@ -50,7 +66,7 @@ private void crearProducto(){
 
     Producto p = new Producto(int.Parse(id),nombre,descripcion,double.Parse(precioUnitario),int.Parse(stockDisponible));
 
-    string documentoDeProductos = "../SGI.Repositorios/Productos/Productos.txt";
+    string documentoDeProductos = "../SGI.Repositorios/listadoProductos.txt";
 
     using (StreamWriter writer = new StreamWriter(documentoDeProductos, true))
     {
@@ -67,7 +83,7 @@ private void crearTransaccion() {
 
     Transaccion t = new Transaccion (int.Parse(id), int.Parse(idProd), tipo, int.Parse(cant),fecha); 
     
-    string documentoTransaccion ="../SGI.Repositorios/Transaccion/Transacciones.txt";
+    string documentoTransaccion ="../SGI.Repositorios/listadoTransacciones.txt";
 
     using (StreamWriter writer = new StreamWriter(documentoTransaccion,true)) { 
         writer.WriteLine($"{t.getId()},{t.getProductoId()},{t.getTipo()},{t.getCantidad()},{t.getFecha()}");

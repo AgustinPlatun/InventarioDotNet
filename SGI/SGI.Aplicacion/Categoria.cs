@@ -3,6 +3,7 @@ using System;
 namespace SGI.Repositorios;
     public class Categoria
     {
+        private String path = "../SGI.Repositorios/listadoCategorias.txt";
         private int _id;
         private String _nombre;
         private String _descripcion;
@@ -14,9 +15,15 @@ namespace SGI.Repositorios;
         {
             _id = id;
             _nombre = nombre;
+            CategoriaValidador validadorCat= new CategoriaValidador(nombre);
+            validadorCat.validacionException(); // Sujeto a cambios. Mañana preguntar.
             _descripcion = descripcion;
             _fechaCreacion = DateTime.Now;
             _fechaUltimaModificacion = DateTime.Now;
+                using (StreamWriter arch = new StreamWriter(path,true))
+    {
+        arch.WriteLine($"{_id},{nombre},{descripcion},{_fechaCreacion},{_fechaUltimaModificacion}");
+    }
         }
 
         /* 
@@ -30,7 +37,7 @@ namespace SGI.Repositorios;
                 return _id;
             }
         }
-        public String nombre
+        public String Nombre
         {
             get
             {
@@ -38,12 +45,11 @@ namespace SGI.Repositorios;
             }
             set
             {
-                validacionException(value);
                 _nombre = value;
                 _fechaUltimaModificacion = DateTime.Now;
             }
         }
-        public String descripcion
+        public String Descripcion
         {
             get
             {
@@ -51,32 +57,25 @@ namespace SGI.Repositorios;
             }
             set
             {
-                descripcion = descripcion;
+                _descripcion = value;
                 _fechaUltimaModificacion = DateTime.Now;
             }
         }
-        public DateTime fechaUltimaModificacion 
+        public DateTime FechaUltimaModificacion 
         {
             get
             {
                 return _fechaUltimaModificacion;
             }
         }
-        public DateTime fechaCreacion
+        public DateTime FechaCreacion
         {
             get
             {
                 return _fechaCreacion;
             }
         }
-        // Excepciones.
-        private void validacionException(String nombre)
-        {
-            if (string.IsNullOrWhiteSpace(nombre))
-            {
-                throw new ArgumentException("El nombre NO puede estar vacio.");
-            }
-        }
+
     }
 
  

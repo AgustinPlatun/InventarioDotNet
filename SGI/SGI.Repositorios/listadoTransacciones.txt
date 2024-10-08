@@ -16,3 +16,4 @@ System.Func`1[System.Int32],System.Func`1[System.Int32],System.Func`1[System.Str
 560,9999,salida,5434,7/10/2024 23:35:34
 542,5,salida,5422,8/10/2024 00:34:02
 >>>>>>> c7db3759084946742b0e3fce4dafd36766d2d426
+54,560,salida,2,8/10/2024 02:53:54
