@@ -54,7 +54,7 @@ private void crearProducto(){
 
     using (StreamWriter writer = new StreamWriter(documentoDeProductos, true))
     {
-        writer.WriteLine($"{p.Id}, {p.Nombre}, {p.Descripcion}, {p.PrecioUnitario}, {p.StockDisponible}, {p.FechaCreacion}, {p.FechaUltimaModificacion}, {p.CategoriaId}");
+        writer.WriteLine($"{p.Id},{p.Nombre},{p.Descripcion},{p.PrecioUnitario},{p.StockDisponible},{p.FechaCreacion},{p.FechaUltimaModificacion},{p.CategoriaId}");
     }
 }
 
