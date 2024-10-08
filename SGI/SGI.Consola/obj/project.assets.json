@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraEntregaProyectoDotnet\\SGI\\SGI.Consola\\SGI.Consola.csproj",
+      "projectUniqueName": "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraentregaProyectodotnet\\SGI\\SGI.Consola\\SGI.Consola.csproj",
       "projectName": "SGI.Consola",
-      "projectPath": "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraEntregaProyectoDotnet\\SGI\\SGI.Consola\\SGI.Consola.csproj",
+      "projectPath": "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraentregaProyectodotnet\\SGI\\SGI.Consola\\SGI.Consola.csproj",
       "packagesPath": "C:\\Users\\Santiago\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraEntregaProyectoDotnet\\SGI\\SGI.Consola\\obj\\",
+      "outputPath": "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraentregaProyectodotnet\\SGI\\SGI.Consola\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Santiago\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -51,8 +51,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraEntregaProyectoDotnet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj": {
-              "projectPath": "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraEntregaProyectoDotnet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj"
+            "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraentregaProyectodotnet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj": {
+              "projectPath": "C:\\Users\\Santiago\\desktop\\proyectosDotnet\\primeraentregaProyectodotnet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj"
             }
           }
         }
