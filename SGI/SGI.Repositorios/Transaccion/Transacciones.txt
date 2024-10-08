@@ -3,3 +3,12 @@ System.Func`1[System.Int32],System.Func`1[System.Int32],System.Func`1[System.Str
 System.Func`1[System.Int32],System.Func`1[System.Int32],System.Func`1[System.String],System.Func`1[System.Int32],System.Func`1[System.DateTime]
 System.Func`1[System.Int32],System.Func`1[System.Int32],System.Func`1[System.String],System.Func`1[System.Int32],System.Func`1[System.DateTime]
 1,1,entrada,30,7/10/2024 17:07:09
+24,24,entrada,12,7/10/2024 23:15:01
+10,5,entrada,14,7/10/2024 23:18:56
+15,5,salida,50,7/10/2024 23:22:34
+15,5,entrada,25,7/10/2024 23:29:46
+20,5,salida,500,7/10/2024 23:30:11
+45,5,salida,540,7/10/2024 23:32:13
+600,5,salida,590,7/10/2024 23:33:48
+560,9999,salida,5434,7/10/2024 23:35:34
+542,5,salida,5422,8/10/2024 00:34:02
