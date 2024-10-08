@@ -28,7 +28,7 @@ public class Transaccion {
             throw new ValidationException (" NO SE CUMPLEN LAS REGLAS DE VALIDACION  : STOCK < 0");
     }
     private void validarStock(int unaCant) {
-    string rutaArchivo = "../SGI.Repositorios/Productos/Productos.txt";
+    string rutaArchivo = "../SGI.Repositorios/listadoProductos.txt";
 
     if (this.getTipo().Equals("salida")) {
         using (StreamReader reader = new StreamReader(rutaArchivo)) {

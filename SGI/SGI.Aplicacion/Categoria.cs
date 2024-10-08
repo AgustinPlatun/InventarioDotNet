@@ -12,11 +12,17 @@ namespace SGI.Repositorios;
         // Constructores de instancia
         public Categoria(int id, String nombre, String descripcion)
         {
+            StreamWriter archivo = new StreamWriter("../SGI.Repositorios/listadoCategorias.txt");
+
             _id = id;
             _nombre = nombre;
+            CategoriaValidador validadorCat= new CategoriaValidador(nombre);
+            validadorCat.validacionException(); // Sujeto a cambios. Mañana preguntar.
             _descripcion = descripcion;
             _fechaCreacion = DateTime.Now;
             _fechaUltimaModificacion = DateTime.Now;
+            archivo.WriteLine($"{_id},{_nombre},{_descripcion},{_fechaCreacion},{_fechaUltimaModificacion}");
+            archivo.Close();
         }
 
         /* 
@@ -38,7 +44,6 @@ namespace SGI.Repositorios;
             }
             set
             {
-                validacionException(value);
                 _nombre = value;
                 _fechaUltimaModificacion = DateTime.Now;
             }
@@ -69,14 +74,7 @@ namespace SGI.Repositorios;
                 return _fechaCreacion;
             }
         }
-        // Excepciones.
-        private void validacionException(String nombre)
-        {
-            if (string.IsNullOrWhiteSpace(nombre))
-            {
-                throw new ArgumentException("El nombre NO puede estar vacio.");
-            }
-        }
+
     }
 
  
