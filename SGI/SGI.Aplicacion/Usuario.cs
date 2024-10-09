@@ -1,7 +1,6 @@
 namespace SGI.Repositorios;
 public class Usuario{
     private int _id;
-    private List<Permiso> list;
     public Usuario (int id)
     {
         _id = id;
@@ -32,4 +31,5 @@ public class Usuario{
             menuOpciones.elegirOpciones();
         }
     }
+
 }

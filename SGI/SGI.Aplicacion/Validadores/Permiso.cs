@@ -1,0 +1,4 @@
+enum Permiso {
+    Administrador,
+    
+}
