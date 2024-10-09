@@ -15,8 +15,6 @@ namespace SGI.Repositorios;
         {
             _id = id;
             _nombre = nombre;
-            CategoriaValidador validadorCat= new CategoriaValidador(nombre);
-            validadorCat.validacionException(); // Sujeto a cambios. Mañana preguntar.
             _descripcion = descripcion;
             _fechaCreacion = DateTime.Now;
             _fechaUltimaModificacion = DateTime.Now;

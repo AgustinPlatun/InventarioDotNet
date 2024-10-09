@@ -1,3 +1,4 @@
 424,Comida,Tipos de pizzas,8/10/2024 04:07:42,8/10/2024 04:07:42
 425,Comida,Tipo de empanadas,8/10/2024 04:08:13,8/10/2024 04:08:13
+6556,Vasos,Son vasos de colores.,8/10/2024 18:06:24,8/10/2024 18:06:24
 2,asdas,sdgsd,10/8/2024 4:09:14 PM,10/8/2024 4:09:14 PM
