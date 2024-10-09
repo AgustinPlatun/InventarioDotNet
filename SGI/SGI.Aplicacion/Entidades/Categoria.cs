@@ -1,6 +1,6 @@
 using System;
 
-namespace SGI.Repositorios;
+namespace SGI.Aplicacion;
     public class Categoria
     {
         private String path = "../SGI.Repositorios/listadoCategorias.txt";

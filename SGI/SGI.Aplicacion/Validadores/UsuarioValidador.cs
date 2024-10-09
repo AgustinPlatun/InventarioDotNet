@@ -1,6 +1,3 @@
-enum Permiso {
-    
-}
 public static class UsuarioValidador {
 
 public static bool validarUsuario(int id)

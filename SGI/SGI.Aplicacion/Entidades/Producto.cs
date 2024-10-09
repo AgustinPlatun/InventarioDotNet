@@ -1,6 +1,6 @@
 using System;
-namespace SGI.Repositorios
 
+namespace SGI.Aplicacion
 {
     public class Producto
     {

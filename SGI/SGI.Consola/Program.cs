@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualBasic;
-using SGI.Repositorios;
+using SGI.Aplicacion;
 using System.IO;
 
 Usuario usuarioPrivilegiado = new Usuario(1);

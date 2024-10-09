@@ -4,7 +4,7 @@ using System.IO;
 using System;
 
 
-namespace SGI.Repositorios;
+namespace SGI.Aplicacion;
 
 public class Transaccion { 
     protected int id; 

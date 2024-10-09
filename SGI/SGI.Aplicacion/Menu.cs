@@ -1,5 +1,5 @@
 using System;
-namespace SGI.Repositorios;
+namespace SGI.Aplicacion;
 using SGI.Aplicacion;
 public class Menu{
     private string _opcion = "1";

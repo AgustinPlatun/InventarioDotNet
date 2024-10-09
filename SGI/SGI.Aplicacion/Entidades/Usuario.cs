@@ -1,4 +1,4 @@
-namespace SGI.Repositorios;
+namespace SGI.Aplicacion;
 public class Usuario{
     private int _id;
     public Usuario (int id)
