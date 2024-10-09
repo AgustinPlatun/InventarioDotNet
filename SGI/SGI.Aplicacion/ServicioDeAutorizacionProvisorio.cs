@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 public class ServicioDeAutorizacionProvisorio : IServicioDeAutorizacion{
-    public bool PoseeElPermiso (int idUsuario, List<bool> permisos)
+    public bool PoseeElPermiso (int idUsuario)
     {
         if (idUsuario == 1) 
         {
-            permisos.
-        }
+            return true;
+        } else 
+        {
         return false;
+        }
     }
 }
