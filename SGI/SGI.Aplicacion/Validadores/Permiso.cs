@@ -1,5 +1,4 @@
-enum Permiso {
-    Administrador,
-    
-    
+enum permiso{
+    DarAltaCategoria,
+    DarAltaProducto,
 }

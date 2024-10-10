@@ -1,4 +1,5 @@
 using System;
+using SGI.Aplicacion;
 
 namespace SGI.Aplicacion
 {
@@ -16,12 +17,12 @@ namespace SGI.Aplicacion
         public Producto(int id, string nombre, string descripcion, double precioUnitario, int stockDisponible)
         {
             this.id = id;
-            ValidarNombre(nombre);
+            ProductoValidador.ValidarNombre(nombre);
             this.nombre = nombre;
             this.descripcion = descripcion;
-            ValidarPrecioUnitario(precioUnitario);
+            ProductoValidador.ValidarPrecioUnitario(precioUnitario);
             this.precioUnitario = precioUnitario;
-            ValidarStockDisponible(stockDisponible);
+            ProductoValidador.ValidarStockDisponible(stockDisponible);
             this.stockDisponible = stockDisponible;
             this.fechaCreacion = DateTime.Now;
             this.fechaUltimaModificacion = DateTime.Now;
@@ -29,16 +30,17 @@ namespace SGI.Aplicacion
         public Producto(int id, string nombre, string descripcion, double precioUnitario, int stockDisponible,DateTime fechaCreacion,DateTime fechaUltimaModificacion,int categoriaId)
         {
             this.id = id;
-            ValidarNombre(nombre);
+            ProductoValidador.ValidarNombre(nombre);
             this.nombre = nombre;
             this.descripcion = descripcion;
-            ValidarPrecioUnitario(precioUnitario);
+            ProductoValidador.ValidarPrecioUnitario(precioUnitario);
             this.precioUnitario = precioUnitario;
-            ValidarStockDisponible(stockDisponible);
+            ProductoValidador.ValidarStockDisponible(stockDisponible);
             this.stockDisponible = stockDisponible;
             this.fechaCreacion = fechaCreacion;
             this.fechaUltimaModificacion = fechaUltimaModificacion;
             this.categoriaId = categoriaId;
+            
         }
 
         public int Id
@@ -51,7 +53,7 @@ namespace SGI.Aplicacion
             get { return nombre; }
             set
             {
-                ValidarNombre(value);
+                ProductoValidador.ValidarNombre(nombre);
                 nombre = value;
                 fechaUltimaModificacion = DateTime.Now;
             }
@@ -72,7 +74,7 @@ namespace SGI.Aplicacion
             get { return precioUnitario; }
             set
             {
-                ValidarPrecioUnitario(value);
+                ProductoValidador.ValidarPrecioUnitario(value);
                 precioUnitario = value;
                 fechaUltimaModificacion = DateTime.Now;
             }
@@ -83,6 +85,7 @@ namespace SGI.Aplicacion
             get { return stockDisponible; }
             set
             {
+                ProductoValidador.ValidarStockDisponible(value);
                 stockDisponible = value;
                 fechaUltimaModificacion = DateTime.Now;
             }
@@ -105,30 +108,6 @@ namespace SGI.Aplicacion
             { 
                 categoriaId = value;
                 fechaUltimaModificacion = DateTime.Now; 
-            }
-        }
-
-        private void ValidarNombre(string nombre)
-        {
-            if (string.IsNullOrWhiteSpace(nombre))
-            {
-                throw new ArgumentException("El nombre NO puede estar vacío");
-            }
-        }
-
-        private void ValidarPrecioUnitario(double precioUnitario)
-        {
-            if (precioUnitario < 0)
-            {
-                throw new ArgumentException("El precio por unidad NO PUEDE ser menor a 0");
-            }
-        }
-
-        private void ValidarStockDisponible(int stockDisponible)
-        {
-            if (stockDisponible < 0)
-            {
-                throw new ArgumentException("El stock disponible NO PUEDE ser menor a 0");
             }
         }
 
