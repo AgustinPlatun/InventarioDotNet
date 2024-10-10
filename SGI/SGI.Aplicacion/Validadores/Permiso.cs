@@ -1,4 +1,5 @@
 enum Permiso {
     Administrador,
     
+    
 }
