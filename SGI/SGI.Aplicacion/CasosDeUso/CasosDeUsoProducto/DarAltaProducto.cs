@@ -1,7 +1,9 @@
 namespace SGI.Aplicacion;
-public class DarAltaProducto(ServicioDeAutorizacionProvisorio servicio){
+public class DarAltaProducto() : ICasosDeUso{
+
     public void Lanzar(int idUsuario)
     {
+        ServicioDeAutorizacionProvisorio servicio = new ServicioDeAutorizacionProvisorio();
         if(servicio.PoseeElPermiso(idUsuario)){
             Console.Write("Ingresar id del producto :");String id = Console.ReadLine() ?? "0";
             Console.Write("Ingresar nombre :");String nombre = Console.ReadLine() ?? " ";

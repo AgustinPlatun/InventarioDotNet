@@ -3,10 +3,11 @@ using SGI.Aplicacion;
 using System.IO;
 
 Menu menu = new Menu();
-menu.elegirOpciones();
-while(menu.Opcion != "0"){
+menu.cambiarDeUsuario();
+while(menu._Opcion != "0")
+{
     menu.invocarMenu();
-    menu.Opcion = Console.ReadLine();
-    menu.elegirOpciones();
+    menu.elegirOpcion();
 }
+
 Console.ReadKey();

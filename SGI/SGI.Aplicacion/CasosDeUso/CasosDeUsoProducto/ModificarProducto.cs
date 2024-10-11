@@ -1,8 +1,9 @@
 namespace SGI.Aplicacion;
 using System;
-public class ModificarProducto(ServicioDeAutorizacionProvisorio servicio){
+public class ModificarProducto() : ICasosDeUso{
     public void Lanzar(int id)
     {
+        ServicioDeAutorizacionProvisorio servicio = new ServicioDeAutorizacionProvisorio();
         if(servicio.PoseeElPermiso(id)){
             Console.Write("Ingresar ID de producto a modificar :");
             string leerId = Console.ReadLine();
