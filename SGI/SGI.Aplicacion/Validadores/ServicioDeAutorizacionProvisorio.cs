@@ -1,13 +1,9 @@
 using System.Collections.Generic;
+namespace SGI.Aplicacion;
 public class ServicioDeAutorizacionProvisorio : IServicioDeAutorizacion{
     public bool PoseeElPermiso (int idUsuario)
     {
-        if (idUsuario == 1) 
-        {
-            return true;
-        } else 
-        {
-        return false;
-        }
+        
+        return idUsuario == 1;
     }
 }

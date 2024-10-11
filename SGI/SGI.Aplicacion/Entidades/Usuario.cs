@@ -4,6 +4,7 @@ public class Usuario{
     public Usuario (int id)
     {
         _id = id;
+        List<Permisos> permisos;
     }
 
 
@@ -15,20 +16,6 @@ public class Usuario{
         set
         {
             _id = Id;
-        }
-    }
-
-    public void realizarOperaciones()
-    {
-        bool validacion = UsuarioValidador.validarUsuario(_id);
-        UsuarioValidador.permisosException(validacion);
-        
-        Menu menuOpciones = new Menu();
-        while(!menuOpciones.opcion.Equals("0"))
-        {
-            menuOpciones.invocarMenu();
-            menuOpciones.opcion = Console.ReadLine() ?? "999";
-            menuOpciones.elegirOpciones();
         }
     }
 
