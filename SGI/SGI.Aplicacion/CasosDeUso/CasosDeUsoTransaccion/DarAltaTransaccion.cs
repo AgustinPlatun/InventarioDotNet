@@ -1,6 +1,10 @@
 namespace SGI.Aplicacion;
 public class DarAltaTransaccion() : ICasosDeUso {
     public void Lanzar(int idUsuario) { 
+        ServicioDeAutorizacionProvisorio servicio = new ServicioDeAutorizacionProvisorio();
+        if(!servicio.PoseeElPermiso(idUsuario)){
+            throw new ArgumentException ("EL USUARIO NO TIENE LOS PERMISOS NECESARIOS");
+            }
     Console.Write("Ingresar ID de la transaccion : ");String id = Console.ReadLine() ?? "0";
     Console.Write("Ingresar ID del PRODUCTO : ");String idProd = Console.ReadLine() ?? "0";
     Console.Write("Ingresar TIPO DE TRANSACCION (1 = entrada -- 0 = salida) : ");String tipo= Console.ReadLine() ?? "";

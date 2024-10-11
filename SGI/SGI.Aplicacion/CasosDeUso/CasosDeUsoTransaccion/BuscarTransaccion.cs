@@ -3,7 +3,13 @@ namespace SGI.Aplicacion;
 
 public class BuscarTransaccion() : ICasosDeUso { 
     public void Lanzar(int idUsuario) { 
-      Console.WriteLine(" Ingrese el ID de la transaccion a buscar  ");String id =Console.ReadLine() ?? "0";  
+
+        ServicioDeAutorizacionProvisorio servicio = new ServicioDeAutorizacionProvisorio();
+        if(!servicio.PoseeElPermiso(idUsuario)){
+            throw new ArgumentException ("EL USUARIO NO TIENE LOS PERMISOS NECESARIOS");
+            }
+            
+        Console.WriteLine(" Ingrese el ID de la transaccion a buscar  ");String id =Console.ReadLine() ?? "0";  
 
         string documentoTransaccion = "../SGI.Repositorios/listadoTransacciones.txt";
         string documentoProductos = "../SGI.Repositorios/listadoProductos.txt";

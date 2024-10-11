@@ -1,2 +1,2 @@
 603,aji,rojo,50,40,10/11/2024 12:45:29 AM,10/11/2024 12:45:29 AM,0
-67,lapicera,lapicera electronica,50,15,10/11/2024 1:43:34 AM,10/11/2024 1:43:34 AM,65
+67,lapicera,lapicera electronica,50,14,10/11/2024 1:43:34 AM,2024-10-11 13:39:52,65
