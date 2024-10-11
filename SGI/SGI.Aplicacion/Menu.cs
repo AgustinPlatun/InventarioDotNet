@@ -46,6 +46,10 @@ public void elegirOpciones(){
         DarBajaProducto productoBaja = new DarBajaProducto(this.autorizacion);
         productoBaja.Lanzar(usuario.Id);
     break;
+    case "6":
+        ModificarProducto modificarProducto = new ModificarProducto(this.autorizacion);
+        modificarProducto.Lanzar(usuario.Id);
+    break;
 
     default:
         Console.WriteLine("---------------------------------------------");

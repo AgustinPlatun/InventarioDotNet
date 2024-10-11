@@ -55,7 +55,6 @@ namespace SGI.Aplicacion
             {
                 ProductoValidador.ValidarNombre(nombre);
                 nombre = value;
-                fechaUltimaModificacion = DateTime.Now;
             }
         }
 
@@ -65,7 +64,6 @@ namespace SGI.Aplicacion
             set 
             { 
                 descripcion = value;
-                fechaUltimaModificacion = DateTime.Now;
             }
         }
 
