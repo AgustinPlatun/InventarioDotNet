@@ -3,7 +3,7 @@ using SGI.Aplicacion;
 using System.IO;
 
 Menu menu = new Menu();
-menu.cambiarDeUsuario();
+menu.ingresarUsuario();
 while(menu._Opcion != "0")
 {
     menu.invocarMenu();

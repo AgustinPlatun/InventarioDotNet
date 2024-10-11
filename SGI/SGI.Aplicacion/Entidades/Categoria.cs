@@ -19,9 +19,9 @@ namespace SGI.Aplicacion;
             _fechaCreacion = DateTime.Now;
             _fechaUltimaModificacion = DateTime.Now;
                 using (StreamWriter arch = new StreamWriter(path,true))
-    {
-        arch.WriteLine($"{_id},{nombre},{descripcion},{_fechaCreacion},{_fechaUltimaModificacion}");
-    }
+            {
+                arch.WriteLine($"{_id},{nombre},{descripcion},{_fechaCreacion},{_fechaUltimaModificacion}");
+            }
         }
 
         /* 

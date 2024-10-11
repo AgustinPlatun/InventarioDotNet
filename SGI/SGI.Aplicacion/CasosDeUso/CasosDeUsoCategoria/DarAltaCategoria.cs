@@ -1,9 +1,12 @@
-
 namespace SGI.Aplicacion;
-public class DarAltaCategoria(ServicioDeAutorizacionProvisorio servicio) { 
-public void crearCategoria(int idUsuario)
+public class DarAltaCategoria(): ICasosDeUso 
 {
-    if(servicio.PoseeElPermiso(idUsuario)){
+    public void Lanzar(int idUsuario)
+    {
+        ServicioDeAutorizacionProvisorio servicio = new ServicioDeAutorizacionProvisorio();
+        if(!servicio.PoseeElPermiso(idUsuario)){
+            throw new ArgumentException ("EL USUARIO NO TIENE LOS PERMISOS NECESARIOS");
+            }
         Console.Write("-Ingresar ID de la categoria:"); 
         int id = int.Parse(Console.ReadLine() ?? "-1");
         Console.Write("-Ingresar nombre de la categoria:");
@@ -12,9 +15,5 @@ public void crearCategoria(int idUsuario)
         Console.Write("-Ingresar descripcion de la categoria:");
         String descripcion = Console.ReadLine() ?? "";
         Categoria cat1 = new Categoria(id,nombre,descripcion);
-    }else{
-        throw new ArgumentException ("EL USUARIO NO TIENE LOS PERMISOS NECESARIOS");
     }
-
-}
 }

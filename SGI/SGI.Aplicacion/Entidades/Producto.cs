@@ -14,7 +14,7 @@ namespace SGI.Aplicacion
         DateTime fechaUltimaModificacion;
         int categoriaId;
 
-        public Producto(int id, string nombre, string descripcion, double precioUnitario, int stockDisponible)
+        public Producto(int id, string nombre, string descripcion, double precioUnitario, int stockDisponible, int categoriaId)
         {
             this.id = id;
             ProductoValidador.ValidarNombre(nombre);
@@ -24,23 +24,9 @@ namespace SGI.Aplicacion
             this.precioUnitario = precioUnitario;
             ProductoValidador.ValidarStockDisponible(stockDisponible);
             this.stockDisponible = stockDisponible;
+            this.categoriaId = categoriaId;
             this.fechaCreacion = DateTime.Now;
             this.fechaUltimaModificacion = DateTime.Now;
-        }
-        public Producto(int id, string nombre, string descripcion, double precioUnitario, int stockDisponible,DateTime fechaCreacion,DateTime fechaUltimaModificacion,int categoriaId)
-        {
-            this.id = id;
-            ProductoValidador.ValidarNombre(nombre);
-            this.nombre = nombre;
-            this.descripcion = descripcion;
-            ProductoValidador.ValidarPrecioUnitario(precioUnitario);
-            this.precioUnitario = precioUnitario;
-            ProductoValidador.ValidarStockDisponible(stockDisponible);
-            this.stockDisponible = stockDisponible;
-            this.fechaCreacion = fechaCreacion;
-            this.fechaUltimaModificacion = fechaUltimaModificacion;
-            this.categoriaId = categoriaId;
-            
         }
 
         public int Id
@@ -55,6 +41,14 @@ namespace SGI.Aplicacion
             {
                 ProductoValidador.ValidarNombre(nombre);
                 nombre = value;
+            }
+        }
+        public int CategoriaId
+        {
+            get { return categoriaId; }
+            set
+            {
+                categoriaId = value;
             }
         }
 
@@ -97,16 +91,6 @@ namespace SGI.Aplicacion
         public DateTime FechaUltimaModificacion
         {
             get { return fechaUltimaModificacion; }
-        }
-
-        public int CategoriaId
-        {
-            get { return categoriaId; }
-            set 
-            { 
-                categoriaId = value;
-                fechaUltimaModificacion = DateTime.Now; 
-            }
         }
 
         public void Imprimir()

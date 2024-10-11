@@ -8,19 +8,24 @@ public class Menu{
     {
         new DarAltaProducto(),
         new DarBajaProducto(),
-        new ModificarProducto()
+        new ModificarProducto(),
+        new DarAltaCategoria(),
+        new DarBajaCategoria(),
+        new ModificarCategoria(),
+        new DarAltaTransaccion(),
+        new DarBajaTransaccion(),
+        new ListarTransacciones(),
+        new ListarTransaccionesEntreFechas()
     };
 
     public string _Opcion
         {
             get { return _opcion; }
-            set
-            {
-                _opcion = value;
-            }
         }
 
     public void invocarMenu(){
+        Console.WriteLine("-------------------------------");
+        Console.WriteLine("0. Salir");
         for (int i = 0; i < opciones.Length; i++)
         {
             Console.WriteLine($"{i + 1}. {opciones[i].GetType().Name}");
@@ -39,7 +44,7 @@ public class Menu{
         
     }
 
-    public void cambiarDeUsuario(){
+    public void ingresarUsuario(){
         Console.Write("Ingresar id de usuario :");
         string id = Console.ReadLine();
         this.usuario = new Usuario(int.Parse(id));

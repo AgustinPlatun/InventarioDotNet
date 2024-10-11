@@ -15,7 +15,7 @@ public class DarBajaProducto() : ICasosDeUso{
             string documentoDeTransacciones = "../SGI.Repositorios/listadoTransacciones.txt";
             reescribirArchivo(documentoDeTransacciones,leerId,1);
     }
-    public void reescribirArchivo(string documento,string idLeida,int pos){
+    private void reescribirArchivo(string documento,string idLeida,int pos){
         var leido = File.ReadAllLines(documento);
         using (var writer = new StreamWriter(documento))
         {

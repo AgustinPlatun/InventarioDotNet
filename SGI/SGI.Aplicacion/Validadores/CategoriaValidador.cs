@@ -7,5 +7,5 @@ static class CategoriaValidador
             {
                 throw new ArgumentException("El nombre NO puede estar vacio.");
             }
-        }   
+        }
 }
