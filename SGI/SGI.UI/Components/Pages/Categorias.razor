@@ -1,1 +1,27 @@
-@page "/Categorias"
+@page "/categorias"
+@rendermode InteractiveServer
+<button @onclick="() => ToggleFormulario()">Mostrar Formulario</button>
+
+@if (mostrarFormulario)
+{
+    <div class="formulario">
+        <h3>Formulario</h3>
+        <label>Nombre:</label>
+        <input type="text" />
+
+        <label>Correo:</label>
+        <input type="email" />
+
+        <button type="submit">Enviar</button>
+    </div>
+}
+@code {
+    private bool mostrarFormulario = false;
+
+    private void ToggleFormulario()
+    {
+        mostrarFormulario = !mostrarFormulario;
+        Console.WriteLine("asdsaasd");
+    }
+}
+

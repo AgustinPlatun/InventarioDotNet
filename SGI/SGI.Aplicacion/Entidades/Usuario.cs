@@ -7,7 +7,7 @@ public class Usuario{
     public List<String> Permisos {get;set;}
     public int? IdUsuario{get;set;}
 
- public Usuario(string nombre, string apellido, string? email, string password){
+ public Usuario(string nombre, string apellido, string email, string password){
         Permisos = new List<String>(){"Lectura"};
         Nombre = nombre;
         Apellido = apellido;
@@ -15,7 +15,7 @@ public class Usuario{
         Password = password;
     }
 
-    public Usuario(string nombre, string apellido, string? email, string password, int idUsuario, List<string>? permisos){
+    public Usuario(string nombre, string apellido, string email, string password, int idUsuario, List<string>? permisos){
         Permisos = permisos;
         Nombre=nombre;
         Apellido=apellido;

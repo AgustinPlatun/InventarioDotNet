@@ -30,5 +30,7 @@ public class RepositorioContext: DbContext{
             permisosString => permisosString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                                             .ToList()
         );
+
+        
     }
 }

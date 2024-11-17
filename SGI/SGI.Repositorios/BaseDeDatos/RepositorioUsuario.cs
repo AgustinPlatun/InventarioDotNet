@@ -7,7 +7,7 @@ public class RepositorioUsuario : IUsuarioRepositorio
 {
     public RepositorioUsuario(){
         using (var context = new RepositorioContext()){
-            context.Database.EnsureCreated(); //si la base de datos no existe se crea y devuelve true
+            context.Database.EnsureCreated(); //si la base de datos no existe se crea y de  vuelve true
             var connection = context.Database.GetDbConnection();
             connection.Open();
             using (var command = connection.CreateCommand()){
@@ -25,4 +25,29 @@ public class RepositorioUsuario : IUsuarioRepositorio
             return usuario.IdUsuario;
         }
     }
+
+    public void UsuarioBaja(string email){
+        using (var db = new RepositorioContext()){
+            var usuarioABorrar = db.Usuarios.FirstOrDefault(u => u.Email!.ToLower() == email.ToLower()); 
+            if (usuarioABorrar != null){
+                db.Remove(usuarioABorrar); //se borra realmente con el db.SaveChanges()
+                db.SaveChanges();//actualiza la base de datos. SQlite establece el valor de usuario.Id
+            }
+        }
+    }
+
+        public void UsuarioModicacion(int? idUsuario,string nombre, string apellido, string email, string password, List<string>? permisos){
+        using(var db = new RepositorioContext()){
+            var usuarioAModificar = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+            if(usuarioAModificar != null){
+                usuarioAModificar.Nombre = nombre;
+                usuarioAModificar.Apellido = apellido;
+                usuarioAModificar.Email = email;
+                usuarioAModificar.Password = password;
+                usuarioAModificar.Permisos = permisos;
+
+                db.SaveChanges();
+            }
+        }   
+    }   
 }

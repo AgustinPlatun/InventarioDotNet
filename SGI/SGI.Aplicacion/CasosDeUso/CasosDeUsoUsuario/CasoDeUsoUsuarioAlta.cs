@@ -1,5 +1,4 @@
-﻿using System.Security;
-using SGI.Aplicacion;
+﻿using SGI.Aplicacion;
 
 namespace SGI.Aplicacion;
 public class CasoDeUsoUsuarioAlta (IUsuarioRepositorio repo){
