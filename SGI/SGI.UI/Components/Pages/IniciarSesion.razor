@@ -1,0 +1,33 @@
+@page "/IniciarSesion"
+@using SGI
+
+<EditForm Model="@usuario" OnValidSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label for="nombre">Nombre</label>
+        <InputText id="nombre" @bind-Value="usuario.Nombre" />
+    </div>
+    <div>
+        <label for="correo">Contraseña</label>
+        <InputText id="correo" @bind-Value="usuario.Correo" />
+    </div>
+
+    <button type="submit">Iniciar sesión</button>
+</EditForm>
+
+@code {
+    private Usuario usuario = new Usuario();
+
+    private void HandleSubmit()
+    {
+        Console.WriteLine($"Nombre: {usuario.Nombre}, Correo: {usuario.Correo}");
+    }
+
+    public class Usuario
+    {
+        public string Nombre { get; set; }
+        public string Correo { get; set; }
+    }
+}
