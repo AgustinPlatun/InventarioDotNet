@@ -534,6 +534,16 @@
         "build": {
           "buildTransitive/net8.0/System.Text.Json.targets": {}
         }
+      },
+      "SGI.Aplicacion/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/SGI.Aplicacion.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SGI.Aplicacion.dll": {}
+        }
       }
     }
   },
@@ -1267,11 +1277,17 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "SGI.Aplicacion/1.0.0": {
+      "type": "project",
+      "path": "../SGI.Aplicacion/SGI.Aplicacion.csproj",
+      "msbuildProject": "../SGI.Aplicacion/SGI.Aplicacion.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Microsoft.EntityFrameworkCore.Sqlite >= 9.0.0"
+      "Microsoft.EntityFrameworkCore.Sqlite >= 9.0.0",
+      "SGI.Aplicacion >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1305,7 +1321,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\agusp\\Desktop\\InventarioDotnet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj": {
+              "projectPath": "C:\\Users\\agusp\\Desktop\\InventarioDotnet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

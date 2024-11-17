@@ -1,10 +1,5 @@
 namespace SGI.Aplicacion;
-public class DarAltaProducto() 
-    private readonly IServicioAutorizacion _servicioAutorizacion;{
-
-        public DarAltaProducto (IServicioAutorizacion servicioaut) {
-            _servicioAutorizacion = servicioaut; 
-         }
+public class DarAltaProducto(IServicioAutorizacion _servicioAutorizacion) {
     public void Lanzar(Usuario us, string permiso)
     {
         if(!_servicioAutorizacion.TienePermiso(us,permiso)){
@@ -26,4 +21,5 @@ public class DarAltaProducto()
             writer.WriteLine($"{p.Id},{p.Nombre},{p.Descripcion},{p.PrecioUnitario},{p.StockDisponible},{p.FechaCreacion},{p.FechaUltimaModificacion},{p.CategoriaId}");
         }  
     }
+
 }

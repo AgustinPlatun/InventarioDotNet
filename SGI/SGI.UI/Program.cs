@@ -1,6 +1,12 @@
 using SGI.UI.Components;
+using SGI.Aplicacion;
+using SGI.Repositorios;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSingleton<IUsuarioRepositorio,RepositorioUsuario>();
+
+builder.Services.AddScoped<CasoDeUsoUsuarioAlta>();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()

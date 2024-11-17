@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGI.Repositorios", "SGI.Repositorios\SGI.Repositorios.csproj", "{9B70827E-4DFF-476D-95CE-719BA11A7643}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGI.Aplicacion", "SGI.Aplicacion\SGI.Aplicacion.csproj", "{1E9F972E-6B63-44B2-A86C-CD440F1065EB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGI.UI", "SGI.UI\SGI.UI.csproj", "{605BFBA8-633B-4F69-BA6D-5FD734D0A59E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGI.Repositorios", "SGI.Repositorios\SGI.Repositorios.csproj", "{00D0BC88-F0AC-43C7-AAE1-8C6D274C92FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,5 +34,9 @@ Global
 		{605BFBA8-633B-4F69-BA6D-5FD734D0A59E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{605BFBA8-633B-4F69-BA6D-5FD734D0A59E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{605BFBA8-633B-4F69-BA6D-5FD734D0A59E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00D0BC88-F0AC-43C7-AAE1-8C6D274C92FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00D0BC88-F0AC-43C7-AAE1-8C6D274C92FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00D0BC88-F0AC-43C7-AAE1-8C6D274C92FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00D0BC88-F0AC-43C7-AAE1-8C6D274C92FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

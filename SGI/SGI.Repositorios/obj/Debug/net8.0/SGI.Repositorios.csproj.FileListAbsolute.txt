@@ -1,0 +1,16 @@
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\bin\Debug\net8.0\SGI.Repositorios.deps.json
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\bin\Debug\net8.0\SGI.Repositorios.dll
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\bin\Debug\net8.0\SGI.Repositorios.pdb
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\bin\Debug\net8.0\SGI.Aplicacion.dll
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\bin\Debug\net8.0\SGI.Aplicacion.pdb
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\obj\Debug\net8.0\SGI.Repositorios.csproj.AssemblyReference.cache
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\obj\Debug\net8.0\SGI.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\obj\Debug\net8.0\SGI.Repositorios.AssemblyInfoInputs.cache
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\obj\Debug\net8.0\SGI.Repositorios.AssemblyInfo.cs
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\obj\Debug\net8.0\SGI.Repositorios.csproj.CoreCompileInputs.cache
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\obj\Debug\net8.0\SGI.Repositorios.sourcelink.json
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\obj\Debug\net8.0\SGI.Repo.BDEE6C47.Up2Date
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\obj\Debug\net8.0\SGI.Repositorios.dll
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\obj\Debug\net8.0\refint\SGI.Repositorios.dll
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\obj\Debug\net8.0\SGI.Repositorios.pdb
+C:\Users\agusp\Desktop\InventarioDotnet\SGI\SGI.Repositorios\obj\Debug\net8.0\ref\SGI.Repositorios.dll
