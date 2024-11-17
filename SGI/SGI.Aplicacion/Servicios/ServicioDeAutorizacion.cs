@@ -1,8 +1,8 @@
-public class ServicioAutorizacion;  
+namespace SGI.Aplicacion;
+public class ServicioAutorizacion : IServicioAutorizacion
 {
-    private readonly _servicioAutorizacion;
     public bool TienePermiso(Usuario usuario, string permiso)
     {
-        return usuario.Permisos.Contains(permiso);
+        return usuario.permisos.Contains(permiso);
     }
 }
