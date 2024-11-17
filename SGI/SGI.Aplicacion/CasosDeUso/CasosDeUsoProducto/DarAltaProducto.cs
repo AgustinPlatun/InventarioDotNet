@@ -1,10 +1,13 @@
 namespace SGI.Aplicacion;
-public class DarAltaProducto() : ICasosDeUso{
+public class DarAltaProducto() 
+    private readonly IServicioAutorizacion _servicioAutorizacion;{
 
-    public void Lanzar(int idUsuario)
+        public DarAltaProducto (IServicioAutorizacion servicioaut) {
+            _servicioAutorizacion = servicioaut; 
+         }
+    public void Lanzar(Usuario us, string permiso)
     {
-        ServicioDeAutorizacionProvisorio servicio = new ServicioDeAutorizacionProvisorio();
-        if(!servicio.PoseeElPermiso(idUsuario)){
+        if(!_servicioAutorizacion.TienePermiso(us,permiso)){
             throw new ArgumentException ("EL USUARIO NO TIENE LOS PERMISOS NECESARIOS");
             }
         Console.Write("Ingresar id del producto :");String id = Console.ReadLine() ?? "0";
