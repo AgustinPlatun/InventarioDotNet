@@ -38,7 +38,7 @@
         try
         {
             var usuarioActual = iniciarsession.Ejecutar(email, password);
-            Navigation.NavigateTo("/Productos");
+            Navigation.NavigateTo($"/Home/{usuarioActual.IdUsuario}");
         }
         catch (Exception ex)
         {

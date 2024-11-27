@@ -80,4 +80,16 @@ public class RepositorioUsuario : IUsuarioRepositorio
             }
         }
     }
+
+    public Usuario BuscarUsuario(int? Id){
+        if(Id != null){
+            using(var db = new RepositorioContext()){
+            var usuario = db.Usuarios.FirstOrDefault(u => u.IdUsuario! == Id);
+            if(usuario != null){
+                return usuario;
+            }
+        }
+        }
+        return null;
+    }
 }

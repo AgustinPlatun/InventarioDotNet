@@ -10,7 +10,7 @@ builder.Services.AddRazorComponents()
 
 // Usuarios.w1
 builder.Services.AddSingleton<IUsuarioRepositorio,RepositorioUsuario>();
-
+builder.Services.AddSingleton<BuscarUsuario>();
 builder.Services.AddScoped<CasoDeUsoUsuarioAlta>();
 builder.Services.AddScoped<CasoDeUsoUsuarioBaja>();
 builder.Services.AddScoped<CasoDeUsoUsuarioIniciarSesion>();

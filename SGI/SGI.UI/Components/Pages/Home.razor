@@ -1,7 +1,27 @@
 ﻿@page "/"
+@page "/Home/{Id:int?}"
+@using SGI.Aplicacion;
+@inject BuscarUsuario buscarElUsuario;
 
-<PageTitle>SGI!</PageTitle>
+<PageTitle>SGI</PageTitle>
 
-<h1>Sistema de gestion de inventario! </h1>
+<h1>Sistema de gestion de inventario </h1>
+@if(_darBienvenida){
+    <p>Bienvenido @_usuario.Nombre @_usuario.Apellido</p>
+}
 
+@code{
+    Usuario _usuario;
+    [Parameter] public int? Id{get; set;}
+    bool _darBienvenida = false;
+    protected override void OnParametersSet(){
+        if(Id != null){
+            var usuario_encontrado = buscarElUsuario.Ejecutar(Id.Value);
+            if(usuario_encontrado != null){
+                _usuario = usuario_encontrado;
+                _darBienvenida = true;
+            }
+        }
+    }
+}
 
