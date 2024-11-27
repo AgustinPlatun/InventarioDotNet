@@ -14,23 +14,23 @@
     <hr style="border: none; border-top: 2px solid #333; width: 80%;">
 </thead>
 <PageTitle>Gestion de usuarios</PageTitle>
-@foreach (var cli in verusuarios.Ejecutar())
+@foreach (var usuario in verusuarios.Ejecutar())
 {
 <tr style="display: flex; gap: 10%;">
     <div>
-    <td>@cli.IdUsuario</td>
+    <td>@usuario.IdUsuario</td>
     </div>
     <div>
-    <td>@cli.Nombre</td>
+    <td>@usuario.Nombre</td>
     </div>
     <div>
-    <td>@cli.Apellido</td>
+    <td>@usuario.Apellido</td>
     </div>
     <div>
-    <td>@cli.Email</td>
+    <td>@usuario.Email</td>
     </div>
     <td>
-<button class="btn btn-danger" @onclick="()=>eliminar(cli.Email)">
+<button class="btn btn-danger" @onclick="()=>eliminar(usuario.Email)">
 Elliminar
 </button>
 <button class="btn btn-primary"> Editar</button>
