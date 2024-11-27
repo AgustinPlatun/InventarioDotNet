@@ -1,0 +1,67 @@
+@page "/Transacciones"
+@inject RepositorioTransaccion repositorioTransaccion
+@inject DarAltaTransaccion TransaccionAlta
+@inject DarBajaTransaccion TransaccionBaja
+@inject NavigationManager Navigation
+
+<PageTitle>Gestión de Transacciones</PageTitle>
+
+<div>
+    <section>
+        <div class="contenedor-formulario">
+            <h1 class="titulo">Gestión de Transacciones</h1>
+
+            <!-- Formulario Dar Alta Transacción -->
+            <h2>Dar Alta Transacción</h2>
+            <form class="form" @onsubmit="AltaTransaccion">
+                <div class="elemento-input">
+                    <label for="productoId">ID del Producto:</label>
+                    <input type="number" @bind="_productoIdAlta" id="productoId" required />
+                </div>
+
+                <div class="elemento-input">
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="number" @bind="_cantidadAlta" id="cantidad" required />
+                </div>
+
+                <div class="elemento-input">
+                    <label for="tipo">Tipo de Transacción:</label>
+                    <select @bind="_tipoAlta">
+                        <option value="entrada">Entrada</option>
+                        <option value="salida">Salida</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="boton-inicio">Registrar Transacción</button>
+            </form>
+
+            <!-- Formulario Dar Baja Transacción -->
+            <h2>Dar Baja Transacción</h2>
+            <form class="form" @onsubmit="BajaTransaccion">
+                <div class="elemento-input">
+                    <label for="idBaja">ID de la Transacción a Eliminar:</label>
+                    <input type="number" @bind="_idTransaccionBaja" id="idBaja" required />
+                </div>
+                <button type="submit" class="boton-inicio">Eliminar Transacción</button>
+            </form>
+        </div>
+    </section>
+</div>
+
+@code {
+    private int _productoIdAlta;
+    private int _cantidadAlta;
+    private string _tipoAlta;
+    private int _idTransaccionBaja;
+
+    private void AltaTransaccion() {        
+            TransaccionAlta.Ejecutar(_productoIdAlta, _cantidadAlta, Enum.Parse<TipoTransaccion>(_tipoAlta));
+            Navigation.NavigateTo("/Transacciones");
+        }
+    
+    private void BajaTransaccion(){
+        TransaccionBaja.Ejecutar(_idTransaccionBaja);
+        Navigation.NavigateTo("/Transacciones"); // Redirigir a la página de transacciones después de dar de baja
+        }
+
+}

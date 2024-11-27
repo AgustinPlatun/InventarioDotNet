@@ -1,0 +1,64 @@
+@page "/GestionDeUsuario"
+@rendermode InteractiveServer
+@inject NavigationManager Navigation
+@inject CasoDeUsoUsuarioBaja usuarioBaja
+@inject MostrarUsuarios verusuarios
+
+<thead>
+    <tr style="display: flex; gap: 67%;">
+        <th>ID</th>
+        <th>NOMBRE</th>
+        <th>APELLIDO</th>
+        <th>EMAIL</th>
+    </tr>
+    <hr style="border: none; border-top: 2px solid #333; width: 80%;">
+</thead>
+<PageTitle>Gestion de usuarios</PageTitle>
+@foreach (var usuario in verusuarios.Ejecutar())
+{
+<tr style="display: flex; gap: 10%;">
+    <div>
+        <td>@usuario.IdUsuario</td>
+    </div>
+    <div>
+        <td>@usuario.Nombre</td>
+    </div>
+    <div>
+        <td>@usuario.Apellido</td>
+    </div>
+    <div>
+        <td>@usuario.Email</td>
+    </div>
+    <td>
+        <button class="btn btn-danger" @onclick="()=>eliminar(usuario.Email)">
+            Elliminar
+        </button>
+        <button class="btn btn-primary"> Editar</button>
+    </td>
+</tr>
+<hr style="border: none; border-top: 2px solid #333; width: 80%;">
+}
+
+
+@code
+{
+    private bool mostrarEliminar = false;
+    private bool mostrarModificar= false;
+    private string apellido;
+    private string nombre;
+    private string password;
+    private int id;
+
+
+    private void MostrarEliminar(){
+        mostrarEliminar = !mostrarEliminar;
+    }
+    private void MostrarModificarUsuario(){
+        mostrarModificar = !mostrarModificar;
+    }
+    private void eliminar(string email){
+        usuarioBaja.Ejecutar(email);
+        mostrarEliminar = false;
+    }
+
+}

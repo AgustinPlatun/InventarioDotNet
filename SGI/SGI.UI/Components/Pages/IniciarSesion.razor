@@ -1,33 +1,48 @@
 @page "/IniciarSesion"
 @using SGI.Aplicacion
+@rendermode InteractiveServer
+@inject CasoDeUsoUsuarioIniciarSesion iniciarsession;
+@inject NavigationManager Navigation;
 
-<EditForm Model="@usuario" OnValidSubmit="HandleSubmit">
+<EditForm Model="this" OnValidSubmit="HandleSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
     <div>
-        <label for="nombre">Nombre</label>
-        <InputText id="nombre" @bind-Value="usuario.Nombre" />
+        <label for="correo">Correo</label>
+        <InputText id="correo" @bind-Value="email" required />
     </div>
+
     <div>
-        <label for="correo">Contraseña</label>
-        <InputText id="correo" @bind-Value="usuario.Correo" />
+        <label for="contraseña">Contraseña</label>
+        <InputText type="password" id="contraseña" @bind-Value="password" required />
     </div>
 
     <button type="submit">Iniciar sesión</button>
 </EditForm>
 
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div style="color: red;">
+        @errorMessage
+    </div>
+}
+
 @code {
-    private Usuario usuario = new Usuario();
+    private string email;
+    private string password;
+    private string errorMessage;
 
     private void HandleSubmit()
     {
-        Console.WriteLine($"Nombre: {usuario.Nombre}, Correo: {usuario.Correo}");
-    }
-
-    public class Usuario
-    {
-        public string Nombre { get; set; }
-        public string Correo { get; set; }
+        try
+        {
+            var usuarioActual = iniciarsession.Ejecutar(email, password);
+            Navigation.NavigateTo("/Productos");
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
     }
 }

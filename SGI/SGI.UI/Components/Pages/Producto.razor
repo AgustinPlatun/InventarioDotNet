@@ -1,0 +1,145 @@
+@page "/productos"
+@rendermode InteractiveServer
+@inject NavigationManager Navigation
+@inject DarAltaProducto productoAlta
+@inject DarBajaProducto productoBaja
+@inject ModificarProducto productoModificar
+@inject ProductoValidador validador
+
+<PageTitle> Producto </PageTitle>
+
+<div>
+    <section>
+        <div class="contenedor-formulario">
+            <h1 class="titulo">Gestión de Producto</h1>
+
+            <!-- Dropdown para seleccionar acción -->
+            <div class="elemento-input">
+                <label for="accion">Seleccionar acción:</label>
+                <select id="accion" @bind="_accionSeleccionada">
+                    <option value="0">Selecciona una acción</option>
+                    <option value="1">Dar Alta Producto</option>
+                    <option value="2">Dar Baja Producto</option>
+                    <option value="3">Modificar</option>
+                </select>
+            </div>
+
+            <!-- Formulario Dar Alta Producto -->
+            @if (_accionSeleccionada == 1)
+            {
+                <form class="form" @onsubmit="DarAlta">
+                    <div class="elemento-input">
+                        <input type="text" @bind="_nombre" id="input-nombre" placeholder="Nombre" required>
+                    </div>
+                    <div class="elemento-input">
+                        <input type="text" @bind="_descripcion" id="input-descripcion" placeholder="Descripción" required>
+                    </div>
+                    <div class="elemento-input">
+                        <input type="number" @bind="_precioUnitario" id="input-precioUnitario" placeholder="Precio Unitario" required>
+                    </div>
+                    <div class="elemento-input">
+                        <input type="number" @bind="_stockDisponible" id="input-stockDisponible" placeholder="Stock Disponible" required>
+                    </div>
+                    <div class="elemento-input">
+                        <input type="number" @bind="_idCategoria" id="input-stockDisponible" placeholder="Id Categoría" required>
+                    </div>
+                    <button type="submit" class="boton-inicio">Dar Alta Producto</button>
+                </form>
+            }
+
+            <!-- Formulario Dar Baja Producto -->
+            @if (_accionSeleccionada == 2)
+            {
+                <form class="form" @onsubmit="DarBaja">
+                    <div class="elemento-input">
+                        <input type="number" @bind="_idProducto" id="input-idProducto" placeholder="ID del Producto" required>
+                    </div>
+                    <button type="submit" class="boton-inicio">Dar Baja Producto</button>
+                </form>
+            }
+
+            <!-- Formulario Modificar Producto -->
+            @if (_accionSeleccionada == 3)
+            {
+                <form class="form" @onsubmit="Modificar">
+                    <div class="elemento-input">
+                        <input type="number" @bind="_idProducto" id="input-idProducto" placeholder="ID del Producto" required>
+                    </div>
+                    <div class="elemento-input">
+                        <input type="text" @bind="_nuevoNombre" id="input-nuevoNombre" placeholder="Nuevo Nombre" required>
+                    </div>
+                    <div class="elemento-input">
+                        <input type="text" @bind="_nuevaDesc" id="input-nuevaDesc" placeholder="Nueva Descripción" required>
+                    </div>
+                    <div class="elemento-input">
+                        <input type="number" @bind="_nuevoPrecio" id="input-nuevoPrecio" placeholder="Nuevo Precio" required>
+                    </div>
+                    <div class="elemento-input">
+                        <input type="number" @bind="_nuevoStock" id="input-nuevoStock" placeholder="Nuevo Stock" required>
+                    </div>
+                    <div class="elemento-input">
+                        <input type="number" @bind="_nuevaCategoria" id="input-nuevaCategoria" placeholder="Nueva Categoría" required>
+                    </div>
+                    <button type="submit" class="boton-inicio">Modificar Producto</button>
+                </form>
+            }
+        </div>
+    </section>
+</div>
+
+@code {
+    private string _nombre;
+    private string _descripcion;
+    private double _precioUnitario;
+    private int _stockDisponible;
+    private int _idProducto;
+    private string ErrorMensaje { get; set; }
+    private string _nuevoNombre,_nuevaDesc; 
+    private double _nuevoPrecio; 
+    private int _nuevoStock,_idCategoria,_nuevaCategoria; 
+    private int _accionSeleccionada = 0;  // 0 = Ninguna acción seleccionada, 1 = Alta, 2 = Baja, 3 = Modificar 
+
+    // Función para dar de alta un producto
+    private void DarAlta()
+    {
+        if (_accionSeleccionada == 1)
+        {
+            try {
+            validador.ValidarNombre(_nombre);
+            validador.ValidarPrecioUnitario(_precioUnitario);
+            validador.ValidarStockDisponible(_stockDisponible);
+            productoAlta.Ejecutar(_nombre, _descripcion, _precioUnitario, _stockDisponible,_idCategoria);
+            Navigation.NavigateTo("/");  // Redirige después de dar de alta
+            }
+            catch (Exception ex){
+                ErrorMensaje = ex.Message;
+            }
+        }
+    }
+
+    // Función para dar de baja un producto
+    private void DarBaja()
+    {
+        if (_accionSeleccionada == 2)
+        {
+            productoBaja.Ejecutar(_idProducto);
+            Navigation.NavigateTo("/");  // Redirige después de dar de baja
+        }
+    }
+
+    // Función para modificar un producto
+    private void Modificar()
+    {
+            try{
+            validador.ValidarNombre(_nuevoNombre);
+            validador.ValidarPrecioUnitario(_nuevoPrecio);
+            validador.ValidarStockDisponible(_nuevoStock);
+            productoModificar.Ejecutar(_idProducto, _nuevoNombre, _nuevaDesc, _nuevoPrecio, _nuevoStock, _nuevaCategoria); 
+            Navigation.NavigateTo("/");  // Redirige después de modificar
+            }
+            catch (Exception ex)
+            {
+                ErrorMensaje = ex.Message;
+            }
+    }
+}

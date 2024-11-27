@@ -12,21 +12,38 @@ namespace SGI.Aplicacion
         int stockDisponible;
         DateTime fechaCreacion;
         DateTime fechaUltimaModificacion;
-        int categoriaId;
+        public int categoriaId;
 
         public Producto(int id, string nombre, string descripcion, double precioUnitario, int stockDisponible, int categoriaId)
         {
             this.id = id;
-            ProductoValidador.ValidarNombre(nombre);
             this.nombre = nombre;
             this.descripcion = descripcion;
-            ProductoValidador.ValidarPrecioUnitario(precioUnitario);
             this.precioUnitario = precioUnitario;
-            ProductoValidador.ValidarStockDisponible(stockDisponible);
             this.stockDisponible = stockDisponible;
             this.categoriaId = categoriaId;
             this.fechaCreacion = DateTime.Now;
             this.fechaUltimaModificacion = DateTime.Now;
+        }
+        public Producto(string nombre, string descripcion, double precioUnitario, int stockDisponible)
+        {
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.precioUnitario = precioUnitario;
+            this.stockDisponible = stockDisponible;
+            this.fechaCreacion = DateTime.Now;
+            this.fechaUltimaModificacion = DateTime.Now;
+            this.categoriaId=0;
+        }
+        public Producto(string nombre, string descripcion, double precioUnitario, int stockDisponible, int categoriaId)
+        {
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.precioUnitario = precioUnitario;
+            this.stockDisponible = stockDisponible;
+            this.fechaCreacion = DateTime.Now;
+            this.fechaUltimaModificacion = DateTime.Now;
+            this.categoriaId=0;
         }
 
         public int Id
@@ -39,7 +56,6 @@ namespace SGI.Aplicacion
             get { return nombre; }
             set
             {
-                ProductoValidador.ValidarNombre(nombre);
                 nombre = value;
             }
         }
@@ -66,7 +82,6 @@ namespace SGI.Aplicacion
             get { return precioUnitario; }
             set
             {
-                ProductoValidador.ValidarPrecioUnitario(value);
                 precioUnitario = value;
                 fechaUltimaModificacion = DateTime.Now;
             }
@@ -77,7 +92,6 @@ namespace SGI.Aplicacion
             get { return stockDisponible; }
             set
             {
-                ProductoValidador.ValidarStockDisponible(value);
                 stockDisponible = value;
                 fechaUltimaModificacion = DateTime.Now;
             }
@@ -96,6 +110,10 @@ namespace SGI.Aplicacion
         public void Imprimir()
         {
             Console.WriteLine($"ID: {id}, Nombre: {nombre}, Descripción: {descripcion}, Precio: {precioUnitario}, Stock: {stockDisponible}");
+        }
+
+        public void actualizarFechaMod() { 
+            this.fechaUltimaModificacion=DateTime.Now;
         }
     }
 }

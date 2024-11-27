@@ -36,7 +36,7 @@ public class RepositorioUsuario : IUsuarioRepositorio
         }
     }
 
-        public void UsuarioModicacion(int? idUsuario,string nombre, string apellido, string email, string password, List<string>? permisos){
+        public void UsuarioModificacion(int? idUsuario,string nombre, string apellido, string email, string password){
         using(var db = new RepositorioContext()){
             var usuarioAModificar = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
             if(usuarioAModificar != null){
@@ -44,10 +44,40 @@ public class RepositorioUsuario : IUsuarioRepositorio
                 usuarioAModificar.Apellido = apellido;
                 usuarioAModificar.Email = email;
                 usuarioAModificar.Password = password;
-                usuarioAModificar.Permisos = permisos;
 
                 db.SaveChanges();
             }
         }   
     }   
+    public List<Usuario> MostrarUsuarios(){
+        using (var db = new RepositorioContext()){
+            var usuarios = db.Usuarios.ToList();
+            return usuarios;
+        }
+    }
+    public List<string>? getPermiso(int idUsuario){
+        using(var db = new RepositorioContext())
+        {
+            var usuario = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+            if (usuario != null)
+            {
+                return usuario.Permisos;
+            }
+        }
+        return null;
+    }
+    public Usuario UsuarioInicioDeSesion(string email, string password){ 
+        using(var db = new RepositorioContext()){
+            var usuario = db.Usuarios.FirstOrDefault(u => u.Email!.ToLower() == email.ToLower());
+            if(usuario != null){
+                if (usuario.Password == password){
+                    return usuario;
+                }else{
+                    throw new Exception("La contraseña ingresada no corresponde con el email ingresado");
+                }
+            }else{
+                throw new Exception("El email ingresado no existe en el repositorio");
+            }
+        }
+    }
 }

@@ -1,27 +1,122 @@
 @page "/categorias"
 @rendermode InteractiveServer
-<button @onclick="() => ToggleFormulario()">Mostrar Formulario</button>
-
-@if (mostrarFormulario)
-{
-    <div class="formulario">
-        <h3>Formulario</h3>
-        <label>Nombre:</label>
-        <input type="text" />
-
-        <label>Correo:</label>
-        <input type="email" />
-
-        <button type="submit">Enviar</button>
+@inject NavigationManager Navigation
+@inject DarAltaCategoria categoriasAltas
+@inject DarBajaCategoria categoriasBajas
+@inject ModificarCategoria categoriasModificar
+@inject CategoriaValidador validador
+    <div>
+        <button @onclick="() => MostrarFormularioAlta()">Dar alta categoria</button>
     </div>
-}
-@code {
-    private bool mostrarFormulario = false;
+    <div>
+        <button @onclick="() => MostrarFormularioBaja()">Dar baja categoria</button>
+    </div>
+    <div>
+        <button @onclick="() => MostrarFormularioModificar()">Modificar categoria</button>
+    </div>
 
-    private void ToggleFormulario()
-    {
-        mostrarFormulario = !mostrarFormulario;
-        Console.WriteLine("asdsaasd");
+    
+    @if (mostrarFormularioAlta) 
+{
+        <h3>Formulario para dar alta categoría</h3>
+        <form class="form" @onsubmit="ejecutarAlta">
+                <div class="elemento-input"> 
+                    <p>Nombre de categoria nueva</p>
+                    <input type="text" @bind="_nombreCategoria"/>
+                </div>
+                <div class="elemento-input">
+                    <p>Descripcion</p>
+                    <input type="text" @bind="_descripcion" placeholder="Descripcion" />
+                </div>
+                <button type="submit" class="boton-inicio">Dar Alta categoria</button>
+        </form>
+        <button @onclick="volverAOpcionesCategorias">Volver</button>
+}
+        @if (mostrarFormularioBaja)
+{
+        <h3>Formulario para dar baja categoría</h3>
+        <form>
+            <p>ID a dar de baja</p>
+            <input type="number" id="idABuscar" @bind="idABuscar" />
+            <button type="submit" @onclick="ejecutarBaja">Guardar</button>
+            <button onclick="volverAOpcionesCategorias">Volver</button>
+        </form>
+}
+
+    @if (mostrarFormularioModificar)
+{
+        <h3>Formulario para dar modificacion de categoría</h3>
+        <form>
+            <p>ID a modificar</p>
+            <input type="text" id="idAModificar" @bind="idAModificar"/>
+            <p>Nombre nuevo</p>
+            <input type="text" id="nombreCambiado" @bind="nombreCambiado"/>
+            <p>Descripcion nueva</p>
+            <input type="text" id="descripcionModificada" @bind="descripcionModificada" placeholder="Ingresar descripcion nueva" />
+            <button type="submit" @onclick="ejecutarModificacion">Guardar</button>
+            <button onclick="volverAOpcionesCategorias">Volver</button>
+        </form>
+}
+@code
+{ 
+    private string mensajeDeError { get; set; }
+    private bool mostrarFormularioAlta = false;
+    private bool mostrarFormularioBaja = false;
+    private bool mostrarFormularioModificar = false;
+    private string _nombreCategoria,nombreCambiado,_descripcion,descripcionModificada;
+    private int idABuscar,idAModificar;
+
+    private void MostrarFormularioModificar(){
+        mostrarFormularioModificar = true;
+        mostrarFormularioAlta = false;
+        mostrarFormularioBaja = false;
+    }
+    private void MostrarFormularioBaja(){
+        mostrarFormularioBaja = true;
+        mostrarFormularioAlta = false;
+        mostrarFormularioModificar = false;
+    }
+    private void MostrarFormularioAlta(){
+        mostrarFormularioAlta = true;
+        mostrarFormularioBaja = false;
+        mostrarFormularioModificar = false;
+
+    }
+    private void volverAOpcionesCategorias(){
+        mostrarFormularioAlta = false;
+        mostrarFormularioBaja = false;
+        mostrarFormularioModificar = false;
+    }
+    private void ejecutarModificacion(){
+        try
+        {
+           validador.validarCategoria(nombreCambiado);
+           categoriasModificar.validarModificacion(idAModificar, nombreCambiado, descripcionModificada);
+           mostrarFormularioModificar = false;
+           Navigation.NavigateTo("/");
+        }
+        catch (Exception ex)
+        {
+            mensajeDeError = ex.Message;
+        }
+    }
+    private void ejecutarBaja(){
+        categoriasBajas.validarBaja(idABuscar);
+        mostrarFormularioModificar = false;
+        Navigation.NavigateTo("/");
+    }
+    private void ejecutarAlta(){
+        try
+        {
+        
+        validador.validarCategoria(_nombreCategoria);
+        categoriasAltas.validarAlta(_nombreCategoria,_descripcion);
+        mostrarFormularioAlta = false;
+        Navigation.NavigateTo("/");
+        }
+        catch (Exception ex)
+        {
+            mensajeDeError = ex.Message;
+        }
     }
 }
-

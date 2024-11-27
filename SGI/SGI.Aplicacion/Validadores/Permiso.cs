@@ -1,4 +1,6 @@
-enum permiso{
-    DarAltaCategoria,
-    DarAltaProducto,
+enum Permiso{
+    permisoCategoria,
+    permisoProducto,
+    permisoTransferencia,
+    permisoUsuario,
 }

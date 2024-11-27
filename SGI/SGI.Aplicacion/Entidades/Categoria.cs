@@ -3,7 +3,6 @@ using System;
 namespace SGI.Aplicacion;
     public class Categoria
     {
-        private String path = "../SGI.Repositorios/listadoCategorias.txt";
         private int _id;
         private String _nombre;
         private String _descripcion;
@@ -18,10 +17,13 @@ namespace SGI.Aplicacion;
             _descripcion = descripcion;
             _fechaCreacion = DateTime.Now;
             _fechaUltimaModificacion = DateTime.Now;
-                using (StreamWriter arch = new StreamWriter(path,true))
-            {
-                arch.WriteLine($"{_id},{nombre},{descripcion},{_fechaCreacion},{_fechaUltimaModificacion}");
-            }
+        }
+        public Categoria(String nombre, String descripcion)
+        {
+            _nombre = nombre;
+            _descripcion = descripcion;
+            _fechaCreacion = DateTime.Now;
+            _fechaUltimaModificacion = DateTime.Now;
         }
 
         /* 
@@ -64,6 +66,10 @@ namespace SGI.Aplicacion;
             get
             {
                 return _fechaUltimaModificacion;
+            }
+            set
+            {
+                _fechaUltimaModificacion = DateTime.Now;
             }
         }
         public DateTime FechaCreacion
