@@ -24,4 +24,8 @@ public class Usuario{
         IdUsuario = idUsuario;
     }
 
+    public Usuario(){
+        
+    }
+
 }

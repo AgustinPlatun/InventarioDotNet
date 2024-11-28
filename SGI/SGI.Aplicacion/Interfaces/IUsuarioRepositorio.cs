@@ -8,4 +8,6 @@ public interface IUsuarioRepositorio{
 
     Usuario UsuarioInicioDeSesion(string email, string password);
 
+    Usuario BuscarUsuario(int? Id);
+
 }
