@@ -1,4 +1,7 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@inject Usuario usuarioActual
+@inject NavigationManager Navigation
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">Gestion De Inventario</a>
     </div>
@@ -8,21 +11,10 @@
 
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="flex-column">
+        <!-- Enlaces visibles siempre -->
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+            <NavLink class="nav-link" href="/home" Match="NavLinkMatch.All">
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Registrarse">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Registrarse
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="IniciarSesion">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> IniciarSesion
             </NavLink>
         </div>
 
@@ -37,17 +29,55 @@
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Productos
             </NavLink>
         </div>
-         <div class="nav-item px-3">
+
+        <div class="nav-item px-3">
             <NavLink class="nav-link" href="Categorias">
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Categorias
             </NavLink>
         </div>
-         <div class="nav-item px-3">
+
+        <div class="nav-item px-3">
             <NavLink class="nav-link" href="Gestiondeusuario">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> GestionDeUsarios
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> GestionDeUsuarios
             </NavLink>
         </div>
 
+        <!-- Mostrar Iniciar sesión o Cerrar sesión dependiendo del estado de autenticación -->
+        @if (usuarioActual.IdUsuario == null || string.IsNullOrEmpty(usuarioActual.Nombre))
+        {
+            <!-- Enlace Iniciar sesión -->
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="IniciarSesion">
+                    <span class="bi bi-person-circle" aria-hidden="true"></span> Iniciar Sesión
+                </NavLink>
+            </div>
+        }
+        else
+        {
+            <!-- Botón Cerrar sesión (sin la clase nav-link) -->
+            <div class="nav-item px-3">
+                <button class="btn btn-danger" @onclick="CerrarSesion">
+                    <span class="bi bi-box-arrow-right" aria-hidden="true"></span> Cerrar Sesión
+                </button>
+            </div>
+        }
     </nav>
 </div>
 
+@code {
+    // Método para cerrar sesión
+    public void CerrarSesion()
+    {
+        // Log para verificar que la función se ejecuta
+        Console.WriteLine("Cerrando sesión...");
+
+        // Limpiar los datos del usuario
+        usuarioActual.Nombre = null;
+        usuarioActual.Apellido = null;
+        usuarioActual.Email = null;
+        usuarioActual.IdUsuario = null;
+
+        // Redirigir al formulario de inicio de sesión
+        Navigation.NavigateTo("/Home");
+    }
+}

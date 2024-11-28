@@ -1,5 +1,6 @@
 @page "/"
 @page "/IniciarSesion"
+@inject Usuario usuarioActual
 @using SGI.Aplicacion
 @rendermode InteractiveServer
 @inject CasoDeUsoUsuarioIniciarSesion iniciarsession;
@@ -38,8 +39,14 @@
     {
         try
         {
-            var usuarioActual = iniciarsession.Ejecutar(email, password);
-            Navigation.NavigateTo($"/Home/{usuarioActual.IdUsuario}");
+            var datosDeUsuario = iniciarsession.Ejecutar(email, password);
+            usuarioActual.IdUsuario = datosDeUsuario.IdUsuario;
+            usuarioActual.Nombre = datosDeUsuario.Nombre;
+            usuarioActual.Apellido = datosDeUsuario.Apellido;
+            usuarioActual.Email = datosDeUsuario.Email;
+            usuarioActual.Permisos = datosDeUsuario.Permisos;
+            Console.WriteLine("SE INICIO SESION");
+            Navigation.NavigateTo("/Home");
         }
         catch (Exception ex)
         {
