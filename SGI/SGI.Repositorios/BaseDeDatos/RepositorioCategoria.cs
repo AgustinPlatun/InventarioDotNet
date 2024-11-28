@@ -58,5 +58,10 @@ public class RepositorioCategoria : ICategoriaRepositorio
             }
         }
     }
-    
+        public List<Categoria> MostrarCategorias(){
+        using (var db = new RepositorioContext()){
+            var categorias = db.Categorias.ToList();
+            return categorias;
+        }
+    }
 }

@@ -4,9 +4,9 @@ namespace SGI.Aplicacion;
 public  class ProductoValidador : IProductoValidador{
     public  void ValidarStockDisponible(int stockDisponible)
     {
-        if (stockDisponible < 0)
+        if (stockDisponible <= 0)
         {
-            throw new ArgumentException("ValidacionException: El stock disponible no puede ser menor a cero");
+            throw new ValidacionException("El stock disponible no puede ser menor o igual a cero.");
         }
     }
 
@@ -14,15 +14,15 @@ public  class ProductoValidador : IProductoValidador{
     {
         if (string.IsNullOrWhiteSpace(nombre))
         {
-            throw new ArgumentException("ValidacionException: El nombre no puede estar vacío");
+            throw new ValidacionException("El nombre no puede estar vacío");
         }
     }
 
     public  void ValidarPrecioUnitario(double precioUnitario)
     {
-        if (precioUnitario < 0)
+        if (precioUnitario <= 0)
         {
-            throw new ArgumentException("ValidacionException: El precio por unidad no puede ser menor a cero");
+            throw new ValidacionException("El precio por unidad no puede ser menor o igual a cero.");
         }
     }
 }

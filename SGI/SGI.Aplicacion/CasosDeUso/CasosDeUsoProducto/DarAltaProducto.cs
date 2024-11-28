@@ -4,7 +4,9 @@ using SGI.Aplicacion;
 public class DarAltaProducto(IProductoRepositorio repo) {
 
     public void Ejecutar (string nombre , string descripcion, double precioUnitario, int stockDisponible,int idCategoria) { 
-
+            ProductoValidador validador = new ProductoValidador();
+            validador.ValidarPrecioUnitario(precioUnitario);
+            validador.ValidarStockDisponible(stockDisponible);
             repo.ProductoAlta(nombre,descripcion,precioUnitario,stockDisponible,idCategoria);
     }
 

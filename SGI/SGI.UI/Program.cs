@@ -8,7 +8,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddCircuitOptions(options => options.DetailedErrors = true);
 
-// Usuarios.w1
+// Usuarios.
 builder.Services.AddSingleton<IUsuarioRepositorio,RepositorioUsuario>();
 
 builder.Services.AddScoped<CasoDeUsoUsuarioAlta>();
@@ -17,19 +17,16 @@ builder.Services.AddScoped<CasoDeUsoUsuarioIniciarSesion>();
 builder.Services.AddScoped<MostrarUsuarios>();
 // Categorias.
 builder.Services.AddSingleton<ICategoriaRepositorio,RepositorioCategoria>();
-
 builder.Services.AddScoped<DarAltaCategoria>();
 builder.Services.AddScoped<DarBajaCategoria>();
 builder.Services.AddScoped<ModificarCategoria>();
-builder.Services.AddScoped<CategoriaValidador>();
-
+builder.Services.AddScoped<MostrarCategorias>();
 // Productos
 
 builder.Services.AddSingleton<IProductoRepositorio,RepositorioProducto>();
 builder.Services.AddScoped <DarAltaProducto>();
 builder.Services.AddScoped<DarBajaProducto>();
 builder.Services.AddScoped<ModificarProducto>();
-builder.Services.AddScoped<ProductoValidador>();
 
 // Transaccion
 builder.Services.AddSingleton<ITransaccionRepositorio, RepositorioTransaccion>();

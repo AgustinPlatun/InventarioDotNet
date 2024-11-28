@@ -4,7 +4,7 @@
 @inject DarAltaCategoria categoriasAltas
 @inject DarBajaCategoria categoriasBajas
 @inject ModificarCategoria categoriasModificar
-@inject CategoriaValidador validador
+@inject MostrarCategorias listadoCategorias
     <div>
         <button @onclick="() => MostrarFormularioAlta()">Dar alta categoria</button>
     </div>
@@ -15,7 +15,37 @@
         <button @onclick="() => MostrarFormularioModificar()">Modificar categoria</button>
     </div>
 
-    
+    <thead>
+        <tr style="display: flex; gap: 67%;">
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>DESCRIPCION</th>
+            <th>FECHA DE CREACION</th>
+            <th>FECHA DE ULTIMA MODIFICACION</th>
+        </tr>
+        <hr style="border: none; border-top: 2px solid #333; width: 80%;">
+    </thead>
+    @foreach (var categoria in listadoCategorias.Ejecutar())
+    {
+        <tr style="display: flex; gap: 10%;">
+            <div>
+                <td>@categoria.Id</td>
+            </div>
+            <div>
+                <td>@categoria.Nombre</td>
+            </div>
+            <div>
+                <td>@categoria.Descripcion</td>
+            </div>
+            <div>
+                <td>@categoria.FechaCreacion</td>
+            </div>
+            <div>
+                <td>@categoria.FechaUltimaModificacion</td>
+            </div>
+        </tr>
+    }
+    <hr style="border: none; border-top: 2px solid #333; width: 80%;">
     @if (mostrarFormularioAlta) 
 {
         <h3>Formulario para dar alta categoría</h3>
@@ -57,6 +87,12 @@
             <button onclick="volverAOpcionesCategorias">Volver</button>
         </form>
 }
+@if (!string.IsNullOrEmpty(mensajeDeError))
+{
+    <div style="color: red;">
+        @mensajeDeError
+    </div>
+}
 @code
 { 
     private string mensajeDeError { get; set; }
@@ -90,7 +126,6 @@
     private void ejecutarModificacion(){
         try
         {
-           validador.validarCategoria(nombreCambiado);
            categoriasModificar.validarModificacion(idAModificar, nombreCambiado, descripcionModificada);
            mostrarFormularioModificar = false;
            Navigation.NavigateTo("/");
@@ -108,8 +143,6 @@
     private void ejecutarAlta(){
         try
         {
-        
-        validador.validarCategoria(_nombreCategoria);
         categoriasAltas.validarAlta(_nombreCategoria,_descripcion);
         mostrarFormularioAlta = false;
         Navigation.NavigateTo("/");
