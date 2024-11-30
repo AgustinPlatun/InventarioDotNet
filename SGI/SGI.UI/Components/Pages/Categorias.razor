@@ -95,11 +95,11 @@
 }
 @code
 { 
-    private string mensajeDeError { get; set; }
+    private string? mensajeDeError { get; set; }
     private bool mostrarFormularioAlta = false;
     private bool mostrarFormularioBaja = false;
     private bool mostrarFormularioModificar = false;
-    private string _nombreCategoria,nombreCambiado,_descripcion,descripcionModificada;
+    private string? _nombreCategoria,nombreCambiado,_descripcion,descripcionModificada;
     private int idABuscar,idAModificar;
 
     private void MostrarFormularioModificar(){
@@ -126,7 +126,7 @@
     private void ejecutarModificacion(){
         try
         {
-           categoriasModificar.validarModificacion(idAModificar, nombreCambiado, descripcionModificada);
+           categoriasModificar.validarModificacion(idAModificar, nombreCambiado!, descripcionModificada!);
            mostrarFormularioModificar = false;
            Navigation.NavigateTo("/");
         }
@@ -143,7 +143,7 @@
     private void ejecutarAlta(){
         try
         {
-        categoriasAltas.validarAlta(_nombreCategoria,_descripcion);
+        categoriasAltas.validarAlta(_nombreCategoria!,_descripcion!);
         mostrarFormularioAlta = false;
         Navigation.NavigateTo("/");
         }

@@ -1,0 +1,31 @@
+@page "/CerrarSesion"
+@rendermode InteractiveServer
+@inject NavigationManager Navigation
+@inject Usuario usuarioActual
+
+<div>
+    <button class="btn btn-danger me-2" @onclick="Cerrar">Cerrar Sesión</button>
+    <button class="btn btn-secondary" @onclick="Cancelar">Cancelar</button>
+</div>
+
+@code {
+    private void Cerrar()
+    {
+        // Log para verificar que la función se ejecuta
+        Console.WriteLine("Cerrando sesión...");
+
+        // Limpiar los datos del usuario
+        usuarioActual.Nombre = null;
+        usuarioActual.Apellido = null;
+        usuarioActual.Email = null;
+        usuarioActual.IdUsuario = null;
+
+        // Redirigir al formulario de inicio de sesión
+        Navigation.NavigateTo("/IniciarSesion");
+    }
+
+    private void Cancelar()
+    {
+        Navigation.NavigateTo("/Home");
+    }
+}

@@ -31,15 +31,15 @@
 }
 
 @code {
-    private string email;
-    private string password;
-    private string errorMessage;
+    private string? email;
+    private string? password;
+    private string? errorMessage;
 
     private void HandleSubmit()
     {
         try
         {
-            var datosDeUsuario = iniciarsession.Ejecutar(email, password);
+            var datosDeUsuario = iniciarsession.Ejecutar(email!, password!);
             usuarioActual.IdUsuario = datosDeUsuario.IdUsuario;
             usuarioActual.Nombre = datosDeUsuario.Nombre;
             usuarioActual.Apellido = datosDeUsuario.Apellido;

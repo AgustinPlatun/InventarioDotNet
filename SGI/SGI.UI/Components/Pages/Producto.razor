@@ -92,13 +92,13 @@
     </div>
 }
 @code {
-    private string _nombre;
-    private string _descripcion;
+    private string? _nombre;
+    private string? _descripcion;
     private double _precioUnitario;
     private int _stockDisponible;
     private int _idProducto;
-    private string ErrorMensaje { get; set; }
-    private string _nuevoNombre,_nuevaDesc; 
+    private string? ErrorMensaje { get; set; }
+    private string? _nuevoNombre,_nuevaDesc; 
     private double _nuevoPrecio; 
     private int _nuevoStock,_idCategoria,_nuevaCategoria; 
     private int _accionSeleccionada = 0;  // 0 = Ninguna acción seleccionada, 1 = Alta, 2 = Baja, 3 = Modificar 
@@ -109,7 +109,7 @@
         if (_accionSeleccionada == 1)
         {
             try {
-            productoAlta.Ejecutar(_nombre, _descripcion, _precioUnitario, _stockDisponible,_idCategoria);
+            productoAlta.Ejecutar(_nombre!, _descripcion!, _precioUnitario, _stockDisponible,_idCategoria);
             Navigation.NavigateTo("/");  // Redirige después de dar de alta
             }
             catch (Exception ex){
@@ -132,7 +132,7 @@
     private void Modificar()
     {
             try{
-            productoModificar.Ejecutar(_idProducto, _nuevoNombre, _nuevaDesc, _nuevoPrecio, _nuevoStock, _nuevaCategoria); 
+            productoModificar.Ejecutar(_idProducto, _nuevoNombre!, _nuevaDesc!, _nuevoPrecio, _nuevoStock, _nuevaCategoria); 
             Navigation.NavigateTo("/");  // Redirige después de modificar
             }
             catch (Exception ex)

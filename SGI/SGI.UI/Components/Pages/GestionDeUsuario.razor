@@ -31,7 +31,7 @@
     <td>@usuario.Email</td>
     </div>
     <td>
-<button class="btn btn-danger" @onclick="()=>eliminar(usuario.Email)">
+<button class="btn btn-danger" @onclick="()=>eliminar(usuario.Email!)">
 Elliminar
 </button>
 <button class="btn btn-primary"> Editar</button>
@@ -45,9 +45,9 @@ Elliminar
 {
     private bool mostrarEliminar = false;
     private bool mostrarModificar= false;
-    private string apellido;
-    private string nombre;
-    private string password;
+    private string? apellido;
+    private string? nombre;
+    private string? password;
     private int id;
 
 

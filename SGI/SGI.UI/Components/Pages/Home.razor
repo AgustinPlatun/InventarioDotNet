@@ -11,17 +11,6 @@
 }
 
 @code{
-    Usuario _usuario;
-    //[Parameter] public int? Id{get; set;}
-    @* bool _darBienvenida = false;
-    protected override void OnParametersSet(){
-        if(Id != null){
-            var usuario_encontrado = buscarElUsuario.Ejecutar(Id.Value);
-            if(usuario_encontrado != null){
-                _usuario = usuario_encontrado;
-                _darBienvenida = true;
-            }
-        }
-    } *@
+
 }
 

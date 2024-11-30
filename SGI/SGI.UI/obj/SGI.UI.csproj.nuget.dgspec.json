@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.UI\\SGI.UI.csproj": {}
+    "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\SGI.UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj": {
+    "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
+        "projectUniqueName": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
         "projectName": "SGI.Aplicacion",
-        "projectPath": "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
-        "packagesPath": "C:\\Users\\franb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.Aplicacion\\obj\\",
+        "projectPath": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
+        "packagesPath": "C:\\Users\\agusp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\franb\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\agusp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -58,34 +64,40 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj": {
+    "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj",
+        "projectUniqueName": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj",
         "projectName": "SGI.Repositorios",
-        "projectPath": "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj",
-        "packagesPath": "C:\\Users\\franb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.Repositorios\\obj\\",
+        "projectPath": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj",
+        "packagesPath": "C:\\Users\\agusp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Repositorios\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\franb\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\agusp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj": {
-                "projectPath": "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj"
+              "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj": {
+                "projectPath": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj"
               }
             }
           }
@@ -126,37 +138,43 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.UI\\SGI.UI.csproj": {
+    "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\SGI.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.UI\\SGI.UI.csproj",
+        "projectUniqueName": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\SGI.UI.csproj",
         "projectName": "SGI.UI",
-        "projectPath": "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.UI\\SGI.UI.csproj",
-        "packagesPath": "C:\\Users\\franb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.UI\\obj\\",
+        "projectPath": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\SGI.UI.csproj",
+        "packagesPath": "C:\\Users\\agusp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\franb\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\agusp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj": {
-                "projectPath": "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj"
+              "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj": {
+                "projectPath": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj"
               },
-              "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj": {
-                "projectPath": "C:\\Users\\franb\\Desktop\\InventarioDotnet.v0.0.2\\InventarioDotNet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj"
+              "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj": {
+                "projectPath": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj"
               }
             }
           }
@@ -194,7 +212,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
