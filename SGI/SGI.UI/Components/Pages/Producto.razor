@@ -40,7 +40,7 @@
                         <input type="number" @bind="_stockDisponible" id="input-stockDisponible" placeholder="Stock Disponible" required>
                     </div>
                     <div class="elemento-input">
-                        <input type="number" @bind="_idCategoria" id="input-stockDisponible" placeholder="Id Categoría" required>
+                        <input type="number" @bind="_idCategoria" id="input-idCategoria" placeholder="Id Categoría" required>
                     </div>
                     <button type="submit" class="boton-inicio">Dar Alta Producto</button>
                 </form>
@@ -110,7 +110,7 @@
         {
             try {
             productoAlta.Ejecutar(_nombre!, _descripcion!, _precioUnitario, _stockDisponible,_idCategoria);
-            Navigation.NavigateTo("/");  // Redirige después de dar de alta
+            Navigation.NavigateTo("/home");  // Redirige después de dar de alta
             }
             catch (Exception ex){
                 ErrorMensaje = ex.Message;

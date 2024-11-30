@@ -1,8 +1,12 @@
 namespace SGI.Aplicacion;
-public class ServicioAutorizacion : IServicioAutorizacion
+
+public class ServicioAutorizacion(IUsuarioRepositorio repo) : IServicioAutorizacion
 {
-    public bool TienePermiso(Usuario usuario, string permiso)
-    {
-        return usuario.Permisos.Contains(permiso);
+    public bool PoseeElPermiso(Permiso.Permisos permiso, int idUsuario){
+        return repo.UsuarioValidarPermiso(permiso, idUsuario); //si el usuario posee X permiso devuelve true, sino false
+    }
+
+    public bool EsAdmin(int? idUsuario){
+        return idUsuario == 1; //si es 1 devuelve true
     }
 }

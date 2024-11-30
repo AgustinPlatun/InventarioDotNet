@@ -1,5 +1,8 @@
 namespace SGI.Aplicacion;
-public interface IServicioAutorizacion
-{
-    bool TienePermiso(Usuario usuario, string permiso);
+using SGI.Aplicacion;
+
+public interface IServicioAutorizacion {
+    bool PoseeElPermiso(Permiso.Permisos permiso, int idUsuario);
+
+    bool EsAdmin(int? idUsuario);
 }

@@ -55,17 +55,6 @@ public class RepositorioUsuario : IUsuarioRepositorio
             return usuarios;
         }
     }
-    public List<string>? getPermiso(int idUsuario){
-        using(var db = new RepositorioContext())
-        {
-            var usuario = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
-            if (usuario != null)
-            {
-                return usuario.Permisos;
-            }
-        }
-        return null;
-    }
     public Usuario UsuarioInicioDeSesion(string email, string password){ 
         using(var db = new RepositorioContext()){
             var usuario = db.Usuarios.FirstOrDefault(u => u.Email!.ToLower() == email.ToLower());
@@ -91,5 +80,18 @@ public class RepositorioUsuario : IUsuarioRepositorio
         }
         }
         return null;
+    }
+        public bool UsuarioValidarPermiso(Permiso.Permisos permiso, int idUsuario){
+        using(var db = new RepositorioContext()){
+            var usuario = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario); //no puede enviar null, ya que es la id del usuario utilizando el sistema
+            if(usuario != null){
+                if(usuario.Permisos != null){
+                    return usuario.Permisos.Contains(permiso);
+                }else{
+                    return false;
+                }
+            } 
+            return false; //para emergencias 
+        }
     }
 }
