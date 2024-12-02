@@ -19,6 +19,7 @@ builder.Services.AddScoped<CasoDeUsoUsuarioAlta>();
 builder.Services.AddScoped<CasoDeUsoUsuarioBaja>();
 builder.Services.AddScoped<CasoDeUsoUsuarioIniciarSesion>();
 builder.Services.AddScoped<MostrarUsuarios>();
+builder.Services.AddScoped<CasoDeUsoUsuarioModificar>(); 
 builder.Services.AddSingleton<Usuario>();
 // Servicios para Categorias
 builder.Services.AddSingleton<ICategoriaRepositorio, RepositorioCategoria>();

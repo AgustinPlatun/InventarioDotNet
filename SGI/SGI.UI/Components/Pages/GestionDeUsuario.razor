@@ -205,6 +205,7 @@
     private string? email;
     private string? password;
     private int? idUsuario;
+    private List <Permiso.Permisos> permisos;
 
     private void EditarUsuario(Usuario usuario)
     {
@@ -225,7 +226,7 @@
     private void ModificarUsuario()
     {
         // Lógica para modificar el usuario
-        usuarioModificar.Ejecutar(idUsuario, nombre!, apellido!, email!, password); // El uso de "!" es para asegurar que no sean null
+        usuarioModificar.Ejecutar(idUsuario, nombre!, apellido!, email!, password,permisos); // El uso de "!" es para asegurar que no sean null
         mostrarModificar = false; // Cerrar el modal después de modificar
     }
 
