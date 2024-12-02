@@ -22,14 +22,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Layout/Registrarse.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcUmVnaXN0cmFyc2UucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/Categorias.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXRlZ29yaWFzLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/CerrarSesion.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDZXJyYXJTZXNpb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,24 +30,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/GestionDeUsuario.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xHZXN0aW9uRGVVc3VhcmlvLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/IniciarSesion.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbmljaWFyU2VzaW9uLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/Producto.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQcm9kdWN0by5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/Transaccion.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUcmFuc2FjY2lvbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Routes.razor]
@@ -73,3 +49,27 @@ build_metadata.AdditionalFiles.CssScope = b-1rfgff7fv3
 [C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-wza2gz8osz
+
+[C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Layout/Registrarse.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcUmVnaXN0cmFyc2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-33m2qwby7n
+
+[C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/Categorias.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXRlZ29yaWFzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-r612jt5qpu
+
+[C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/GestionDeUsuario.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xHZXN0aW9uRGVVc3VhcmlvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-1edm1f6o9k
+
+[C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-zuadijb6m6
+
+[C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/Producto.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQcm9kdWN0by5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-9x2pqe2ibw
+
+[C:/Users/agusp/Desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/Transaccion.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUcmFuc2FjY2lvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-msuq90x3ih
