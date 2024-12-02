@@ -36,9 +36,12 @@ public class RepositorioContext: DbContext
         modelBuilder.Entity<Usuario>()
         .Property(u => u.Permisos)
         .HasConversion(
-            permisos => permisos != null ? string.Join(",", permisos.Select(p => p.ToString())) : "",
+            permisos => permisos != null ? string.Join(",", permisos.Select(p => p.ToString())) : "", // Convert List<Permiso.Permisos> to string
             permisosString => permisosString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                                            .ToList());
+                                            .Select(p => Enum.Parse<Permiso.Permisos>(p))
+                                            .ToList()                         // Convert string to List<Permiso.Permisos>
+        );
+
 
         // Categoria
         modelBuilder.Entity<Categoria>().ToTable("Categorias");
