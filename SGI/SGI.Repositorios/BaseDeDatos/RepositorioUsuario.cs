@@ -36,7 +36,7 @@ public class RepositorioUsuario : IUsuarioRepositorio
         }
     }
 
-        public void UsuarioModificacion(int? idUsuario,string nombre, string apellido, string email, string password){
+        public void UsuarioModificacion(int? idUsuario,string nombre, string apellido, string email, string password, List<Permiso.Permisos>? permisos){
         using(var db = new RepositorioContext()){
             var usuarioAModificar = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
             if(usuarioAModificar != null){
@@ -44,17 +44,32 @@ public class RepositorioUsuario : IUsuarioRepositorio
                 usuarioAModificar.Apellido = apellido;
                 usuarioAModificar.Email = email;
                 usuarioAModificar.Password = password;
+                usuarioAModificar.Permisos = permisos;
 
                 db.SaveChanges();
+            }else{
+                throw new RepositorioException("El email ingresado no existe en el repositorio");
             }
-        }   
-    }   
+        }
+    }  
     public List<Usuario> MostrarUsuarios(){
         using (var db = new RepositorioContext()){
             var usuarios = db.Usuarios.ToList();
             return usuarios;
         }
     }
+
+    public bool EmailRepetido(string? email){
+        bool repetido=false;
+        using (var db = new RepositorioContext()){
+            var usuario = db.Usuarios.FirstOrDefault(u => u.Email!.ToLower() == email!.ToLower()); 
+            if (usuario == null){
+                repetido=true;
+            }
+            return repetido;
+        }
+    }
+
     public Usuario UsuarioInicioDeSesion(string email, string password){ 
         using(var db = new RepositorioContext()){
             var usuario = db.Usuarios.FirstOrDefault(u => u.Email!.ToLower() == email.ToLower());
@@ -70,17 +85,6 @@ public class RepositorioUsuario : IUsuarioRepositorio
         }
     }
 
-    public Usuario BuscarUsuario(int? Id){
-        if(Id != null){
-            using(var db = new RepositorioContext()){
-            var usuario = db.Usuarios.FirstOrDefault(u => u.IdUsuario! == Id);
-            if(usuario != null){
-                return usuario;
-            }
-        }
-        }
-        return null;
-    }
         public bool UsuarioValidarPermiso(Permiso.Permisos permiso, int idUsuario){
         using(var db = new RepositorioContext()){
             var usuario = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario); //no puede enviar null, ya que es la id del usuario utilizando el sistema

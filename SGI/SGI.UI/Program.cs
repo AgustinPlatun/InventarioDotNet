@@ -11,7 +11,10 @@ builder.Services.AddRazorComponents()
 
 // Servicios para Usuarios
 builder.Services.AddScoped<IUsuarioRepositorio, RepositorioUsuario>();
-builder.Services.AddScoped<BuscarUsuario>();
+builder.Services.AddScoped<UsuarioValidador>();
+builder.Services.AddScoped<ServicioAutorizacion>();
+builder.Services.AddScoped<CasoDeUsoUsuarioAlta>();
+builder.Services.AddScoped<IUsuarioRepositorio, RepositorioUsuario>();
 builder.Services.AddScoped<CasoDeUsoUsuarioAlta>();
 builder.Services.AddScoped<CasoDeUsoUsuarioBaja>();
 builder.Services.AddScoped<CasoDeUsoUsuarioIniciarSesion>();

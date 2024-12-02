@@ -32,15 +32,29 @@
     </section>
 </div>
 
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div style="color: red;">
+        @errorMessage
+    </div>
+}
+
 @code {
     private string? _nombre;
     private string? _apellido;
     private string? _email;
     private string? _password;
+    
+    private string? errorMessage;
 
 
     private void Ejecutar (){
+        try{
             usuarioAlta.Ejecutar(_nombre!,_apellido!,_email!,_password!);
             Navigation.NavigateTo("/");
+        }
+        catch(RepositorioException ex){
+            errorMessage = ex.Message;
+        }
     }
 }

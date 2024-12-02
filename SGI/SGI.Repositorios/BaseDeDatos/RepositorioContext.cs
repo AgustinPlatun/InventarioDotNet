@@ -33,11 +33,15 @@ public class RepositorioContext: DbContext
         modelBuilder.Entity<Usuario>().Property(u => u.Apellido).HasMaxLength(100).IsRequired(true);
         modelBuilder.Entity<Usuario>().Property(u => u.Email).HasMaxLength(100).IsRequired();
         modelBuilder.Entity<Usuario>().Property(u => u.Password).HasMaxLength(100).IsRequired();
-        // modelBuilder.Entity<Usuario>()
-        // .Property(u => u.Permisos)
-        // .HasConversion(
-        //     permisos => permisos != null ? string.Join(",", permisos.Select(p => p.ToString())) : "",
-        //     permisosString => permisosString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList());
+        modelBuilder.Entity<Usuario>()
+        .Property(u => u.Permisos)
+        .HasConversion(
+            permisos => permisos != null ? string.Join(",", permisos.Select(p => p.ToString())) : "", // Convert List<Permiso.Permisos> to string
+            permisosString => permisosString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                                            .Select(p => Enum.Parse<Permiso.Permisos>(p))
+                                            .ToList()                         // Convert string to List<Permiso.Permisos>
+        );
+
 
         // Categoria
         modelBuilder.Entity<Categoria>().ToTable("Categorias");

@@ -1,8 +1,9 @@
 namespace SGI.Aplicacion;
 
 public class Permiso {
-    public Permiso? Perm {get; set;}
-    public enum Permisos {productoalta,
+    public enum Permisos 
+    {
+    productoalta,
     productobaja,
     productomodificacion,
     categoriaalta,
@@ -12,6 +13,7 @@ public class Permiso {
     transaccionbaja,
     usuarioalta,
     usuariobaja,
-    usuariomodificacion };  
+    usuariomodificacion 
+    };  
 
 }
