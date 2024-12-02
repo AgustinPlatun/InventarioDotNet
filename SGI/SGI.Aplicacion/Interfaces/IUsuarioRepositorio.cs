@@ -10,4 +10,6 @@ public interface IUsuarioRepositorio{
 
     Usuario BuscarUsuario(int? Id);
 
+    bool UsuarioValidarPermiso(Permiso.Permisos permiso, int idUsuario);
+
 }

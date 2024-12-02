@@ -24,11 +24,12 @@ builder.Services.AddScoped<DarBajaCategoria>();
 builder.Services.AddScoped<ModificarCategoria>();
 builder.Services.AddScoped<MostrarCategorias>();
 // Servicios para Productos
-builder.Services.AddSingleton<IProductoRepositorio, RepositorioProducto>();
-builder.Services.AddScoped<DarAltaProducto>();
+builder.Services.AddSingleton<IProductoRepositorio,RepositorioProducto>();
+builder.Services.AddScoped <DarAltaProducto>();
 builder.Services.AddScoped<DarBajaProducto>();
 builder.Services.AddScoped<ModificarProducto>();
-
+builder.Services.AddScoped<ProductoValidador>();
+builder.Services.AddScoped<ListarProductos>();
 // Servicios para Transacciones
 builder.Services.AddSingleton<ITransaccionRepositorio, RepositorioTransaccion>();
 builder.Services.AddScoped<RepositorioTransaccion>();

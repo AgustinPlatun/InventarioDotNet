@@ -6,62 +6,138 @@
 
 <PageTitle>Gestión de Transacciones</PageTitle>
 
-<div>
-    <section>
-        <div class="contenedor-formulario">
-            <h1 class="titulo">Gestión de Transacciones</h1>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-            <!-- Formulario Dar Alta Transacción -->
-            <h2>Dar Alta Transacción</h2>
-            <form class="form" @onsubmit="AltaTransaccion">
-                <div class="elemento-input">
-                    <label for="productoId">ID del Producto:</label>
-                    <input type="number" @bind="_productoIdAlta" id="productoId" required />
-                </div>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
 
-                <div class="elemento-input">
-                    <label for="cantidad">Cantidad:</label>
-                    <input type="number" @bind="_cantidadAlta" id="cantidad" required />
-                </div>
+    h1, h2 {
+        text-align: center;
+        color: #333;
+    }
 
-                <div class="elemento-input">
-                    <label for="tipo">Tipo de Transacción:</label>
-                    <select @bind="_tipoAlta">
-                        <option value="entrada">Entrada</option>
-                        <option value="salida">Salida</option>
-                    </select>
-                </div>
+    .contenedor {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
-                <button type="submit" class="boton-inicio">Registrar Transacción</button>
-            </form>
+    .formulario-seccion {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+    }
 
-            <!-- Formulario Dar Baja Transacción -->
-            <h2>Dar Baja Transacción</h2>
-            <form class="form" @onsubmit="BajaTransaccion">
-                <div class="elemento-input">
-                    <label for="idBaja">ID de la Transacción a Eliminar:</label>
-                    <input type="number" @bind="_idTransaccionBaja" id="idBaja" required />
-                </div>
-                <button type="submit" class="boton-inicio">Eliminar Transacción</button>
-            </form>
-        </div>
+    .titulo {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #007bff;
+    }
+
+    .elemento-input {
+        margin-bottom: 15px;
+    }
+
+    .elemento-input input, .elemento-input select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+    }
+
+    .boton-inicio {
+        width: 100%;
+        padding: 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 15px; /* Espacio entre botones */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .boton-inicio:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px); /* Efecto hover de elevación */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .error-message {
+        color: red;
+        font-size: 1rem;
+        margin-top: 10px;
+        text-align: center;
+    }
+</style>
+
+<div class="contenedor">
+    <section class="formulario-seccion">
+        <h1 class="titulo">Gestión de Transacciones</h1>
+
+        <!-- Formulario Dar Alta Transacción -->
+        <h2>Dar Alta Transacción</h2>
+        <form @onsubmit="AltaTransaccion">
+            <div class="elemento-input">
+                <label for="productoId">ID del Producto:</label>
+                <input type="number" @bind="_productoIdAlta" id="productoId" required />
+            </div>
+
+            <div class="elemento-input">
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" @bind="_cantidadAlta" id="cantidad" required />
+            </div>
+
+            <div class="elemento-input">
+                <label for="tipo">Tipo de Transacción:</label>
+                <select @bind="_tipoAlta">
+                    <option value="entrada">Entrada</option>
+                    <option value="salida">Salida</option>
+                </select>
+            </div>
+
+            <button type="submit" class="boton-inicio">Registrar Transacción</button>
+        </form>
+
+        <!-- Formulario Dar Baja Transacción -->
+        <h2>Dar Baja Transacción</h2>
+        <form @onsubmit="BajaTransaccion">
+            <div class="elemento-input">
+                <label for="idBaja">ID de la Transacción a Eliminar:</label>
+                <input type="number" @bind="_idTransaccionBaja" id="idBaja" required />
+            </div>
+            <button type="submit" class="boton-inicio">Eliminar Transacción</button>
+        </form>
     </section>
 </div>
 
 @code {
     private int _productoIdAlta;
     private int _cantidadAlta;
-    private string? _tipoAlta;
+    private string _tipoAlta;
     private int _idTransaccionBaja;
 
-    private void AltaTransaccion() {        
-            TransaccionAlta.Ejecutar(_productoIdAlta, _cantidadAlta, Enum.Parse<TipoTransaccion>(_tipoAlta));
-            Navigation.NavigateTo("/Transacciones");
-        }
+    private void AltaTransaccion()
+    {        
+        TransaccionAlta.Ejecutar(_productoIdAlta, _cantidadAlta, Enum.Parse<TipoTransaccion>(_tipoAlta));
+        Navigation.NavigateTo("/Transacciones");
+    }
     
-    private void BajaTransaccion(){
+    private void BajaTransaccion()
+    {
         TransaccionBaja.Ejecutar(_idTransaccionBaja);
         Navigation.NavigateTo("/Transacciones"); // Redirigir a la página de transacciones después de dar de baja
-        }
-
+    }
 }

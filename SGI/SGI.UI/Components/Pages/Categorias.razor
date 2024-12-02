@@ -5,147 +5,317 @@
 @inject DarBajaCategoria categoriasBajas
 @inject ModificarCategoria categoriasModificar
 @inject MostrarCategorias listadoCategorias
-    <div>
-        <button @onclick="() => MostrarFormularioAlta()">Dar alta categoria</button>
-    </div>
-    <div>
-        <button @onclick="() => MostrarFormularioBaja()">Dar baja categoria</button>
-    </div>
-    <div>
-        <button @onclick="() => MostrarFormularioModificar()">Modificar categoria</button>
-    </div>
 
-    <thead>
-        <tr style="display: flex; gap: 67%;">
-            <th>ID</th>
-            <th>NOMBRE</th>
-            <th>DESCRIPCION</th>
-            <th>FECHA DE CREACION</th>
-            <th>FECHA DE ULTIMA MODIFICACION</th>
-        </tr>
-        <hr style="border: none; border-top: 2px solid #333; width: 80%;">
-    </thead>
-    @foreach (var categoria in listadoCategorias.Ejecutar())
-    {
-        <tr style="display: flex; gap: 10%;">
-            <div>
-                <td>@categoria.Id</td>
-            </div>
-            <div>
-                <td>@categoria.Nombre</td>
-            </div>
-            <div>
-                <td>@categoria.Descripcion</td>
-            </div>
-            <div>
-                <td>@categoria.FechaCreacion</td>
-            </div>
-            <div>
-                <td>@categoria.FechaUltimaModificacion</td>
-            </div>
-        </tr>
+<PageTitle>Gestión de Categorías</PageTitle>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
-    <hr style="border: none; border-top: 2px solid #333; width: 80%;">
-    @if (mostrarFormularioAlta) 
-{
-        <h3>Formulario para dar alta categoría</h3>
-        <form class="form" @onsubmit="ejecutarAlta">
-                <div class="elemento-input"> 
-                    <p>Nombre de categoria nueva</p>
-                    <input type="text" @bind="_nombreCategoria"/>
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    h1, h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    .contenedor {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .formulario-seccion {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+    }
+
+    .titulo {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #007bff;
+    }
+
+    .elemento-input {
+        margin-bottom: 15px;
+    }
+
+    .elemento-input input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+    }
+
+    /* Botones con más espacio y sombras */
+    .boton-inicio {
+        width: 100%;
+        padding: 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 15px; /* Espacio entre botones */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .boton-inicio:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px); /* Efecto hover de elevación */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Botón de vuelta */
+    .boton-vuelta {
+        background-color: #ccc;
+        padding: 10px;
+        border-radius: 4px;
+        font-size: 1rem;
+        margin-top: 10px;
+        cursor: pointer;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .boton-vuelta:hover {
+        background-color: #999;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .error-message {
+        color: red;
+        font-size: 1rem;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .tabla-categorias {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .tabla-categorias th, .tabla-categorias td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .tabla-categorias th {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .tabla-categorias tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .tabla-categorias tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    /* Estilo de la tabla */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table th, table td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    table th {
+        background-color: #007bff;
+        color: white;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    table tr:hover {
+        background-color: #f1f1f1;
+    }
+</style>
+
+<div class="contenedor">
+    <section class="formulario-seccion">
+        <button class="boton-inicio" @onclick="() => MostrarFormularioAlta()">Dar alta categoría</button>
+        <button class="boton-inicio" @onclick="() => MostrarFormularioBaja()">Dar baja categoría</button>
+        <button class="boton-inicio" @onclick="() => MostrarFormularioModificar()">Modificar categoría</button>
+    </section>
+
+    <section class="tabla-categorias">
+        <h2>Lista de Categorías</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Creación</th>
+                    <th>Fecha de Última Modificación</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var categoria in listadoCategorias.Ejecutar())
+                {
+                    <tr>
+                        <td>@categoria.Id</td>
+                        <td>@categoria.Nombre</td>
+                        <td>@categoria.Descripcion</td>
+                        <td>@categoria.FechaCreacion</td>
+                        <td>@categoria.FechaUltimaModificacion</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+
+    @if (mostrarFormularioAlta)
+    {
+        <section class="formulario-seccion">
+            <h3>Formulario para dar alta categoría</h3>
+            <form @onsubmit="ejecutarAlta">
+                <div class="elemento-input">
+                    <p>Nombre de categoría nueva</p>
+                    <input type="text" @bind="_nombreCategoria" required />
                 </div>
                 <div class="elemento-input">
-                    <p>Descripcion</p>
-                    <input type="text" @bind="_descripcion" placeholder="Descripcion" />
+                    <p>Descripción</p>
+                    <input type="text" @bind="_descripcion" placeholder="Descripción" required />
                 </div>
-                <button type="submit" class="boton-inicio">Dar Alta categoria</button>
-        </form>
-        <button @onclick="volverAOpcionesCategorias">Volver</button>
-}
-        @if (mostrarFormularioBaja)
-{
-        <h3>Formulario para dar baja categoría</h3>
-        <form>
-            <p>ID a dar de baja</p>
-            <input type="number" id="idABuscar" @bind="idABuscar" />
-            <button type="submit" @onclick="ejecutarBaja">Guardar</button>
-            <button onclick="volverAOpcionesCategorias">Volver</button>
-        </form>
-}
+                <button type="submit" class="boton-inicio">Dar Alta categoría</button>
+            </form>
+            <button class="boton-vuelta" @onclick="volverAOpcionesCategorias">Volver</button>
+        </section>
+    }
+
+    @if (mostrarFormularioBaja)
+    {
+        <section class="formulario-seccion">
+            <h3>Formulario para dar baja categoría</h3>
+            <form @onsubmit="ejecutarBaja">
+                <div class="elemento-input">
+                    <p>ID de la categoría a dar de baja</p>
+                    <input type="number" @bind="idABuscar" required />
+                </div>
+                <button type="submit" class="boton-inicio">Guardar</button>
+            </form>
+            <button class="boton-vuelta" @onclick="volverAOpcionesCategorias">Volver</button>
+        </section>
+    }
 
     @if (mostrarFormularioModificar)
-{
-        <h3>Formulario para dar modificacion de categoría</h3>
-        <form>
-            <p>ID a modificar</p>
-            <input type="text" id="idAModificar" @bind="idAModificar"/>
-            <p>Nombre nuevo</p>
-            <input type="text" id="nombreCambiado" @bind="nombreCambiado"/>
-            <p>Descripcion nueva</p>
-            <input type="text" id="descripcionModificada" @bind="descripcionModificada" placeholder="Ingresar descripcion nueva" />
-            <button type="submit" @onclick="ejecutarModificacion">Guardar</button>
-            <button onclick="volverAOpcionesCategorias">Volver</button>
-        </form>
-}
-@if (!string.IsNullOrEmpty(mensajeDeError))
-{
-    <div style="color: red;">
-        @mensajeDeError
-    </div>
-}
-@code
-{ 
+    {
+        <section class="formulario-seccion">
+            <h3>Formulario para modificar categoría</h3>
+            <form @onsubmit="ejecutarModificacion">
+                <div class="elemento-input">
+                    <p>ID de categoría a modificar</p>
+                    <input type="text" @bind="idAModificar" required />
+                </div>
+                <div class="elemento-input">
+                    <p>Nombre nuevo</p>
+                    <input type="text" @bind="nombreCambiado" required />
+                </div>
+                <div class="elemento-input">
+                    <p>Descripción nueva</p>
+                    <input type="text" @bind="descripcionModificada" placeholder="Descripción nueva" required />
+                </div>
+                <button type="submit" class="boton-inicio">Guardar</button>
+            </form>
+            <button class="boton-vuelta" @onclick="volverAOpcionesCategorias">Volver</button>
+        </section>
+    }
+
+    @if (!string.IsNullOrEmpty(mensajeDeError))
+    {
+        <div class="error-message">
+            @mensajeDeError
+        </div>
+    }
+</div>
+
+@code {
     private string? mensajeDeError { get; set; }
     private bool mostrarFormularioAlta = false;
     private bool mostrarFormularioBaja = false;
     private bool mostrarFormularioModificar = false;
-    private string? _nombreCategoria,nombreCambiado,_descripcion,descripcionModificada;
-    private int idABuscar,idAModificar;
+    private string? _nombreCategoria, nombreCambiado, _descripcion, descripcionModificada;
+    private int idABuscar, idAModificar;
 
-    private void MostrarFormularioModificar(){
+    private void MostrarFormularioModificar()
+    {
         mostrarFormularioModificar = true;
         mostrarFormularioAlta = false;
         mostrarFormularioBaja = false;
     }
-    private void MostrarFormularioBaja(){
+
+    private void MostrarFormularioBaja()
+    {
         mostrarFormularioBaja = true;
         mostrarFormularioAlta = false;
         mostrarFormularioModificar = false;
     }
-    private void MostrarFormularioAlta(){
+
+    private void MostrarFormularioAlta()
+    {
         mostrarFormularioAlta = true;
         mostrarFormularioBaja = false;
         mostrarFormularioModificar = false;
-
     }
-    private void volverAOpcionesCategorias(){
+
+    private void volverAOpcionesCategorias()
+    {
         mostrarFormularioAlta = false;
         mostrarFormularioBaja = false;
         mostrarFormularioModificar = false;
     }
-    private void ejecutarModificacion(){
+
+    private void ejecutarModificacion()
+    {
         try
         {
-           categoriasModificar.validarModificacion(idAModificar, nombreCambiado!, descripcionModificada!);
-           mostrarFormularioModificar = false;
-           Navigation.NavigateTo("/");
+            categoriasModificar.validarModificacion(idAModificar, nombreCambiado!, descripcionModificada!);
+            mostrarFormularioModificar = false;
+            Navigation.NavigateTo("/categorias");
         }
         catch (Exception ex)
         {
             mensajeDeError = ex.Message;
         }
     }
-    private void ejecutarBaja(){
+
+    private void ejecutarBaja()
+    {
         categoriasBajas.validarBaja(idABuscar);
         mostrarFormularioModificar = false;
-        Navigation.NavigateTo("/");
+        Navigation.NavigateTo("/categorias");
     }
-    private void ejecutarAlta(){
+
+    private void ejecutarAlta()
+    {
         try
         {
-        categoriasAltas.validarAlta(_nombreCategoria!,_descripcion!);
-        mostrarFormularioAlta = false;
-        Navigation.NavigateTo("/");
+            categoriasAltas.validarAlta(_nombreCategoria!, _descripcion!);
+            mostrarFormularioAlta = false;
+            Navigation.NavigateTo("/categorias");
         }
         catch (Exception ex)
         {

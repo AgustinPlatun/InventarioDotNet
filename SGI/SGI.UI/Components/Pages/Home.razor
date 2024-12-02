@@ -2,15 +2,106 @@
 @using SGI.Aplicacion;
 @inject BuscarUsuario buscarElUsuario;
 @inject Usuario usuarioActual;
+@inject NavigationManager Navigation
 
 <PageTitle>SGI</PageTitle>
 
-<h1>Sistema de gestion de inventario </h1>
-@if(usuarioActual.IdUsuario != null){
-    <p>Bienvenido @usuarioActual.Nombre @usuarioActual.Apellido !</p>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .contenedor {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .bienvenida {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .mensaje-bienvenida {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .subtitulo {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        color: #555;
+    }
+
+    /* Estilo de los botones */
+    .boton-inicio {
+        width: 100%;
+        padding: 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 15px; /* Espacio entre botones */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .boton-inicio:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px); /* Efecto hover de elevación */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .error-message {
+        color: red;
+        font-size: 1rem;
+        margin-top: 10px;
+        text-align: center;
+    }
+</style>
+
+<div class="contenedor">
+    <h1>Sistema de gestión de inventario</h1>
+
+    @if (usuarioActual.IdUsuario != null)
+    {
+        <div class="bienvenida">
+            <p class="mensaje-bienvenida">Bienvenido al Sistema de Gestión de Inventario!</p>
+            <p>Bienvenido, @usuarioActual.Nombre @usuarioActual.Apellido (@usuarioActual.Email)</p>
+        </div>
+    }
+    else
+    {
+        <div class="bienvenida">
+            <p class="mensaje-bienvenida">Bienvenido al Sistema de Gestión de Inventario!</p>
+            <p class="subtitulo">Inicie sesión para acceder a las funcionalidades</p>
+            <button class="boton-inicio" @onclick="IniciarSesion">Iniciar sesión</button>
+        </div>
+    }
+</div>
+
+@code {
+    private void IniciarSesion()
+    {
+        // Redirigir a la página de inicio de sesión
+        Navigation.NavigateTo("/Login");
+    }
 }
-
-@code{
-
-}
-

@@ -73,4 +73,19 @@ public class RepositorioProducto : IProductoRepositorio
                 } 
         } 
     }
+    public List <Producto> ListarProductos() 
+    { using (var db = new RepositorioContext()) 
+        { var productos = db.Productos.ToList();
+            if (productos == null) 
+            {
+                throw new Exception (" Aun no se han cargado productos ");
+            }
+            else 
+            { 
+                return productos;  
+            }
+        }
+    } 
+
+
 }

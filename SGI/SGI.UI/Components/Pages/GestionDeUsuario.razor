@@ -3,63 +3,234 @@
 @inject NavigationManager Navigation
 @inject CasoDeUsoUsuarioBaja usuarioBaja
 @inject MostrarUsuarios verusuarios
+@inject CasoDeUsoUsuarioModificar usuarioModificar
 
+<PageTitle>Gestión de Usuarios</PageTitle>
 
-<thead>
-    <tr style="display: flex; gap: 67%;">
-        <th>ID</th>
-        <th>NOMBRE</th>
-        <th>APELLIDO</th>
-        <th>EMAIL</th>
-    </tr>
-    <hr style="border: none; border-top: 2px solid #333; width: 80%;">
-</thead>
-<PageTitle>Gestion de usuarios</PageTitle>
-@foreach (var usuario in verusuarios.Ejecutar())
-{
-<tr style="display: flex; gap: 10%;">
-    <div>
-    <td>@usuario.IdUsuario</td>
-    </div>
-    <div>
-    <td>@usuario.Nombre</td>
-    </div>
-    <div>
-    <td>@usuario.Apellido</td>
-    </div>
-    <div>
-    <td>@usuario.Email</td>
-    </div>
-    <td>
-<button class="btn btn-danger" @onclick="()=>eliminar(usuario.Email!)">
-Elliminar
-</button>
-<button class="btn btn-primary"> Editar</button>
-</td>
-</tr>
-<hr style="border: none; border-top: 2px solid #333; width: 80%;">
-}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
 
-@code
-{
-    private bool mostrarEliminar = false;
-    private bool mostrarModificar= false;
+    .contenedor {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table th, table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    table th {
+        background-color: #007bff;
+        color: white;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    table tr {
+        border-bottom: 2px solid #ddd; /* Línea de separación entre filas */
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 4px;
+        border: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Estilos para el modal */
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none; /* Ocultar por defecto */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 400px;
+    }
+
+    .modal-content input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .modal-content button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .modal-content button:hover {
+        background-color: #0056b3;
+    }
+
+</style>
+
+<div class="contenedor">
+    <h1>Gestión de Usuarios</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var usuario in verusuarios.Ejecutar())
+            {
+                <tr>
+                    <td>@usuario.IdUsuario</td>
+                    <td>@usuario.Nombre</td>
+                    <td>@usuario.Apellido</td>
+                    <td>@usuario.Email</td>
+                    <td>
+                        <button class="btn btn-danger" @onclick="() => eliminar(usuario.Email!)">
+                            Eliminar
+                        </button>
+                        <button class="btn btn-primary" @onclick="() => EditarUsuario(usuario)">
+                            Editar
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal de modificación de usuario -->
+<div class="modal" style="display:@(mostrarModificar ? "flex" : "none")">
+    <div class="modal-content">
+        <h2>Modificar Usuario</h2>
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" @bind="nombre" />
+        </div>
+        <div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" @bind="apellido" />
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" @bind="email" />
+        </div>
+        <div>
+            <label for="password">Nueva Contraseña (opcional):</label>
+            <input type="password" id="password" @bind="password" />
+        </div>
+        <button @onclick="ModificarUsuario">Guardar Cambios</button>
+        <button @onclick="CerrarModal">Cancelar</button>
+    </div>
+</div>
+
+@code {
+    private bool mostrarModificar = false;
     private string? apellido;
     private string? nombre;
+    private string? email;
     private string? password;
-    private int id;
+    private int? idUsuario;
 
+    private void EditarUsuario(Usuario usuario)
+    {
+        // Rellenamos los datos del usuario en el modal
+        idUsuario = usuario.IdUsuario;
+        nombre = usuario.Nombre;
+        apellido = usuario.Apellido;
+        email = usuario.Email;
+        password = ""; // Limpiamos la contraseña por si no se quiere modificar
+        mostrarModificar = true;
+    }
 
-    private void MostrarEliminar(){
-        mostrarEliminar = !mostrarEliminar;
+    private void CerrarModal()
+    {
+        mostrarModificar = false;
     }
-    private void MostrarModificarUsuario(){
-        mostrarModificar = !mostrarModificar;
+
+    private void ModificarUsuario()
+    {
+        // Lógica para modificar el usuario
+        usuarioModificar.Ejecutar(idUsuario, nombre!, apellido!, email!, password); // El uso de "!" es para asegurar que no sean null
+        mostrarModificar = false; // Cerrar el modal después de modificar
     }
-    private void eliminar(string email){
+
+    private void eliminar(string email)
+    {
         usuarioBaja.Ejecutar(email);
-        mostrarEliminar = false;
     }
-
 }
