@@ -1,0 +1,70 @@
+
+    *[b-zuadijb6m6] {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body[b-zuadijb6m6] {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    h1[b-zuadijb6m6] {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .contenedor[b-zuadijb6m6] {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .bienvenida[b-zuadijb6m6] {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .mensaje-bienvenida[b-zuadijb6m6] {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .subtitulo[b-zuadijb6m6] {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        color: #555;
+    }
+
+    /* Estilo de los botones */
+    .boton-inicio[b-zuadijb6m6] {
+        width: 100%;
+        padding: 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 15px; /* Espacio entre botones */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .boton-inicio:hover[b-zuadijb6m6] {
+        background-color: #0056b3;
+        transform: translateY(-2px); /* Efecto hover de elevación */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .error-message[b-zuadijb6m6] {
+        color: red;
+        font-size: 1rem;
+        margin-top: 10px;
+        text-align: center;
+    }

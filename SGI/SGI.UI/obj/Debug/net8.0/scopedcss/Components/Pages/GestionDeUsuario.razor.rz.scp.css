@@ -1,0 +1,127 @@
+
+*[b-1edm1f6o9k] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body[b-1edm1f6o9k] {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.contenedor[b-1edm1f6o9k] {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1[b-1edm1f6o9k] {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+table[b-1edm1f6o9k] {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th[b-1edm1f6o9k], table td[b-1edm1f6o9k] {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th[b-1edm1f6o9k] {
+    background-color: #007bff;
+    color: white;
+}
+
+table tr:nth-child(even)[b-1edm1f6o9k] {
+    background-color: #f2f2f2;
+}
+
+table tr:hover[b-1edm1f6o9k] {
+    background-color: #f1f1f1;
+}
+
+table tr[b-1edm1f6o9k] {
+    border-bottom: 2px solid #ddd; /* Línea de separación entre filas */
+}
+
+.btn[b-1edm1f6o9k] {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-danger[b-1edm1f6o9k] {
+    background-color: #dc3545;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger:hover[b-1edm1f6o9k] {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary[b-1edm1f6o9k] {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover[b-1edm1f6o9k] {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para el modal */
+.modal[b-1edm1f6o9k] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Ocultar por defecto */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content[b-1edm1f6o9k] {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+}
+
+.modal-content input[b-1edm1f6o9k] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal-content button[b-1edm1f6o9k] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-content button:hover[b-1edm1f6o9k] {
+    background-color: #0056b3;
+}
