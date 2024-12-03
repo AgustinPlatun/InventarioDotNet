@@ -52,6 +52,11 @@ public class RepositorioProducto : IProductoRepositorio
                 {
                     throw new Exception($"Producto con ID {idProducto} no encontrado.");
                 }
+                var transaccionesABorrar = db.Transacciones.Where(producto => producto._productoId ==  idProducto );
+                if (transaccionesABorrar != null)
+                {
+                    db.Transacciones.RemoveRange(transaccionesABorrar);
+                } 
                 db.Productos.Remove(producto); 
                 db.SaveChanges(); 
             }

@@ -26,7 +26,7 @@
 
             <div class="elemento-input">
                 <label for="tipo">Tipo de Transacción:</label>
-                <select @bind="_tipoAltaString">
+                <select @onchange="(e) => OnTipoChanged(e.Value.ToString()  )">>
                     <option value="" disabled selected>Seleccione un tipo</option>
                     <option value="entrada">Entrada</option>
                     <option value="salida">Salida</option>
@@ -56,9 +56,9 @@
 
     private TipoTransaccion _tipoAlta { get; set; }
 
- private void OnTipoChanged()
+ private void OnTipoChanged(String e)
     {
-        _tipoAlta = _tipoAltaString switch
+        _tipoAlta = e switch
         {
             "entrada" => TipoTransaccion.entrada,
             "salida" => TipoTransaccion.salida
