@@ -17,6 +17,7 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Email</th>
+                <th>Permisos</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -29,6 +30,12 @@
                     <td>@usuario.Nombre</td>
                     <td>@usuario.Apellido</td>
                     <td>@usuario.Email</td>
+                    <td><ul>
+                        @foreach (var item in usuario.Permisos)
+                        {
+                            <span>@item ,</span> 
+                        }
+                    </ul></td>
                     <td>
                         <button class="btn btn-danger" @onclick="() => eliminar(usuario.Email!)">
                             Eliminar
