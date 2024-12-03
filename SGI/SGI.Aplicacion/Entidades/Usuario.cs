@@ -4,18 +4,18 @@ public class Usuario{
     public string? Apellido {get;set;}
     public string? Email {get;set;}
     public string? Password {get;set;}
-    public List<Permiso.Permisos> Permisos {get;set;}
+    public List<Permiso.Permisos> Permisos { get; set; } = new List<Permiso.Permisos>();
+
     public int IdUsuario{get;set;}
 
  public Usuario(string nombre, string apellido, string email, string password){
-        Permisos = new List<Permiso.Permisos>();
         Nombre = nombre;
         Apellido = apellido;
         Email = email;
         Password = password;
     }
 
-    public Usuario(string nombre, string apellido, string email, string password, int idUsuario, List<Permiso.Permisos>? permisos){
+    public Usuario(string nombre, string apellido, string email, string password, int idUsuario, List<Permiso.Permisos> permisos){
         Permisos = permisos;
         Nombre=nombre;
         Apellido=apellido;
