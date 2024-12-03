@@ -1,7 +1,8 @@
 namespace SGI.Aplicacion;
 
 
-public  class ProductoValidador : IProductoValidador{
+public  class ProductoValidador : IProductoValidador
+{
     public  void ValidarStockDisponible(int stockDisponible)
     {
         if (stockDisponible <= 0)

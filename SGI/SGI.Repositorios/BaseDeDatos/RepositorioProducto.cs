@@ -75,6 +75,10 @@ public class RepositorioProducto : IProductoRepositorio
                      producto.PrecioUnitario=nuevoPrecio;
                      producto.StockDisponible=nuevoStock;
                      producto.actualizarFechaMod(); 
+                    var categoria = db.Categorias.FirstOrDefault(c => c.Id == nuevaCategoria);
+                    if (categoria == null) {
+                        throw new Exception("No hay ninguna categoria asociada al ID ingresado.");
+                    }
                      producto.categoriaId=nuevaCategoria;
                      db.SaveChanges();  
                 } 

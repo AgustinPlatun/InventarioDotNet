@@ -5,6 +5,7 @@
 @inject DarBajaCategoria categoriasBajas
 @inject ModificarCategoria categoriasModificar
 @inject MostrarCategorias listadoCategorias
+@inject Usuario usuarioActual
 
 <PageTitle>Gestión de Categorías</PageTitle>
 
@@ -147,7 +148,7 @@
     {
         try
         {
-            categoriasModificar.validarModificacion(idAModificar, nombreCambiado!, descripcionModificada!);
+            categoriasModificar.validarModificacion(usuarioActual.IdUsuario,idAModificar, nombreCambiado!, descripcionModificada!);
             mostrarFormularioModificar = false;
             Navigation.NavigateTo("/categorias");
         }
@@ -161,7 +162,7 @@
     {
         try 
         {
-        categoriasBajas.validarBaja(idABuscar);
+        categoriasBajas.validarBaja(usuarioActual.IdUsuario,idABuscar);
         mostrarFormularioModificar = false;
         Navigation.NavigateTo("/categorias");
         }
@@ -175,7 +176,7 @@
     {
         try
         {
-            categoriasAltas.validarAlta(_nombreCategoria!, _descripcion!);
+            categoriasAltas.validarAlta(usuarioActual.IdUsuario,_nombreCategoria!, _descripcion!);
             mostrarFormularioAlta = false;
             Navigation.NavigateTo("/categorias");
         }

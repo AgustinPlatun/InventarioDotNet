@@ -1,12 +1,16 @@
 ﻿using SGI.Aplicacion;
 
 namespace SGI.Aplicacion;
-public class CasoDeUsoUsuarioAlta (IUsuarioRepositorio repo, UsuarioValidador validador, ServicioAutorizacion autorizacion){
-    public void Ejecutar(string nombre, string apellido, string email, string password){
-        if( validador.Validar(email)){
+public class CasoDeUsoUsuarioAlta (IUsuarioRepositorio repo, UsuarioValidador validador, ServicioAutorizacion autorizacion)
+{
+    public void Ejecutar(string nombre, string apellido, string email, string password)
+    {
+        if( validador.Validar(email))
+        {
             string passwordPasadaPorHash = ServicioFuncionHash.FuncionHashSHA256(password);
             int? idUsuario = repo.UsuarioAlta(nombre, apellido, email, passwordPasadaPorHash);
-            if( autorizacion.EsAdmin(idUsuario)){
+            if( autorizacion.EsAdmin(idUsuario))
+            {
                 List<Permiso.Permisos> permisos = new List<Permiso.Permisos>{Permiso.Permisos.categoriaalta,
                 Permiso.Permisos.productoalta,
                 Permiso.Permisos.categoriabaja,
@@ -20,8 +24,9 @@ public class CasoDeUsoUsuarioAlta (IUsuarioRepositorio repo, UsuarioValidador va
                 Permiso.Permisos.usuariomodificacion};
                 repo.UsuarioModificacion(idUsuario,nombre, apellido, email, passwordPasadaPorHash, permisos);
             }
-        }else{
+        }else
+        {
             throw new ValidacionException("El email ingresado ya se encuentra registrado !");
         }
-        }
     }
+}

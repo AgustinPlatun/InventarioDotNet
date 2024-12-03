@@ -36,7 +36,7 @@ public class RepositorioCategoria : ICategoriaRepositorio
         using (var db = new RepositorioContext())
         {
             var categoriaBajar = db.Categorias.FirstOrDefault(c => c.Id == id);
-            var productoEncontrado = db.Productos.FirstOrDefault();
+            var productoEncontrado = db.Productos.FirstOrDefault(p => p.CategoriaId == id);
             if (productoEncontrado != null)
             {
                 throw new Exception($"El ID {id} tiene un producto asociado .");
