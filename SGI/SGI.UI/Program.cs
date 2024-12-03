@@ -1,4 +1,4 @@
-using SGI.UI.Components;
+using SGI.UI;
 using SGI.Aplicacion;
 using SGI.Repositorios;
 

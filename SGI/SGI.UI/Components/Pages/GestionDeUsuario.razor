@@ -5,7 +5,7 @@
 @inject MostrarUsuarios verusuarios
 @inject CasoDeUsoUsuarioModificar usuarioModificar
 
-<PageTitle>Gestión de Usuarios</PageTitle>
+<PageTitle>Gestión de Usuarios</PageTitle> 
 
 <div class="contenedor">
     <h1>Gestión de Usuarios</h1>
@@ -63,9 +63,18 @@
             <label for="password">Nueva Contraseña (opcional):</label>
             <input type="password" id="password" @bind="password" />
         </div>
-        <button @onclick="ModificarUsuario">Guardar Cambios</button>
+        <button @onclick="() => GuardarCambios(idUsuario, nombre, apellido, email, password, permisos)">
+            Guardar Cambios
+        </button>
         <button @onclick="CerrarModal">Cancelar</button>
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="error-message">
+                @errorMessage
+            </div>
+        }
     </div>
+    
 </div>
 
 @code {
@@ -75,7 +84,11 @@
     private string? email;
     private string? password;
     private int? idUsuario;
+
+
     private List <Permiso.Permisos> permisos;
+
+    private string? errorMessage;
 
     private void EditarUsuario(Usuario usuario)
     {
@@ -93,11 +106,13 @@
         mostrarModificar = false;
     }
 
-    private void ModificarUsuario()
-    {
-        // Lógica para modificar el usuario
-        usuarioModificar.Ejecutar(idUsuario, nombre!, apellido!, email!, password,permisos); // El uso de "!" es para asegurar que no sean null
-        mostrarModificar = false; // Cerrar el modal después de modificar
+    public void GuardarCambios(int? idUsuario,string nombre, string apellido, string email, string password, List<Permiso.Permisos>? permisos){
+        try{
+            usuarioModificar.Ejecutar(idUsuario, nombre, apellido, email, password, permisos);
+            CerrarModal();
+        }catch(RepositorioException ex){
+            errorMessage = ex.Message;
+        }
     }
 
     private void eliminar(string email)

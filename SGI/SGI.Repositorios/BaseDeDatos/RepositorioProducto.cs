@@ -16,7 +16,7 @@ public class RepositorioProducto : IProductoRepositorio
         }
 
         // Método para dar de alta un producto
-        public void ProductoAlta(string nombre, string descripcion, double precioUnitario, int stockDisponible,int idCategoria)
+        public void ProductoAlta(int idUsuario,string nombre, string descripcion, double precioUnitario, int stockDisponible,int idCategoria)
         {
             try
             {

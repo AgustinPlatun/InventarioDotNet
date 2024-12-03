@@ -245,3 +245,9 @@ C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss
 C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\IniciarSesion.razor.rz.scp.css
 C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Producto.razor.rz.scp.css
 C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Transaccion.razor.rz.scp.css
+C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Layout\Registrarse.razor.rz.scp.css
+C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Categorias.razor.rz.scp.css
+C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\GestionDeUsuario.razor.rz.scp.css
+C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Home.razor.rz.scp.css
+C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Producto.razor.rz.scp.css
+C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Transaccion.razor.rz.scp.css

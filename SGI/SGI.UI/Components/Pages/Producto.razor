@@ -6,6 +6,7 @@
 @inject ModificarProducto productoModificar
 @inject ListarProductos productoListar
 @inject ProductoValidador validador
+@inject Usuario usuarioActual
 
 <PageTitle>Gestión de Productos</PageTitle>
 
@@ -127,6 +128,7 @@
     private double _nuevoPrecio; 
     private int _nuevoStock,_idCategoria,_nuevaCategoria; 
     private List<Producto> _lista = new List<Producto>(); 
+        
 
     private int _accionSeleccionada = 0;  // 0 = Ninguna acción seleccionada, 1 = Alta, 2 = Baja, 3 = Modificar 
 
@@ -139,7 +141,7 @@
                 validador.ValidarNombre(_nombre);
                 validador.ValidarPrecioUnitario(_precioUnitario);
                 validador.ValidarStockDisponible(_stockDisponible);
-                productoAlta.Ejecutar(_nombre, _descripcion, _precioUnitario, _stockDisponible,_idCategoria);
+                productoAlta.Ejecutar(usuarioActual.IdUsuario,_nombre, _descripcion, _precioUnitario, _stockDisponible,_idCategoria);
                 Navigation.NavigateTo("/");  // Redirige después de dar de alta
             }
             catch (Exception ex){

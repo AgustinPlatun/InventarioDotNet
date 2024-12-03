@@ -5,7 +5,7 @@ public class Usuario{
     public string? Email {get;set;}
     public string? Password {get;set;}
     public List<Permiso.Permisos> Permisos {get;set;}
-    public int? IdUsuario{get;set;}
+    public int IdUsuario{get;set;}
 
  public Usuario(string nombre, string apellido, string email, string password){
         Permisos = new List<Permiso.Permisos>();

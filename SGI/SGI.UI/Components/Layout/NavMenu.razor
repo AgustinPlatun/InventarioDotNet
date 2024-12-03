@@ -43,7 +43,7 @@
         </div>
 
         <!-- Mostrar Iniciar sesión o Cerrar sesión dependiendo del estado de autenticación -->
-        @if (usuarioActual.IdUsuario == null || string.IsNullOrEmpty(usuarioActual.Nombre))
+        @if (usuarioActual.IdUsuario == 0 || string.IsNullOrEmpty(usuarioActual.Nombre))
         {
             <!-- Enlace Iniciar sesión -->
             <div class="nav-item px-3">
