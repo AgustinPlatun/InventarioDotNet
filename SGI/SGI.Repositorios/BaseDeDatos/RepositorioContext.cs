@@ -69,10 +69,14 @@ public class RepositorioContext: DbContext
         //Transaccion
         modelBuilder.Entity<Transaccion>().ToTable("Transacciones");
         modelBuilder.Entity<Transaccion>().HasKey(t => t.id); 
-        modelBuilder.Entity<Transaccion>().Property(t => t.id).ValueGeneratedOnAdd(); 
         modelBuilder.Entity<Transaccion>().Property(t => t._productoId).IsRequired();
         modelBuilder.Entity<Transaccion>().Property(t => t._cantidad).IsRequired(); 
-        modelBuilder.Entity<Transaccion>().Property(t => t._tipo).IsRequired();  // El tipo de transacción es obligatorio
+        modelBuilder.Entity<Transaccion>()
+        .Property(t => t._tipo)           
+        .HasConversion<string>()          
+        .HasField("_tipo")                
+        .IsRequired();                    
+
         modelBuilder.Entity<Transaccion>().Property(t => t._fechaTransaccion);
     }
 }

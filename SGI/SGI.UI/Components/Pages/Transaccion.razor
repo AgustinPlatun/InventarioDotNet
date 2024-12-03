@@ -26,7 +26,7 @@
 
             <div class="elemento-input">
                 <label for="tipo">Tipo de Transacción:</label>
-                <select @bind="_tipoAlta">
+                <select @bind="_tipoAltaString">
                     <option value="" disabled selected>Seleccione un tipo</option>
                     <option value="entrada">Entrada</option>
                     <option value="salida">Salida</option>
@@ -41,7 +41,7 @@
         <form @onsubmit="BajaTransaccion">
             <div class="elemento-input">
                 <label for="idBaja">ID de la Transacción a Eliminar:</label>
-                <input type="number" @bind="_idTransaccionBaja" id="idBaja" required />
+                <input type="text" @bind="_idTransaccionBaja" id="idBaja" required />
             </div>
             <button type="submit" class="boton-inicio">Eliminar Transacción</button>
         </form>
@@ -51,12 +51,22 @@
 @code {
     private int _productoIdAlta;
     private int _cantidadAlta;
-    private string _tipoAlta;
+    private string _tipoAltaString;
     private int _idTransaccionBaja;
 
+    private TipoTransaccion _tipoAlta { get; set; }
+
+ private void OnTipoChanged()
+    {
+        _tipoAlta = _tipoAltaString switch
+        {
+            "entrada" => TipoTransaccion.entrada,
+            "salida" => TipoTransaccion.salida
+        };
+    }
     private void AltaTransaccion()
     {        
-        TransaccionAlta.Ejecutar(_productoIdAlta, _cantidadAlta, Enum.Parse<TipoTransaccion>(_tipoAlta));
+        TransaccionAlta.Ejecutar(_productoIdAlta, _cantidadAlta, _tipoAlta);
         Navigation.NavigateTo("/Transacciones");
     }
     

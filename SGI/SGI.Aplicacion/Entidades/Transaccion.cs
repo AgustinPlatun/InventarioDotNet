@@ -15,7 +15,7 @@ public class Transaccion {
 
     public Transaccion(int idProd, TipoTransaccion unTipo,int unaCant, DateTime unafecha) { 
         this._productoId=idProd;
-        this._tipo=unTipo;
+        this._cantidad = unaCant;
         this._tipo=unTipo;
         this._fechaTransaccion=unafecha;       
     }
