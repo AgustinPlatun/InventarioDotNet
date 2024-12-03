@@ -3,6 +3,7 @@
 @inject DarAltaTransaccion TransaccionAlta
 @inject DarBajaTransaccion TransaccionBaja
 @inject NavigationManager Navigation
+@inject Usuario usuarioActual
 @rendermode InteractiveServer
 
 <PageTitle>Gestión de Transacciones</PageTitle>
@@ -26,7 +27,7 @@
 
             <div class="elemento-input">
                 <label for="tipo">Tipo de Transacción:</label>
-                <select @onchange="(e) => OnTipoChanged(e.Value.ToString()  )">>
+                <select @onchange="(e) => OnTipoChanged(e.Value.ToString())">>
                     <option value="" disabled selected>Seleccione un tipo</option>
                     <option value="entrada">Entrada</option>
                     <option value="salida">Salida</option>
@@ -47,8 +48,14 @@
         </form>
     </section>
 </div>
-
+    @if (!string.IsNullOrEmpty(mensajeDeError))
+    {
+        <div class="error-message">
+            @mensajeDeError
+        </div>
+    }
 @code {
+    private string? mensajeDeError { get; set; }
     private int _productoIdAlta;
     private int _cantidadAlta;
     private string _tipoAltaString;
@@ -66,13 +73,26 @@
     }
     private void AltaTransaccion()
     {        
-        TransaccionAlta.Ejecutar(_productoIdAlta, _cantidadAlta, _tipoAlta);
+        try 
+        {
+        TransaccionAlta.Ejecutar(usuarioActual.IdUsuario,_productoIdAlta, _cantidadAlta, _tipoAlta);
         Navigation.NavigateTo("/Transacciones");
+        }
+        catch (Exception ex) 
+        {
+            mensajeDeError = ex.Message;
+        }
     }
     
     private void BajaTransaccion()
     {
-        TransaccionBaja.Ejecutar(_idTransaccionBaja);
+        try 
+        {
+        TransaccionBaja.Ejecutar(usuarioActual.IdUsuario,_idTransaccionBaja);
         Navigation.NavigateTo("/Transacciones"); // Redirigir a la página de transacciones después de dar de baja
+        } catch (Exception ex)
+        {
+            mensajeDeError = ex.Message;
+        }
     }
 }
