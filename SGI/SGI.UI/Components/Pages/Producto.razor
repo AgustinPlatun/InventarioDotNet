@@ -85,6 +85,12 @@
             </form>
         }
     </section>
+    @if (!string.IsNullOrEmpty(ErrorMensaje))
+    {
+        <div class="error-message">
+            @ErrorMensaje
+        </div>
+    }
 
     <!-- Lista de productos -->
     <section class="lista-productos">
@@ -155,8 +161,11 @@
     {
         if (_accionSeleccionada == 2)
         {
-            productoBaja.Ejecutar(_idProducto);
-            Navigation.NavigateTo("/");  // Redirige después de dar de baja
+            try{
+                productoBaja.Ejecutar(usuarioActual.IdUsuario,_idProducto);
+            }catch (Exception ex){
+                ErrorMensaje = ex.Message;
+            }
         }
     }
 
