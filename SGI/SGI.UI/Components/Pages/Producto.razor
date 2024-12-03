@@ -144,9 +144,6 @@
         if (_accionSeleccionada == 1)
         {
             try {
-                validador.ValidarNombre(_nombre);
-                validador.ValidarPrecioUnitario(_precioUnitario);
-                validador.ValidarStockDisponible(_stockDisponible);
                 productoAlta.Ejecutar(usuarioActual.IdUsuario,_nombre, _descripcion, _precioUnitario, _stockDisponible,_idCategoria);
                 Navigation.NavigateTo("/");  // Redirige después de dar de alta
             }
@@ -173,9 +170,6 @@
     private void Modificar()
     {
         try {
-            validador.ValidarNombre(_nuevoNombre);
-            validador.ValidarPrecioUnitario(_nuevoPrecio);
-            validador.ValidarStockDisponible(_nuevoStock);
             productoModificar.Ejecutar(_idProducto, _nuevoNombre, _nuevaDesc, _nuevoPrecio, _nuevoStock, _nuevaCategoria);
             Navigation.NavigateTo("/");  // Redirige después de modificar
         } catch (Exception ex) {

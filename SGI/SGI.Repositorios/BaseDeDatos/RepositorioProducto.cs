@@ -20,11 +20,17 @@ public class RepositorioProducto : IProductoRepositorio
         {
             try
             {
+                
                 using (var db = new RepositorioContext())
                 {
+                    var categoria = db.Categorias.FirstOrDefault(c => c.Id == idCategoria);
+                    if (categoria == null) {
+                        throw new Exception("No hay ninguna categoria asociada al ID ingresado.");
+                    }
                     var producto = new Producto(nombre, descripcion, precioUnitario, stockDisponible, idCategoria);
                     db.Productos.Add(producto);  // Asegura que el producto se agregue a la tabla Productos
                     db.SaveChanges(); // Guarda los cambios en la base de datos
+
                 }
             }
             catch (DbUpdateException dbEx)
@@ -32,10 +38,6 @@ public class RepositorioProducto : IProductoRepositorio
                 Console.WriteLine($"Error al agregar el producto: {dbEx.Message}");
                 Console.WriteLine($"Inner Exception: {dbEx.InnerException?.Message}");
                 Console.WriteLine($"Stack Trace: {dbEx.StackTrace}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
             }
         }
 

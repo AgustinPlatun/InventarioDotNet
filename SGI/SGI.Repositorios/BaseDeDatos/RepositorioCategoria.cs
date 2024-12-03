@@ -36,11 +36,17 @@ public class RepositorioCategoria : ICategoriaRepositorio
         using (var db = new RepositorioContext())
         {
             var categoriaBajar = db.Categorias.FirstOrDefault(c => c.Id == id);
+            var productoEncontrado = db.Productos.FirstOrDefault();
+            if (productoEncontrado != null)
+            {
+                throw new Exception($"El ID {id} tiene un producto asociado .");
+            }
             if (categoriaBajar != null)
             {
                 db.Remove(categoriaBajar);
                 db.SaveChanges();
             }
+
         }
     }
     public void CategoriaModificar(int id,string nombre,string descripcion)

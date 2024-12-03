@@ -159,9 +159,16 @@
 
     private void ejecutarBaja()
     {
+        try 
+        {
         categoriasBajas.validarBaja(idABuscar);
         mostrarFormularioModificar = false;
         Navigation.NavigateTo("/categorias");
+        }
+        catch (Exception ex)
+        {
+            mensajeDeError = ex.Message;
+        }
     }
 
     private void ejecutarAlta()

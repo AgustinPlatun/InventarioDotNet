@@ -25,16 +25,6 @@ namespace SGI.Aplicacion
             this.fechaCreacion = DateTime.Now;
             this.fechaUltimaModificacion = DateTime.Now;
         }
-        public Producto(string nombre, string descripcion, double precioUnitario, int stockDisponible)
-        {
-            this.nombre = nombre;
-            this.descripcion = descripcion;
-            this.precioUnitario = precioUnitario;
-            this.stockDisponible = stockDisponible;
-            this.fechaCreacion = DateTime.Now;
-            this.fechaUltimaModificacion = DateTime.Now;
-            this.categoriaId=0;
-        }
         public Producto(string nombre, string descripcion, double precioUnitario, int stockDisponible, int categoriaId)
         {
             this.nombre = nombre;
@@ -43,7 +33,7 @@ namespace SGI.Aplicacion
             this.stockDisponible = stockDisponible;
             this.fechaCreacion = DateTime.Now;
             this.fechaUltimaModificacion = DateTime.Now;
-            this.categoriaId=0;
+            this.categoriaId= categoriaId;
         }
 
         public int Id

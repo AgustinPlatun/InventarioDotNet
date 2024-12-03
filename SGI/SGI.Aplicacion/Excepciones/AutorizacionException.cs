@@ -8,4 +8,5 @@ public class AutorizacionException : Exception
 
     public AutorizacionException(string mensaje, Exception innerException) : base(mensaje, innerException) { }
 
+    
 }
