@@ -14,7 +14,6 @@
     <section class="formulario-seccion">
         <h1 class="titulo">Gestión de Producto</h1>
 
-        <!-- Dropdown para seleccionar acción -->
         <div class="elemento-input">
             <label for="accion">Seleccionar acción:</label>
             <select id="accion" @bind="_accionSeleccionada">
@@ -25,7 +24,6 @@
             </select>
         </div>
 
-        <!-- Formulario Dar Alta Producto -->
         @if (_accionSeleccionada == 1)
         {
             <form class="form" @onsubmit="DarAlta">
@@ -48,7 +46,6 @@
             </form>
         }
 
-        <!-- Formulario Dar Baja Producto -->
         @if (_accionSeleccionada == 2)
         {
             <form class="form" @onsubmit="DarBaja">
@@ -59,7 +56,6 @@
             </form>
         }
 
-        <!-- Formulario Modificar Producto -->
         @if (_accionSeleccionada == 3)
         {
             <form class="form" @onsubmit="Modificar">
@@ -85,6 +81,15 @@
             </form>
         }
     </section>
+
+    <!-- Notificación -->
+    @if (!string.IsNullOrEmpty(MensajeNotificacion))
+    {
+        <div class="notificacion @TipoNotificacion">
+            @MensajeNotificacion
+        </div>
+    }
+
     @if (!string.IsNullOrEmpty(ErrorMensaje))
     {
         <div class="error-message">
@@ -92,7 +97,6 @@
         </div>
     }
 
-    <!-- Lista de productos -->
     <section class="lista-productos">
         <h2>Productos Disponibles</h2>
         <table class="tabla-productos">
@@ -134,53 +138,68 @@
     private double _nuevoPrecio; 
     private int _nuevoStock,_idCategoria,_nuevaCategoria; 
     private List<Producto> _lista = new List<Producto>(); 
-        
+    private string MensajeNotificacion { get; set; }
+    private string TipoNotificacion { get; set; }
 
-    private int _accionSeleccionada = 0;  // 0 = Ninguna acción seleccionada, 1 = Alta, 2 = Baja, 3 = Modificar 
+    private int _accionSeleccionada = 0;  
 
-    // Función para dar de alta un producto
     private void DarAlta()
     {
         if (_accionSeleccionada == 1)
         {
-            try {
+            try
+            {
                 validador.ValidarNombre(_nombre);
                 validador.ValidarPrecioUnitario(_precioUnitario);
                 validador.ValidarStockDisponible(_stockDisponible);
-                productoAlta.Ejecutar(usuarioActual.IdUsuario,_nombre, _descripcion, _precioUnitario, _stockDisponible,_idCategoria);
-                Navigation.NavigateTo("/");
+                productoAlta.Ejecutar(usuarioActual.IdUsuario, _nombre, _descripcion, _precioUnitario, _stockDisponible, _idCategoria);
+                MensajeNotificacion = "Producto dado de alta correctamente";
+                TipoNotificacion = "exito";
+                Navigation.NavigateTo("/productos"); // Redirigir a la misma página para refrescar
             }
-            catch (Exception ex){
-                ErrorMensaje = ex.Message;
+            catch (Exception ex)
+            {
+                MensajeNotificacion = "Error en el dado de alta de producto: " + ex.Message;
+                TipoNotificacion = "error";
             }
         }
     }
 
-    // Función para dar de baja un producto
     private void DarBaja()
     {
         if (_accionSeleccionada == 2)
         {
-            try{
-                productoBaja.Ejecutar(usuarioActual.IdUsuario,_idProducto);
-            }catch (Exception ex){
-                ErrorMensaje = ex.Message;
+            try
+            {
+                productoBaja.Ejecutar(usuarioActual.IdUsuario, _idProducto);
+                MensajeNotificacion = "Producto dado de baja correctamente";
+                TipoNotificacion = "exito";
+                Navigation.NavigateTo("/productos"); // Redirigir a la misma página para refrescar
+            }
+            catch (Exception ex)
+            {
+                MensajeNotificacion = "Error en el dado de baja de producto: " + ex.Message;
+                TipoNotificacion = "error";
             }
         }
     }
 
-    // Función para modificar un producto
     private void Modificar()
     {
-        try {
+        try
+        {
             validador.ValidarNombre(_nuevoNombre);
             validador.ValidarPrecioUnitario(_nuevoPrecio);
             validador.ValidarStockDisponible(_nuevoStock);
             productoModificar.Ejecutar(_idProducto, _nuevoNombre, _nuevaDesc, _nuevoPrecio, _nuevoStock, _nuevaCategoria);
-            Navigation.NavigateTo("/"); 
-        } catch (Exception ex) {
-            ErrorMensaje = ex.Message;
+            MensajeNotificacion = "Producto modificado correctamente";
+            TipoNotificacion = "exito";
+            Navigation.NavigateTo("/productos"); // Redirigir a la misma página para refrescar
+        }
+        catch (Exception ex)
+        {
+            MensajeNotificacion = "Error al modificar el producto: " + ex.Message;
+            TipoNotificacion = "error";
         }
     }
 }
-

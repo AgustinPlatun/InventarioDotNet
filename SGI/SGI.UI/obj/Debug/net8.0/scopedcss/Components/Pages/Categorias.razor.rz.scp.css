@@ -46,7 +46,6 @@
         font-size: 1rem;
     }
 
-    /* Botones con más espacio y sombras */
     .boton-inicio[b-r612jt5qpu] {
         width: 100%;
         padding: 15px;
@@ -57,17 +56,16 @@
         font-size: 1.2rem;
         cursor: pointer;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-bottom: 15px; /* Espacio entre botones */
+        margin-bottom: 15px; 
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .boton-inicio:hover[b-r612jt5qpu] {
         background-color: #0056b3;
-        transform: translateY(-2px); /* Efecto hover de elevación */
+        transform: translateY(-2px); 
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     }
 
-    /* Botón de vuelta */
     .boton-vuelta[b-r612jt5qpu] {
         background-color: #ccc;
         padding: 10px;
@@ -115,7 +113,6 @@
         background-color: #f1f1f1;
     }
 
-    /* Estilo de la tabla */
     table[b-r612jt5qpu] {
         width: 100%;
         border-collapse: collapse;
@@ -140,3 +137,23 @@
     table tr:hover[b-r612jt5qpu] {
         background-color: #f1f1f1;
     }
+    .popup[b-r612jt5qpu] {
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 15px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        z-index: 1000;
+    }
+    
+    .mensaje-exito[b-r612jt5qpu] {
+        background-color: green;
+    }
+    
+    .mensaje-error[b-r612jt5qpu] {
+        background-color: red;
+    }
+    

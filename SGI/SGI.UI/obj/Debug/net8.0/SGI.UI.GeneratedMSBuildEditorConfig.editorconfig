@@ -22,10 +22,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Santiago/desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/CerrarSesion.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDZXJyYXJTZXNpb24ucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Santiago/desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -49,6 +45,10 @@ build_metadata.AdditionalFiles.CssScope = b-wza2gz8osz
 [C:/Users/Santiago/desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/Categorias.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXRlZ29yaWFzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-r612jt5qpu
+
+[C:/Users/Santiago/desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/CerrarSesion.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDZXJyYXJTZXNpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-r1q8nntbda
 
 [C:/Users/Santiago/desktop/InventarioDotNet/SGI/SGI.UI/Components/Pages/GestionDeUsuario.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xHZXN0aW9uRGVVc3VhcmlvLnJhem9y

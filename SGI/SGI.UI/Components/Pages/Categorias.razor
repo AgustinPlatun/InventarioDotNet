@@ -10,37 +10,24 @@
 <PageTitle>Gestión de Categorías</PageTitle>
 
 <div class="contenedor">
+    @if (!string.IsNullOrEmpty(mensajeDeExito))
+    {
+        <div class="popup mensaje-exito">
+            @mensajeDeExito
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(mensajeDeError))
+    {
+        <div class="popup mensaje-error">
+            @mensajeDeError
+        </div>
+    }
+
     <section class="formulario-seccion">
         <button class="boton-inicio" @onclick="() => MostrarFormularioAlta()">Dar alta categoría</button>
         <button class="boton-inicio" @onclick="() => MostrarFormularioBaja()">Dar baja categoría</button>
         <button class="boton-inicio" @onclick="() => MostrarFormularioModificar()">Modificar categoría</button>
-    </section>
-
-    <section class="tabla-categorias">
-        <h2>Lista de Categorías</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Fecha de Creación</th>
-                    <th>Fecha de Última Modificación</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var categoria in listadoCategorias.Ejecutar())
-                {
-                    <tr>
-                        <td>@categoria.Id</td>
-                        <td>@categoria.Nombre</td>
-                        <td>@categoria.Descripcion</td>
-                        <td>@categoria.FechaCreacion</td>
-                        <td>@categoria.FechaUltimaModificacion</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
     </section>
 
     @if (mostrarFormularioAlta)
@@ -100,22 +87,43 @@
         </section>
     }
 
-    @if (!string.IsNullOrEmpty(mensajeDeError))
-    {
-        <div class="error-message">
-            @mensajeDeError
-        </div>
-    }
+    <section class="tabla-categorias">
+        <h2>Lista de Categorías</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Creación</th>
+                    <th>Fecha de Última Modificación</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var categoria in listadoCategorias.Ejecutar())
+                {
+                    <tr>
+                        <td>@categoria.Id</td>
+                        <td>@categoria.Nombre</td>
+                        <td>@categoria.Descripcion</td>
+                        <td>@categoria.FechaCreacion</td>
+                        <td>@categoria.FechaUltimaModificacion</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
 </div>
 
 @code {
     private string? mensajeDeError { get; set; }
+    private string? mensajeDeExito { get; set; }
     private bool mostrarFormularioAlta = false;
     private bool mostrarFormularioBaja = false;
     private bool mostrarFormularioModificar = false;
     private string? nombreCategoria, nombreCambiado, descripcion, descripcionModificada;
     private int idABuscar, idAModificar;
-    private int idUsuario; 
+    private int idUsuario;
 
     private void MostrarFormularioModificar()
     {
@@ -149,13 +157,22 @@
     {
         try
         {
-            categoriasModificar.validarModificacion(usuarioActual.IdUsuario,idAModificar, nombreCambiado, descripcionModificada);
+            var categoriaExistente = listadoCategorias.Ejecutar().FirstOrDefault(c => c.Id == idAModificar);
+            if (categoriaExistente == null)
+            {
+                throw new Exception("La categoría con el ID especificado no existe.");
+            }
+
+            categoriasModificar.validarModificacion(usuarioActual.IdUsuario, idAModificar, nombreCambiado, descripcionModificada);
             mostrarFormularioModificar = false;
-            listadoCategorias.Ejecutar();  // Actualizar lista de categorías
+            listadoCategorias.Ejecutar(); 
+            mensajeDeExito = "Categoría modificada correctamente.";
+            mensajeDeError = null; 
         }
         catch (Exception ex)
         {
-            mensajeDeError = ex.Message;
+            mensajeDeError = "Error en la modificación de categoría: " + ex.Message;
+            mensajeDeExito = null; 
         }
     }
 
@@ -163,13 +180,22 @@
     {
         try
         {
-            categoriasBajas.validarBaja(usuarioActual.IdUsuario,idABuscar);
+            var categoria = listadoCategorias.Ejecutar().FirstOrDefault(c => c.Id == idABuscar);
+            if (categoria == null)
+            {
+                throw new Exception("La categoría con el ID especificado no existe.");
+            }
+
+            categoriasBajas.validarBaja(usuarioActual.IdUsuario, idABuscar);
             mostrarFormularioBaja = false;
-            listadoCategorias.Ejecutar();  // Actualizar lista de categorías
+            listadoCategorias.Ejecutar(); 
+            mensajeDeExito = "Categoría dada de baja correctamente.";
+            mensajeDeError = null; // Limpiar el mensaje de error si hay uno
         }
         catch (Exception ex)
         {
-            mensajeDeError = ex.Message;
+            mensajeDeError = "Error en el dado de baja de categoría: " + ex.Message;
+            mensajeDeExito = null; 
         }
     }
 
@@ -177,13 +203,15 @@
     {
         try
         {
-            categoriasAltas.validarAlta(usuarioActual.IdUsuario,nombreCategoria!, descripcion!);
+            categoriasAltas.validarAlta(usuarioActual.IdUsuario, nombreCategoria!, descripcion!);
             mostrarFormularioAlta = false;
-            listadoCategorias.Ejecutar();  // Actualizar lista de categorías
-        }
+            listadoCategorias.Ejecutar();  
+            mensajeDeExito = "Categoría dada de alta correctamente.";
+            mensajeDeError = null;
+
         catch (Exception ex)
         {
-            mensajeDeError = ex.Message;
-        }
+            mensajeDeError = "Error en el dado de alta de categoría: " + ex.Message;
+            mensajeDeExito = null; 
     }
 }

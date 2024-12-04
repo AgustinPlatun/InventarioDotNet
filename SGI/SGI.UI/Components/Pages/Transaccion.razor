@@ -12,8 +12,6 @@
 <div class="contenedor">
     <section class="formulario-seccion">
         <h1 class="titulo">Gestión de Transacciones</h1>
-
-        <!-- Formulario Dar Alta Transacción -->
         <h2>Dar Alta Transacción</h2>
         <form @onsubmit="AltaTransaccion">
             <div class="elemento-input">
@@ -38,7 +36,6 @@
             <button type="submit" class="boton-inicio">Registrar Transacción</button>
         </form>
 
-        <!-- Formulario Dar Baja Transacción -->
         <h2>Dar Baja Transacción</h2>
         <form @onsubmit="BajaTransaccion">
             <div class="elemento-input">
@@ -48,42 +45,48 @@
             <button type="submit" class="boton-inicio">Eliminar Transacción</button>
         </form>
     </section>
-<!-- Mostrar listado de transacciones -->
-<section class="tabla-transacciones">
-    <h2>Listado de Transacciones</h2>
-    @if (transacciones != null && transacciones.Count > 0)
-    {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Producto ID</th>
-                    <th>Cantidad</th>
-                    <th>Tipo</th>
-                    <th>Fecha</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var transaccion in transacciones)
-                {
-                    <tr>
-                        <td>@transaccion.id</td>
-                        <td>@transaccion._productoId</td>
-                        <td>@transaccion._cantidad</td>
-                        <td>@transaccion._tipo.ToString()</td>
-                        <td>@transaccion._fechaTransaccion</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-    else
-    {
-        <p class="no-transacciones">No hay transacciones disponibles.</p>
-    }
-</section>
 
+    <section class="tabla-transacciones">
+        <h2>Listado de Transacciones</h2>
+        @if (transacciones != null && transacciones.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Producto ID</th>
+                        <th>Cantidad</th>
+                        <th>Tipo</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var transaccion in transacciones)
+                    {
+                        <tr>
+                            <td>@transaccion.id</td>
+                            <td>@transaccion._productoId</td>
+                            <td>@transaccion._cantidad</td>
+                            <td>@transaccion._tipo.ToString()</td>
+                            <td>@transaccion._fechaTransaccion</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="no-transacciones">No hay transacciones disponibles.</p>
+        }
+    </section>
 </div>
+
+@if (!string.IsNullOrEmpty(MensajeNotificacion))
+{
+    <div class="notificacion @TipoNotificacion">
+        @MensajeNotificacion
+    </div>
+}
 
 @if (!string.IsNullOrEmpty(mensajeDeError))
 {
@@ -94,6 +97,8 @@
 
 @code {
     private string? mensajeDeError { get; set; }
+    private string? MensajeNotificacion { get; set; }
+    private string TipoNotificacion { get; set; }
     private int _productoIdAlta;
     private int _cantidadAlta;
     private string _tipoAltaString;
@@ -101,16 +106,17 @@
 
     private TipoTransaccion _tipoAlta { get; set; }
     private List<SGI.Aplicacion.Transaccion> transacciones = new List<SGI.Aplicacion.Transaccion>();
+
     protected override async Task OnInitializedAsync()
     {
         await CargarTransacciones();
     }
 
-    private async Task CargarTransacciones() // usando async Task es la unica forma que encontramos para que lista de transacciones no se cargue recien cuando se da de alta o baja alguna
+    private async Task CargarTransacciones()
     {
         try
         {
-            transacciones =TransaccionLista.Listar();
+            transacciones = TransaccionLista.Listar();
         }
         catch (Exception ex)
         {
@@ -129,28 +135,36 @@
     }
 
     private async Task AltaTransaccion()
-    {        
-        try 
+    {
+        try
         {
             TransaccionAlta.Ejecutar(usuarioActual.IdUsuario, _productoIdAlta, _cantidadAlta, _tipoAlta);
+            MensajeNotificacion = "Transacción registrada correctamente.";
+            TipoNotificacion = "exito"; 
             await CargarTransacciones();
         }
-        catch (Exception ex) 
-        {
-            mensajeDeError = ex.Message;
-        }
-    }
-    
-    private async Task BajaTransaccion()
-    {
-        try 
-        {
-            TransaccionBaja.Ejecutar(usuarioActual.IdUsuario, _idTransaccionBaja);
-            await CargarTransacciones();
-        } 
         catch (Exception ex)
         {
             mensajeDeError = ex.Message;
+            MensajeNotificacion = "Error al registrar la transacción: " + ex.Message;
+            TipoNotificacion = "error"; 
+        }
+    }
+
+    private async Task BajaTransaccion()
+    {
+        try
+        {
+            TransaccionBaja.Ejecutar(usuarioActual.IdUsuario, _idTransaccionBaja);
+            MensajeNotificacion = "Transacción eliminada correctamente.";
+            TipoNotificacion = "exito";
+            await CargarTransacciones();
+        }
+        catch (Exception ex)
+        {
+            mensajeDeError = ex.Message;
+            MensajeNotificacion = "Error al eliminar la transacción: " + ex.Message;
+            TipoNotificacion = "error";
         }
     }
 }

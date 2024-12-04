@@ -337,3 +337,4 @@ C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\SGI.UI.genru
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\ref\SGI.UI.dll
 C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Registrarse.razor.rz.scp.css
 C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Registrarse.razor.rz.scp.css
+C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\CerrarSesion.razor.rz.scp.css
