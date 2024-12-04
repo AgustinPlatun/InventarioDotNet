@@ -1,4 +1,5 @@
-﻿@page "/Home"
+﻿@page "/"
+@page "/Home"
 @using SGI.Aplicacion;
 @inject Usuario usuarioActual;
 @inject NavigationManager Navigation
@@ -8,7 +9,7 @@
 <div class="contenedor">
     <h1>Sistema de gestión de inventario</h1>
 
-    @if (usuarioActual.IdUsuario != null)
+    @if (usuarioActual.IdUsuario != 0)
     {
         <div class="bienvenida">
             <p class="mensaje-bienvenida">Bienvenido al Sistema de Gestión de Inventario!</p>
@@ -29,6 +30,6 @@
     private void IniciarSesion()
     {
         // Redirigir a la página de inicio de sesión
-        Navigation.NavigateTo("/Login");
+        Navigation.NavigateTo("/IniciarSesion");
     }
 }
