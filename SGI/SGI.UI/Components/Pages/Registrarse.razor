@@ -53,7 +53,7 @@
             usuarioAlta.Ejecutar(_nombre!,_apellido!,_email!,_password!);
             Navigation.NavigateTo("/");
         }
-        catch(RepositorioException ex){
+        catch(Exception ex){
             errorMessage = ex.Message;
         }
     }
