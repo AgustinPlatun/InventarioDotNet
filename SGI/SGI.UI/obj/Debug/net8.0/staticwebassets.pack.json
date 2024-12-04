@@ -1,6 +1,7 @@
 {
   "Files": [
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGI.UI.bundle.scp.css",
       "PackagePath": "staticwebassets\\SGI.UI.bundle.scp.css"
     },
@@ -18,6 +19,25 @@
     },
     {
       "Id": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\favicon.png",
+=======
+      "Id": "C:\\Users\\franb\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGI.UI.bundle.scp.css",
+      "PackagePath": "staticwebassets\\SGI.UI.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\franb\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\franb\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\franb\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\franb\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\favicon.png",
+>>>>>>> c49b256ca17e8b62e0d6683d47f2f35aa4a81151
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {

@@ -321,7 +321,6 @@ C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\staticwebass
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
-C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Layout\Registrarse.razor.rz.scp.css
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Categorias.razor.rz.scp.css
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\GestionDeUsuario.razor.rz.scp.css
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Home.razor.rz.scp.css
@@ -336,5 +335,9 @@ C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\SGI.UI.pdb
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\SGI.UI.genruntimeconfig.cache
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\ref\SGI.UI.dll
 C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Registrarse.razor.rz.scp.css
+<<<<<<< HEAD
 C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Registrarse.razor.rz.scp.css
 C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\CerrarSesion.razor.rz.scp.css
+=======
+C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Registrarse.razor.rz.scp.css
+>>>>>>> c49b256ca17e8b62e0d6683d47f2f35aa4a81151

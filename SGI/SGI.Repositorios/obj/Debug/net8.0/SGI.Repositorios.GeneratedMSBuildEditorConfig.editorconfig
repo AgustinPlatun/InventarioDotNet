@@ -8,6 +8,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SGI.Repositorios
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Repositorios\
+=======
+build_property.ProjectDir = C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.Repositorios\
+>>>>>>> c49b256ca17e8b62e0d6683d47f2f35aa4a81151
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

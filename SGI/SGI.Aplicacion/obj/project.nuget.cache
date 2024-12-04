@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "uSjE9xjHXqc=",
   "success": true,
   "projectFilePath": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
+=======
+  "dgSpecHash": "VPhCAt7WliM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\franb\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
+>>>>>>> c49b256ca17e8b62e0d6683d47f2f35aa4a81151
   "expectedPackageFiles": [],
   "logs": []
 }

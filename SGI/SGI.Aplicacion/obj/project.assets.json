@@ -8,11 +8,16 @@
     "net8.0": []
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Santiago\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\franb\\.nuget\\packages\\": {}
+>>>>>>> c49b256ca17e8b62e0d6683d47f2f35aa4a81151
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
       "projectName": "SGI.Aplicacion",
       "projectPath": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
@@ -21,6 +26,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Santiago\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+      "projectUniqueName": "C:\\Users\\franb\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
+      "projectName": "SGI.Aplicacion",
+      "projectPath": "C:\\Users\\franb\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
+      "packagesPath": "C:\\Users\\franb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\franb\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\franb\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> c49b256ca17e8b62e0d6683d47f2f35aa4a81151
       ],
       "originalTargetFrameworks": [
         "net8.0"
