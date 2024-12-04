@@ -7,17 +7,14 @@
 body[b-m0thwp5m3b] {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-}
-
-h1[b-m0thwp5m3b], h2[b-m0thwp5m3b] {
-    text-align: center;
-    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
 .contenedor[b-m0thwp5m3b] {
     width: 80%;
     max-width: 400px;
-    margin: 0 auto;
+    margin: 50px auto;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
@@ -48,6 +45,7 @@ h1[b-m0thwp5m3b], h2[b-m0thwp5m3b] {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
+    margin-top: 5px;
 }
 
 .boton-inicio[b-m0thwp5m3b] {
@@ -59,6 +57,7 @@ h1[b-m0thwp5m3b], h2[b-m0thwp5m3b] {
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .boton-inicio:hover[b-m0thwp5m3b] {
@@ -70,4 +69,8 @@ h1[b-m0thwp5m3b], h2[b-m0thwp5m3b] {
     font-size: 1rem;
     margin-top: 10px;
     text-align: center;
+}
+
+form[b-m0thwp5m3b] {
+    margin: 0;
 }

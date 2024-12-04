@@ -1,4 +1,4 @@
-@page "/GestionDeUsuario"
+@page "/GestionDeUsuario" 
 @rendermode InteractiveServer
 @inject NavigationManager Navigation
 @inject CasoDeUsoUsuarioBaja usuarioBaja
@@ -6,12 +6,18 @@
 @inject CasoDeUsoUsuarioModificar usuarioModificar
 @inject CasoDeUsoPermisoAlta permisoAlta
 @inject CasoDeUsoPermisoBaja permisoBaja
+@inject CasoDeUsoUsuarioAlta usuarioAlta
+
 <PageTitle>Gestión de Usuarios</PageTitle> 
 
 <div class="contenedor">
     <h1>Gestión de Usuarios</h1>
+    
+    <!-- Botón para agregar un nuevo usuario -->
+    <button class="btn btn-success" @onclick="AbrirFormularioAgregarUsuario">+</button>
 
-    <table>
+    <!-- Lista de usuarios -->
+    <table class="table-compact">
         <thead>
             <tr>
                 <th>ID</th>
@@ -22,7 +28,6 @@
                 <th>Acciones</th>
             </tr>
         </thead>
-
         <tbody>
             @foreach (var usuario in verusuarios.Ejecutar())
             {
@@ -31,25 +36,16 @@
                     <td>@usuario.Nombre</td>
                     <td>@usuario.Apellido</td>
                     <td>@usuario.Email</td>
-                    <td><ul>
-                        @foreach (var item in usuario.Permisos)
-                        {
-                            <span>@item.ToString() ,</span> 
-                        }
-                    </ul></td>
                     <td>
-                        <button class="btn btn-danger" @onclick="() => eliminar(usuario.Email!)">
-                            Eliminar
-                        </button>
-                        <button class="btn btn-primary" @onclick="() => EditarUsuario(usuario)">
-                            Editar
-                        </button>
-                        <button class="btn btn-primary" @onclick="() => AbrirModalAgregarPermiso(usuario)">
-                            Agregar Permiso
-                        </button>
-                        <button class="btn btn-primary" @onclick="() => AbrirModalEliminarPermiso(usuario)">
-                            Eliminar Permiso
-                        </button>
+                        <span>@string.Join(", ", usuario.Permisos.Select(p => p.ToString()))</span>
+                    </td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-danger btn-sm" @onclick="() => eliminar(usuario.Email!)">Eliminar</button>
+                            <button class="btn btn-primary btn-sm" @onclick="() => EditarUsuario(usuario)">Editar</button>
+                            <button class="btn btn-info btn-sm" @onclick="() => AbrirModalAgregarPermiso(usuario)">Agregar Permiso</button>
+                            <button class="btn btn-warning btn-sm" @onclick="() => AbrirModalEliminarPermiso(usuario)">Eliminar Permiso</button>
+                        </div>
                     </td>
                 </tr>
             }
@@ -57,10 +53,44 @@
     </table>
 </div>
 
+<!-- Modal para agregar un nuevo usuario -->
+<div class="modal" style="display:@(mostrarAgregarUsuario ? "flex" : "none")">
+    <div class="modal-content">
+        <h2>Agregar Usuario</h2>
+        
+        <div>
+            <label for="nombreNuevoUsuario">Nombre:</label>
+            <input type="text" id="nombreNuevoUsuario" @bind="nombreNuevoUsuario" />
+        </div>
+        <div>
+            <label for="apellidoNuevoUsuario">Apellido:</label>
+            <input type="text" id="apellidoNuevoUsuario" @bind="apellidoNuevoUsuario" />
+        </div>
+        <div>
+            <label for="emailNuevoUsuario">Email:</label>
+            <input type="email" id="emailNuevoUsuario" @bind="emailNuevoUsuario" />
+        </div>
+        <div>
+            <label for="passwordNuevaUsuario">Contraseña:</label>
+            <input type="password" id="passwordNuevaUsuario" @bind="passwordNuevaUsuario" required />
+        </div>
+        
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div style="color: red;">
+                @errorMessage
+            </div>
+        }
+        
+        <button @onclick="() => DarDeAltaUsuario()">Dar de Alta Usuario</button>
+        <button @onclick="CerrarFormularioAgregarUsuario">Cancelar</button>
+    </div>
+</div>
+
+<!-- Modal para eliminar permiso -->
 <div class="modal" style="display:@(mostrarEliminarPermiso ? "flex" : "none")">
     <div class="modal-content">
         <h2>Eliminar Permiso</h2>
-        
         <div>
             <label for="permisos">Selecciona el Permiso:</label>
             <select id="permisos" @bind="permisoSeleccionado">
@@ -71,20 +101,15 @@
             </select>
         </div>
         
-        <button @onclick="() => EliminarPermiso(permisoSeleccionado)">
-            Eliminar Permiso
-        </button>
-        <button @onclick="CerrarModalEliminarPermiso">
-            Cancelar
-        </button>
+        <button @onclick="() => EliminarPermiso(permisoSeleccionado)">Eliminar Permiso</button>
+        <button @onclick="CerrarModalEliminarPermiso">Cancelar</button>
     </div>
 </div>
 
-
+<!-- Modal para agregar permiso -->
 <div class="modal" style="display:@(mostrarAgregarPermiso ? "flex" : "none")">
     <div class="modal-content">
         <h2>Agregar Permiso</h2>
-        
         <div>
             <label for="permisos">Selecciona el Permiso:</label>
             <select id="permisos" @bind="permisoSeleccionado">
@@ -95,16 +120,12 @@
             </select>
         </div>
         
-        <button @onclick="() => AgregarPermiso(permisoSeleccionado)">
-            Agregar Permiso
-        </button>
-        <button @onclick="CerrarModalAgregarPermiso">
-            Cancelar
-        </button>
+        <button @onclick="() => AgregarPermiso(permisoSeleccionado)">Agregar Permiso</button>
+        <button @onclick="CerrarModalAgregarPermiso">Cancelar</button>
     </div>
 </div>
 
-
+<!-- Modal para modificar usuario -->
 <div class="modal" style="display:@(mostrarModificar ? "flex" : "none")">
     <div class="modal-content">
         <h2>Modificar Usuario</h2>
@@ -124,17 +145,16 @@
             <label for="password">Nueva Contraseña (opcional):</label>
             <input type="password" id="password" @bind="password" />
         </div>
+        
         @if (!string.IsNullOrEmpty(errorMessage))
         {
-          <div style="color: red;">
-          @errorMessage
-         </div>
+            <div style="color: red;">
+                @errorMessage
+            </div>
         }
-        <button @onclick="() => GuardarCambios(idUsuario, nombre, apellido, email, password)">
-            Guardar Cambios
-        </button>
+        
+        <button @onclick="() => GuardarCambios(idUsuario, nombreNuevoUsuario, apellidoNuevoUsuario, emailNuevoUsuario, passwordNuevaUsuario)">Guardar Cambios</button>
         <button @onclick="CerrarModal">Cancelar</button>
-
     </div>
 </div>
 
@@ -142,6 +162,7 @@
     private bool mostrarModificar = false;
     private bool mostrarEliminarPermiso = false;
     private bool mostrarAgregarPermiso = false;
+    private bool mostrarAgregarUsuario = false; // Controla la visibilidad del modal de agregar usuario
     private Permiso.Permisos permisoSeleccionado;
     private string? apellido;
     private string? nombre;
@@ -150,10 +171,15 @@
     private int idUsuario;
     private int idAct;
     private List<Permiso.Permisos> permisos = new List<Permiso.Permisos>();
-    private List<Permiso.Permisos> permisosDisponibles = new List<Permiso.Permisos>(); // Lista de permisos disponibles para agregar
+    private List<Permiso.Permisos> permisosDisponibles = new List<Permiso.Permisos>();
     private string? errorMessage;
+    private string? nombreNuevoUsuario;
+    private string? apellidoNuevoUsuario;
+    private string? emailNuevoUsuario;
+    private string? passwordNuevaUsuario; // Contraseña para el nuevo usuario
+    private string? mensajePopup;
+    private string colorPopup = "green"; // Valor por defecto: verde para éxito
 
-    // Lista de todos los permisos posibles
     private List<Permiso.Permisos> todosLosPermisos = new List<Permiso.Permisos>
     {
         Permiso.Permisos.categoriaalta,
@@ -169,14 +195,59 @@
         Permiso.Permisos.usuariomodificacion
     };
 
+    private void AbrirFormularioAgregarUsuario()
+    {
+        mostrarAgregarUsuario = true; // Muestra el formulario de agregar usuario cuando se hace clic en el botón "+"
+    }
+
+    private void CerrarFormularioAgregarUsuario()
+    {
+        mostrarAgregarUsuario = false; 
+    }
+
+    private void DarDeAltaUsuario()
+    {
+        try
+        {
+            // Validación simple de contraseña
+            if (string.IsNullOrEmpty(passwordNuevaUsuario))
+            {
+                errorMessage = "La contraseña es obligatoria.";
+                return;
+            }
+
+            usuarioAlta.Ejecutar(nombreNuevoUsuario, apellidoNuevoUsuario, emailNuevoUsuario, passwordNuevaUsuario);
+            mostrarAgregarUsuario = false; // Cierra el formulario después de guardar el usuario
+            MostrarPopup("Usuario dado de alta correctamente", "green");
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+            MostrarPopup($"Error al dar de alta el usuario: {errorMessage}", "red");
+        }
+    }
+
+    private void MostrarPopup(string mensaje, string color)
+    {
+        mensajePopup = mensaje;
+        colorPopup = color;
+        // Espera 3 segundos y luego oculta el popup
+        Task.Delay(3000).ContinueWith(_ =>
+        {
+            InvokeAsync(() =>
+            {
+                mensajePopup = null;
+            });
+        });
+    }
+
     private void EditarUsuario(Usuario usuario)
     {
-        // Rellenamos los datos del usuario en el modal
         idUsuario = usuario.IdUsuario;
-        nombre = usuario.Nombre;
-        apellido = usuario.Apellido;
-        email = usuario.Email;
-        password = ""; // Limpiamos la contraseña por si no se quiere modificar
+        nombreNuevoUsuario = usuario.Nombre;
+        apellidoNuevoUsuario = usuario.Apellido;
+        emailNuevoUsuario = usuario.Email;
+        passwordNuevaUsuario = ""; // Limpiamos la contraseña por si no se quiere modificar
         mostrarModificar = true;
     }
 
@@ -199,7 +270,6 @@
 
     private void AbrirModalAgregarPermiso(Usuario usuario)
     {
-        // Obtenemos los permisos que el usuario no posee
         permisosDisponibles = todosLosPermisos.Except(usuario.Permisos).ToList();
         permisos = usuario.Permisos;
         idAct = usuario.IdUsuario;
@@ -214,7 +284,7 @@
     private void AgregarPermiso(Permiso.Permisos permiso)
     {   
         permisos.Add(permiso);
-        permisoAlta.Ejecutar(permisos,idAct);
+        permisoAlta.Ejecutar(permisos, idAct);
         CerrarModalAgregarPermiso();
     }
 
@@ -237,12 +307,9 @@
     }
 
     private void EliminarPermiso(Permiso.Permisos permiso)
-{
-    permisos.Remove(permiso);
-    permisoBaja.Ejecutar(permisos,idAct);
-    CerrarModalEliminarPermiso();
+    {
+        permisos.Remove(permiso);
+        permisoBaja.Ejecutar(permisos, idAct);
+        CerrarModalEliminarPermiso();
+    }
 }
-
-}
-
-
