@@ -111,7 +111,7 @@ public class RepositorioUsuario : IUsuarioRepositorio
         {
         using(var db = new RepositorioContext())
         {
-            var usuario = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario); //no puede enviar null, ya que es la id del usuario utilizando el sistema
+            var usuario = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
             if(usuario != null)
             {
                 if(usuario.Permisos != null)
@@ -122,7 +122,7 @@ public class RepositorioUsuario : IUsuarioRepositorio
                     return false;
                 }
             } 
-            return false; //para emergencias 
+            return false;
         }
     }
         public void agregarPermisos(List<Permiso.Permisos> permiso,int idUsuario)
@@ -152,4 +152,5 @@ public class RepositorioUsuario : IUsuarioRepositorio
                 db.SaveChanges();
             }
         }
+        
 }

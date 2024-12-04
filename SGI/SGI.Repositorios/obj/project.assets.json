@@ -1291,32 +1291,56 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Santiago\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\agusp\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj",
+=======
+      "projectUniqueName": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj",
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
       "projectName": "SGI.Repositorios",
-      "projectPath": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj",
-      "packagesPath": "C:\\Users\\Santiago\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.Repositorios\\obj\\",
+      "projectPath": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Repositorios\\SGI.Repositorios.csproj",
+      "packagesPath": "C:\\Users\\agusp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Repositorios\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\Santiago\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+        "C:\\Users\\agusp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj": {
               "projectPath": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj"
+=======
+            "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj": {
+              "projectPath": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj"
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
             }
           }
         }
@@ -1357,7 +1381,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -1366,7 +1390,11 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Problem reading the cache file C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.Repositorios\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
+      "message": "Problema al leer el archivo de caché C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Repositorios\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
     }
   ]
 }
