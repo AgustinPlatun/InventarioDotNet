@@ -6,6 +6,8 @@
 @inject CasoDeUsoUsuarioModificar usuarioModificar
 @inject CasoDeUsoPermisoAlta permisoAlta
 @inject CasoDeUsoPermisoBaja permisoBaja
+@inject ConsultaDePermisos consultaDePermisos
+@inject Usuario usuarioActual
 <PageTitle>Gestión de Usuarios</PageTitle> 
 
 <div class="contenedor">
@@ -44,12 +46,14 @@
                         <button class="btn btn-primary" @onclick="() => EditarUsuario(usuario)">
                             Editar
                         </button>
-                        <button class="btn btn-primary" @onclick="() => AbrirModalAgregarPermiso(usuario)">
-                            Agregar Permiso
-                        </button>
-                        <button class="btn btn-primary" @onclick="() => AbrirModalEliminarPermiso(usuario)">
-                            Eliminar Permiso
-                        </button>
+                        @if(consultaDePermisos.admin(usuarioActual.IdUsuario)){
+                            <button class="btn btn-primary" @onclick="() => AbrirModalAgregarPermiso(usuario)">
+                                Agregar Permiso
+                            </button>
+                            <button class="btn btn-primary" @onclick="() => AbrirModalEliminarPermiso(usuario)">
+                                Eliminar Permiso
+                            </button>
+                        }
                     </td>
                 </tr>
             }

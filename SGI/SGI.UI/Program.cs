@@ -10,6 +10,7 @@ builder.Services.AddRazorComponents()
     .AddCircuitOptions(options => options.DetailedErrors = true);
 
 // Servicios para Usuarios
+builder.Services.AddScoped<ConsultaDePermisos>();
 builder.Services.AddScoped<IUsuarioRepositorio, RepositorioUsuario>();
 builder.Services.AddScoped<UsuarioValidador>();
 builder.Services.AddScoped<ServicioAutorizacion>();

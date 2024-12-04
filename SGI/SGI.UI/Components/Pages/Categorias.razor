@@ -165,14 +165,14 @@
 
             categoriasModificar.validarModificacion(usuarioActual.IdUsuario, idAModificar, nombreCambiado, descripcionModificada);
             mostrarFormularioModificar = false;
-            listadoCategorias.Ejecutar(); 
+            listadoCategorias.Ejecutar();
             mensajeDeExito = "Categoría modificada correctamente.";
-            mensajeDeError = null; 
+            mensajeDeError = null;
         }
         catch (Exception ex)
         {
             mensajeDeError = "Error en la modificación de categoría: " + ex.Message;
-            mensajeDeExito = null; 
+            mensajeDeExito = null;
         }
     }
 
@@ -188,14 +188,14 @@
 
             categoriasBajas.validarBaja(usuarioActual.IdUsuario, idABuscar);
             mostrarFormularioBaja = false;
-            listadoCategorias.Ejecutar(); 
+            listadoCategorias.Ejecutar();
             mensajeDeExito = "Categoría dada de baja correctamente.";
-            mensajeDeError = null; // Limpiar el mensaje de error si hay uno
+            mensajeDeError = null;
         }
         catch (Exception ex)
         {
             mensajeDeError = "Error en el dado de baja de categoría: " + ex.Message;
-            mensajeDeExito = null; 
+            mensajeDeExito = null;
         }
     }
 
@@ -205,13 +205,15 @@
         {
             categoriasAltas.validarAlta(usuarioActual.IdUsuario, nombreCategoria!, descripcion!);
             mostrarFormularioAlta = false;
-            listadoCategorias.Ejecutar();  
+            listadoCategorias.Ejecutar();
             mensajeDeExito = "Categoría dada de alta correctamente.";
             mensajeDeError = null;
-
+        }
         catch (Exception ex)
         {
             mensajeDeError = "Error en el dado de alta de categoría: " + ex.Message;
-            mensajeDeExito = null; 
+            mensajeDeExito = null;
+        }
     }
 }
+
