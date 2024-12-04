@@ -1,0 +1,63 @@
+@page "/ModificarMisDatos"
+@using SGI.Aplicacion
+@inject Usuario usuarioActual
+@inject NavigationManager Navigation
+@inject CasoDeUsoUsuarioModificar modificacion
+@rendermode InteractiveServer
+@inject UsuarioValidador validador
+
+<h1>Modificar Mis Datos</h1>
+<h3>Tus Datos actuales son Nombre: @usuarioActual.Nombre, Apellido: @usuarioActual.Apellido</h3>
+
+<div >
+    <section >
+        <div>
+            <form @onsubmit="Ejecutar">
+                <div >
+                    <input type="text" @bind="datosNuevos.Nombre" id="input-nombre" placeholder=" Nombre" >
+                </div>
+                <div >
+                    <input type="text" @bind="datosNuevos.Apellido" id="input-apellido" placeholder=" Apellido" >
+                </div>
+                <div >
+                    <input type="email" @bind="datosNuevos.Email" id="input-email" placeholder=" Email" >
+                </div>
+                <div>
+                    <input type="password" @bind="datosNuevos.Password" id="input-password" placeholder=" Contraseña" >
+                </div>
+                <div>
+                    <button type="submit">Modificar</button>
+                </div>
+                <div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div style="color: red;">
+        @errorMessage
+    </div>
+}
+
+
+@code {
+    Usuario datosNuevos = new Usuario();
+    private string? errorMessage;
+    private void Ejecutar()
+    {
+        datosNuevos.Nombre = string.IsNullOrEmpty(datosNuevos.Nombre) ? usuarioActual.Nombre : datosNuevos.Nombre;
+        datosNuevos.Apellido = string.IsNullOrEmpty(datosNuevos.Apellido) ? usuarioActual.Apellido : datosNuevos.Apellido;
+        datosNuevos.Email = string.IsNullOrEmpty(datosNuevos.Email) ? usuarioActual.Email : datosNuevos.Email;
+        datosNuevos.Password = string.IsNullOrEmpty(datosNuevos.Password) ? usuarioActual.Password : datosNuevos.Password;
+        if(datosNuevos.Email != usuarioActual.Email){
+            if(validador.Validar(datosNuevos.Email)){
+                modificacion.Ejecutar(usuarioActual.IdUsuario, datosNuevos.Nombre, datosNuevos.Apellido, datosNuevos.Email, datosNuevos.Password);
+            }else{
+                errorMessage = "El email ingresado ya se encuentra registrado !";
+            }
+        }
+    }
+}
