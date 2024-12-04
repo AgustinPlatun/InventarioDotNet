@@ -3,16 +3,12 @@
 @inject NavigationManager Navigation
 @inject CasoDeUsoUsuarioBaja usuarioBaja
 @inject MostrarUsuarios verusuarios
+@inject CasoDeUsoUsuarioAlta usuarioAlta
 @inject CasoDeUsoUsuarioModificar usuarioModificar
 @inject CasoDeUsoPermisoAlta permisoAlta
 @inject CasoDeUsoPermisoBaja permisoBaja
-<<<<<<< HEAD
-@inject CasoDeUsoUsuarioAlta usuarioAlta
-
-=======
 @inject ConsultaDePermisos consultaDePermisos
 @inject Usuario usuarioActual
->>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
 <PageTitle>Gestión de Usuarios</PageTitle> 
 
 <div class="contenedor">
@@ -42,17 +38,6 @@
                     <td>@usuario.Apellido</td>
                     <td>@usuario.Email</td>
                     <td>
-<<<<<<< HEAD
-                        <span>@string.Join(", ", usuario.Permisos.Select(p => p.ToString()))</span>
-                    </td>
-                    <td>
-                        <div class="action-buttons">
-                            <button class="btn btn-danger btn-sm" @onclick="() => eliminar(usuario.Email!)">Eliminar</button>
-                            <button class="btn btn-primary btn-sm" @onclick="() => EditarUsuario(usuario)">Editar</button>
-                            <button class="btn btn-info btn-sm" @onclick="() => AbrirModalAgregarPermiso(usuario)">Agregar Permiso</button>
-                            <button class="btn btn-warning btn-sm" @onclick="() => AbrirModalEliminarPermiso(usuario)">Eliminar Permiso</button>
-                        </div>
-=======
                         <button class="btn btn-danger" @onclick="() => eliminar(usuario.Email!)">
                             Eliminar
                         </button>
@@ -67,7 +52,6 @@
                                 Eliminar Permiso
                             </button>
                         }
->>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
                     </td>
                 </tr>
             }
