@@ -72,3 +72,71 @@ h1, h2 {
     margin-top: 10px;
     text-align: center;
 }
+
+/* Estilos para la tabla de transacciones */
+.tabla-transacciones {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.tabla-transacciones h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.table th {
+    background-color: #f8f8f8;
+    color: #333;
+    font-weight: bold;
+}
+
+.table td {
+    background-color: #fff;
+    color: #666;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.table td:last-child {
+    text-align: center;
+}
+
+.table td, .table th {
+    border-radius: 4px;
+}
+
+.no-transacciones {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #888;
+    margin-top: 20px;
+}
+
+/* Estilo para la fila de la tabla */
+.table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.table tr:nth-child(even) {
+    background-color: #fafafa;
+}

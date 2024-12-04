@@ -39,6 +39,7 @@ builder.Services.AddSingleton<ITransaccionRepositorio, RepositorioTransaccion>()
 builder.Services.AddScoped<RepositorioTransaccion>();
 builder.Services.AddScoped<DarAltaTransaccion>();
 builder.Services.AddScoped<DarBajaTransaccion>();
+builder.Services.AddScoped<ListarTransacciones>(); 
 
 // Configurar el middleware y pipeline
 var app = builder.Build();

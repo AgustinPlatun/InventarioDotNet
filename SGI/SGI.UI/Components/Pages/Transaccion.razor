@@ -4,6 +4,7 @@
 @inject DarBajaTransaccion TransaccionBaja
 @inject NavigationManager Navigation
 @inject Usuario usuarioActual
+@inject ListarTransacciones TransaccionLista
 @rendermode InteractiveServer
 
 <PageTitle>Gestión de Transacciones</PageTitle>
@@ -27,7 +28,7 @@
 
             <div class="elemento-input">
                 <label for="tipo">Tipo de Transacción:</label>
-                <select @onchange="(e) => OnTipoChanged(e.Value.ToString())">>
+                <select @onchange="(e) => OnTipoChanged(e.Value.ToString())">
                     <option value="" disabled selected>Seleccione un tipo</option>
                     <option value="entrada">Entrada</option>
                     <option value="salida">Salida</option>
@@ -47,13 +48,50 @@
             <button type="submit" class="boton-inicio">Eliminar Transacción</button>
         </form>
     </section>
-</div>
-    @if (!string.IsNullOrEmpty(mensajeDeError))
+<!-- Mostrar listado de transacciones -->
+<section class="tabla-transacciones">
+    <h2>Listado de Transacciones</h2>
+    @if (transacciones != null && transacciones.Count > 0)
     {
-        <div class="error-message">
-            @mensajeDeError
-        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Producto ID</th>
+                    <th>Cantidad</th>
+                    <th>Tipo</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var transaccion in transacciones)
+                {
+                    <tr>
+                        <td>@transaccion.id</td>
+                        <td>@transaccion._productoId</td>
+                        <td>@transaccion._cantidad</td>
+                        <td>@transaccion._tipo.ToString()</td>
+                        <td>@transaccion._fechaTransaccion</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     }
+    else
+    {
+        <p class="no-transacciones">No hay transacciones disponibles.</p>
+    }
+</section>
+
+</div>
+
+@if (!string.IsNullOrEmpty(mensajeDeError))
+{
+    <div class="error-message">
+        @mensajeDeError
+    </div>
+}
+
 @code {
     private string? mensajeDeError { get; set; }
     private int _productoIdAlta;
@@ -62,21 +100,40 @@
     private int _idTransaccionBaja;
 
     private TipoTransaccion _tipoAlta { get; set; }
+    private List<SGI.Aplicacion.Transaccion> transacciones = new List<SGI.Aplicacion.Transaccion>();
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarTransacciones();
+    }
 
- private void OnTipoChanged(String e)
+    private async Task CargarTransacciones() // usando async Task es la unica forma que encontramos para que lista de transacciones no se cargue recien cuando se da de alta o baja alguna
+    {
+        try
+        {
+            transacciones =TransaccionLista.Listar();
+        }
+        catch (Exception ex)
+        {
+            mensajeDeError = ex.Message;
+        }
+    }
+
+    private void OnTipoChanged(string e)
     {
         _tipoAlta = e switch
         {
             "entrada" => TipoTransaccion.entrada,
-            "salida" => TipoTransaccion.salida
+            "salida" => TipoTransaccion.salida,
+            _ => _tipoAlta
         };
     }
-    private void AltaTransaccion()
+
+    private async Task AltaTransaccion()
     {        
         try 
         {
-        TransaccionAlta.Ejecutar(usuarioActual.IdUsuario,_productoIdAlta, _cantidadAlta, _tipoAlta);
-        Navigation.NavigateTo("/Transacciones");
+            TransaccionAlta.Ejecutar(usuarioActual.IdUsuario, _productoIdAlta, _cantidadAlta, _tipoAlta);
+            await CargarTransacciones();
         }
         catch (Exception ex) 
         {
@@ -84,13 +141,14 @@
         }
     }
     
-    private void BajaTransaccion()
+    private async Task BajaTransaccion()
     {
         try 
         {
-        TransaccionBaja.Ejecutar(usuarioActual.IdUsuario,_idTransaccionBaja);
-        Navigation.NavigateTo("/Transacciones"); // Redirigir a la página de transacciones después de dar de baja
-        } catch (Exception ex)
+            TransaccionBaja.Ejecutar(usuarioActual.IdUsuario, _idTransaccionBaja);
+            await CargarTransacciones();
+        } 
+        catch (Exception ex)
         {
             mensajeDeError = ex.Message;
         }

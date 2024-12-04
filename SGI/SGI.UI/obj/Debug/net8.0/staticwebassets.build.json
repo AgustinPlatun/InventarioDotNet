@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3ru7pXASwgAKV1I+AQf0wVJqLHy8Md153uAU875+peI=",
+  "Hash": "JWfr68yrf2L+ZgIZ1UlRvXdU9Z7p15Gz66WRS+BX3S8=",
   "Source": "SGI.UI",
   "BasePath": "_content/SGI.UI",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "SGI.UI\\wwwroot",
       "Source": "SGI.UI",
-      "ContentRoot": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\",
       "BasePath": "_content/SGI.UI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SGI.UI.styles.css",
+      "Identity": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SGI.UI.styles.css",
       "SourceId": "SGI.UI",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/SGI.UI",
       "RelativePath": "SGI.UI.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SGI.UI.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SGI.UI.styles.css"
     },
     {
-      "Identity": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGI.UI.bundle.scp.css",
+      "Identity": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGI.UI.bundle.scp.css",
       "SourceId": "SGI.UI",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/SGI.UI",
       "RelativePath": "SGI.UI.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGI.UI.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGI.UI.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\app.css",
       "SourceId": "SGI.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\",
       "BasePath": "_content/SGI.UI",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "SGI.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\",
       "BasePath": "_content/SGI.UI",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "SGI.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\",
       "BasePath": "_content/SGI.UI",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\favicon.png",
       "SourceId": "SGI.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\",
       "BasePath": "_content/SGI.UI",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

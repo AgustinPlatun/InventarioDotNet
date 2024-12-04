@@ -3,9 +3,9 @@ namespace SGI.Aplicacion;
 using SGI.Aplicacion;
 public class ListarTransacciones(ITransaccionRepositorio repo) 
 {
-    public void Listar() 
+    public List <Transaccion> Listar() 
     { 
-        repo.ListarTransacciones();   
+        return repo.ListarTransacciones();
     }
 
 }

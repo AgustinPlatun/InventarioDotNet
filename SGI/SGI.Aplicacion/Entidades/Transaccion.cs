@@ -13,6 +13,14 @@ public class Transaccion {
     public TipoTransaccion _tipo;   
     public DateTime _fechaTransaccion; 
 
+    public Transaccion (int id, int idProd, TipoTransaccion unTipo, int unaCant, DateTime unafecha) { 
+        this.id = id; 
+        this._productoId=idProd;
+        this._cantidad = unaCant;
+        this._tipo=unTipo;
+        this._fechaTransaccion=unafecha;
+    }
+
     public Transaccion(int idProd, TipoTransaccion unTipo,int unaCant, DateTime unafecha) { 
         this._productoId=idProd;
         this._cantidad = unaCant;

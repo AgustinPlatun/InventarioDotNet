@@ -1,11 +1,11 @@
 @page "/categorias"
 @rendermode InteractiveServer
+@inject Usuario usuarioActual
 @inject NavigationManager Navigation
 @inject DarAltaCategoria categoriasAltas
 @inject DarBajaCategoria categoriasBajas
 @inject ModificarCategoria categoriasModificar
 @inject MostrarCategorias listadoCategorias
-@inject Usuario usuarioActual
 
 <PageTitle>Gestión de Categorías</PageTitle>
 
@@ -50,11 +50,11 @@
             <form @onsubmit="ejecutarAlta">
                 <div class="elemento-input">
                     <p>Nombre de categoría nueva</p>
-                    <input type="text" @bind="_nombreCategoria" required />
+                    <input type="text" @bind="nombreCategoria" required />
                 </div>
                 <div class="elemento-input">
                     <p>Descripción</p>
-                    <input type="text" @bind="_descripcion" placeholder="Descripción" required />
+                    <input type="text" @bind="descripcion" placeholder="Descripción" required />
                 </div>
                 <button type="submit" class="boton-inicio">Dar Alta categoría</button>
             </form>
@@ -113,8 +113,9 @@
     private bool mostrarFormularioAlta = false;
     private bool mostrarFormularioBaja = false;
     private bool mostrarFormularioModificar = false;
-    private string? _nombreCategoria, nombreCambiado, _descripcion, descripcionModificada;
+    private string? nombreCategoria, nombreCambiado, descripcion, descripcionModificada;
     private int idABuscar, idAModificar;
+    private int idUsuario; 
 
     private void MostrarFormularioModificar()
     {
@@ -148,9 +149,9 @@
     {
         try
         {
-            categoriasModificar.validarModificacion(usuarioActual.IdUsuario,idAModificar, nombreCambiado!, descripcionModificada!);
+            categoriasModificar.validarModificacion(usuarioActual.IdUsuario,idAModificar, nombreCambiado, descripcionModificada);
             mostrarFormularioModificar = false;
-            Navigation.NavigateTo("/categorias");
+            listadoCategorias.Ejecutar();  // Actualizar lista de categorías
         }
         catch (Exception ex)
         {
@@ -160,11 +161,11 @@
 
     private void ejecutarBaja()
     {
-        try 
+        try
         {
-        categoriasBajas.validarBaja(usuarioActual.IdUsuario,idABuscar);
-        mostrarFormularioModificar = false;
-        Navigation.NavigateTo("/categorias");
+            categoriasBajas.validarBaja(usuarioActual.IdUsuario,idABuscar);
+            mostrarFormularioBaja = false;
+            listadoCategorias.Ejecutar();  // Actualizar lista de categorías
         }
         catch (Exception ex)
         {
@@ -176,9 +177,9 @@
     {
         try
         {
-            categoriasAltas.validarAlta(usuarioActual.IdUsuario,_nombreCategoria!, _descripcion!);
+            categoriasAltas.validarAlta(usuarioActual.IdUsuario,nombreCategoria!, descripcion!);
             mostrarFormularioAlta = false;
-            Navigation.NavigateTo("/categorias");
+            listadoCategorias.Ejecutar();  // Actualizar lista de categorías
         }
         catch (Exception ex)
         {
