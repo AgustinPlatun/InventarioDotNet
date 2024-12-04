@@ -9,4 +9,6 @@ public interface IUsuarioRepositorio
     Usuario UsuarioInicioDeSesion(string email, string password);
     bool UsuarioValidarPermiso(Permiso.Permisos permiso, int idUsuario);
     bool EmailRepetido(string? email); 
+    public void agregarPermisos(List<Permiso.Permisos> permiso,int idUsuario);
+    public void eliminarPermisos(List<Permiso.Permisos> permiso,int idUsuario);
 }

@@ -4,7 +4,8 @@
 @inject CasoDeUsoUsuarioBaja usuarioBaja
 @inject MostrarUsuarios verusuarios
 @inject CasoDeUsoUsuarioModificar usuarioModificar
-
+@inject CasoDeUsoPermisoAlta permisoAlta
+@inject CasoDeUsoPermisoBaja permisoBaja
 <PageTitle>Gestión de Usuarios</PageTitle> 
 
 <div class="contenedor">
@@ -43,10 +44,10 @@
                         <button class="btn btn-primary" @onclick="() => EditarUsuario(usuario)">
                             Editar
                         </button>
-                        <button class="btn btn-primary" @onclick="() => AbrirModalAgregarPermiso(usuario.Permisos)">
+                        <button class="btn btn-primary" @onclick="() => AbrirModalAgregarPermiso(usuario)">
                             Agregar Permiso
                         </button>
-                        <button class="btn btn-primary" @onclick="() => AbrirModalEliminarPermiso(usuario.Permisos)">
+                        <button class="btn btn-primary" @onclick="() => AbrirModalEliminarPermiso(usuario)">
                             Eliminar Permiso
                         </button>
                     </td>
@@ -56,7 +57,6 @@
     </table>
 </div>
 
-<!-- Modal de eliminación de permiso -->
 <div class="modal" style="display:@(mostrarEliminarPermiso ? "flex" : "none")">
     <div class="modal-content">
         <h2>Eliminar Permiso</h2>
@@ -71,7 +71,7 @@
             </select>
         </div>
         
-        <button @onclick="EliminarPermiso">
+        <button @onclick="() => EliminarPermiso(permisoSeleccionado)">
             Eliminar Permiso
         </button>
         <button @onclick="CerrarModalEliminarPermiso">
@@ -80,7 +80,7 @@
     </div>
 </div>
 
-<!-- Modal de agregar permiso -->
+
 <div class="modal" style="display:@(mostrarAgregarPermiso ? "flex" : "none")">
     <div class="modal-content">
         <h2>Agregar Permiso</h2>
@@ -95,7 +95,7 @@
             </select>
         </div>
         
-        <button @onclick="AgregarPermiso">
+        <button @onclick="() => AgregarPermiso(permisoSeleccionado)">
             Agregar Permiso
         </button>
         <button @onclick="CerrarModalAgregarPermiso">
@@ -104,7 +104,7 @@
     </div>
 </div>
 
-<!-- Modal de modificación de usuario -->
+
 <div class="modal" style="display:@(mostrarModificar ? "flex" : "none")">
     <div class="modal-content">
         <h2>Modificar Usuario</h2>
@@ -124,16 +124,17 @@
             <label for="password">Nueva Contraseña (opcional):</label>
             <input type="password" id="password" @bind="password" />
         </div>
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+          <div style="color: red;">
+          @errorMessage
+         </div>
+        }
         <button @onclick="() => GuardarCambios(idUsuario, nombre, apellido, email, password)">
             Guardar Cambios
         </button>
         <button @onclick="CerrarModal">Cancelar</button>
-        @if (!string.IsNullOrEmpty(errorMessage))
-        {
-            <div class="error-message">
-                @errorMessage
-            </div>
-        }
+
     </div>
 </div>
 
@@ -141,12 +142,13 @@
     private bool mostrarModificar = false;
     private bool mostrarEliminarPermiso = false;
     private bool mostrarAgregarPermiso = false;
-    private Permiso.Permisos? permisoSeleccionado;
+    private Permiso.Permisos permisoSeleccionado;
     private string? apellido;
     private string? nombre;
     private string? email;
     private string? password;
-    private int? idUsuario;
+    private int idUsuario;
+    private int idAct;
     private List<Permiso.Permisos> permisos = new List<Permiso.Permisos>();
     private List<Permiso.Permisos> permisosDisponibles = new List<Permiso.Permisos>(); // Lista de permisos disponibles para agregar
     private string? errorMessage;
@@ -183,9 +185,10 @@
         mostrarModificar = false;
     }
 
-    private void AbrirModalEliminarPermiso(List<Permiso.Permisos> permisosUsuario)
+    private void AbrirModalEliminarPermiso(Usuario usuario)
     {
-        permisos = permisosUsuario;
+        permisos = usuario.Permisos;
+        idAct = usuario.IdUsuario;
         mostrarEliminarPermiso = true;
     }
 
@@ -194,10 +197,12 @@
         mostrarEliminarPermiso = false;
     }
 
-    private void AbrirModalAgregarPermiso(List<Permiso.Permisos> permisosUsuario)
+    private void AbrirModalAgregarPermiso(Usuario usuario)
     {
         // Obtenemos los permisos que el usuario no posee
-        permisosDisponibles = todosLosPermisos.Except(permisosUsuario).ToList();
+        permisosDisponibles = todosLosPermisos.Except(usuario.Permisos).ToList();
+        permisos = usuario.Permisos;
+        idAct = usuario.IdUsuario;
         mostrarAgregarPermiso = true;
     }
 
@@ -206,10 +211,10 @@
         mostrarAgregarPermiso = false;
     }
 
-    private void AgregarPermiso()
-    {
-        // Funcionalidad de agregar el permiso
-        // Aquí puedes agregar la lógica para agregar el permiso al usuario
+    private void AgregarPermiso(Permiso.Permisos permiso)
+    {   
+        permisos.Add(permiso);
+        permisoAlta.Ejecutar(permisos,idAct);
         CerrarModalAgregarPermiso();
     }
 
@@ -220,7 +225,7 @@
             usuarioModificar.Ejecutar(idUsuario, nombre, apellido, email, password);
             CerrarModal();
         }
-        catch (RepositorioException ex)
+        catch (Exception ex)
         {
             errorMessage = ex.Message;
         }
@@ -231,22 +236,10 @@
         usuarioBaja.Ejecutar(email);
     }
 
-    private void EliminarPermiso()
+    private void EliminarPermiso(Permiso.Permisos permiso)
 {
-    if (permisoSeleccionado == null)
-    {
-        // Si no se ha seleccionado un permiso, mostrar un mensaje de error o simplemente no hacer nada.
-        Console.WriteLine("No se ha seleccionado ningún permiso.");
-        return;  // Salir de la función si no se selecciona un permiso.
-    }
-
-    // Aquí debes agregar la lógica para eliminar el permiso seleccionado del usuario.
-    // Si el permiso se encuentra en la lista del usuario, lo eliminamos.
-    // Dependiendo de la implementación, puedes llamar a algún servicio o actualizar el estado del usuario.
-
-    Console.WriteLine($"El permiso {permisoSeleccionado} ha sido eliminado."); // Esto es solo un ejemplo
-
-    // Cerrar el modal de eliminación
+    permisos.Remove(permiso);
+    permisoBaja.Ejecutar(permisos,idAct);
     CerrarModalEliminarPermiso();
 }
 

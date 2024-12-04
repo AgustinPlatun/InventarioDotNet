@@ -1,5 +1,7 @@
 using SGI.Aplicacion;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
+using System.Diagnostics;
 
 namespace SGI.Repositorios;
 
@@ -48,17 +50,16 @@ public class RepositorioUsuario : IUsuarioRepositorio
     {
         using(var db = new RepositorioContext())
         {
+            
             var usuarioAModificar = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
             if(usuarioAModificar != null)
             {
                 usuarioAModificar.Nombre = nombre;
                 usuarioAModificar.Apellido = apellido;
-                usuarioAModificar.Email = email;
-                usuarioAModificar.Password = password;
                 db.SaveChanges();
             }else
             {
-                throw new RepositorioException("El email ingresado no existe en el repositorio");
+                throw new RepositorioException("El usuario no existe.");
             }
         }
     }  
@@ -124,4 +125,31 @@ public class RepositorioUsuario : IUsuarioRepositorio
             return false; //para emergencias 
         }
     }
+        public void agregarPermisos(List<Permiso.Permisos> permiso,int idUsuario)
+        {
+            using (var db = new RepositorioContext())
+            {
+                var usuario = db.Usuarios.FirstOrDefault(us => us.IdUsuario == idUsuario);
+                if (usuario == null)
+                {
+                    throw new Exception("Hubo un problema con la busqueda del usuario.");
+                }
+                usuario.Permisos = permiso;
+
+                db.SaveChanges();
+            }
+        }
+        public void eliminarPermisos(List<Permiso.Permisos> permiso, int idUsuario)
+        {
+            using (var db = new RepositorioContext())
+            {
+                var usuario = db.Usuarios.FirstOrDefault(us => us.IdUsuario == idUsuario);
+                if (usuario == null)
+                {
+                    throw new Exception("Hubo un problema con la busqueda del usuario.");
+                }
+                usuario.Permisos = permiso;
+                db.SaveChanges();
+            }
+        }
 }
