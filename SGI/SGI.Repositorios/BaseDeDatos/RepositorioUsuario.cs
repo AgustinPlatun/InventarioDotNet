@@ -44,7 +44,7 @@ public class RepositorioUsuario : IUsuarioRepositorio
         }
     }
 
-    public void UsuarioModificacion(int? idUsuario,string nombre, string apellido, string email, string password, List<Permiso.Permisos>? permisos)
+    public void UsuarioModificacion(int? idUsuario,string nombre, string apellido, string email, string password)
     {
         using(var db = new RepositorioContext())
         {
@@ -55,7 +55,6 @@ public class RepositorioUsuario : IUsuarioRepositorio
                 usuarioAModificar.Apellido = apellido;
                 usuarioAModificar.Email = email;
                 usuarioAModificar.Password = password;
-                usuarioAModificar.Permisos = permisos;
                 db.SaveChanges();
             }else
             {

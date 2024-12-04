@@ -22,7 +22,6 @@ public class CasoDeUsoUsuarioAlta (IUsuarioRepositorio repo, UsuarioValidador va
                 Permiso.Permisos.usuarioalta,
                 Permiso.Permisos.usuariobaja,
                 Permiso.Permisos.usuariomodificacion};
-                repo.UsuarioModificacion(idUsuario,nombre, apellido, email, passwordPasadaPorHash, permisos);
             }
         }else
         {

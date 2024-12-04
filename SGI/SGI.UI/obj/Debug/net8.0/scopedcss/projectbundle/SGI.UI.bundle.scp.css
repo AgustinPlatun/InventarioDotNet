@@ -201,104 +201,6 @@ main[b-1rfgff7fv3] {
         overflow-y: auto;
     }
 }
-/* _content/SGI.UI/Components/Layout/Registrarse.razor.rz.scp.css */
-*[b-33m2qwby7n] {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body[b-33m2qwby7n] {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-h1[b-33m2qwby7n], h2[b-33m2qwby7n] {
-    text-align: center;
-    color: #333;
-}
-
-.body-form[b-33m2qwby7n] {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.seccion-formulario[b-33m2qwby7n] {
-    width: 80%;
-    max-width: 450px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.titulo[b-33m2qwby7n] {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #007bff;
-    text-align: center;
-}
-
-.elemento-input[b-33m2qwby7n] {
-    margin-bottom: 15px;
-    width: 100%;
-}
-
-.elemento-input input[b-33m2qwby7n] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    background-color: #f9f9f9;
-}
-
-.elemento-input input:focus[b-33m2qwby7n] {
-    border-color: #007bff;
-    outline: none;
-}
-
-.boton-inicio[b-33m2qwby7n] {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.boton-inicio:hover[b-33m2qwby7n] {
-    background-color: #0056b3;
-}
-
-a[b-33m2qwby7n] {
-    text-align: center;
-    display: block;
-    margin-top: 15px;
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover[b-33m2qwby7n] {
-    text-decoration: underline;
-}
-
-.error-message[b-33m2qwby7n] {
-    color: red;
-    font-size: 1rem;
-    margin-top: 10px;
-    text-align: center;
-}
 /* _content/SGI.UI/Components/Pages/Categorias.razor.rz.scp.css */
     *[b-r612jt5qpu] {
         margin: 0;
@@ -735,6 +637,104 @@ h1[b-9x2pqe2ibw], h2[b-9x2pqe2ibw] {
 
 .tabla-productos tr:hover[b-9x2pqe2ibw] {
     background-color: #f1f1f1;
+}
+/* _content/SGI.UI/Components/Pages/Registrarse.razor.rz.scp.css */
+*[b-g8f26vshga] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body[b-g8f26vshga] {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1[b-g8f26vshga], h2[b-g8f26vshga] {
+    text-align: center;
+    color: #333;
+}
+
+.body-form[b-g8f26vshga] {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seccion-formulario[b-g8f26vshga] {
+    width: 80%;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.titulo[b-g8f26vshga] {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-align: center;
+}
+
+.elemento-input[b-g8f26vshga] {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.elemento-input input[b-g8f26vshga] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+.elemento-input input:focus[b-g8f26vshga] {
+    border-color: #007bff;
+    outline: none;
+}
+
+.boton-inicio[b-g8f26vshga] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton-inicio:hover[b-g8f26vshga] {
+    background-color: #0056b3;
+}
+
+a[b-g8f26vshga] {
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover[b-g8f26vshga] {
+    text-decoration: underline;
+}
+
+.error-message[b-g8f26vshga] {
+    color: red;
+    font-size: 1rem;
+    margin-top: 10px;
+    text-align: center;
 }
 /* _content/SGI.UI/Components/Pages/Transaccion.razor.rz.scp.css */
 *[b-msuq90x3ih] {
