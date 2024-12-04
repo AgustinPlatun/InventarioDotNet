@@ -55,6 +55,7 @@
         if(datosNuevos.Email != usuarioActual.Email){
             if(validador.Validar(datosNuevos.Email)){
                 modificacion.Ejecutar(usuarioActual.IdUsuario, datosNuevos.Nombre, datosNuevos.Apellido, datosNuevos.Email, datosNuevos.Password);
+                 StateHasChanged();
             }else{
                 errorMessage = "El email ingresado ya se encuentra registrado !";
             }

@@ -1,8 +1,5 @@
 using SGI.Aplicacion;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace SGI.Repositorios
 {
@@ -26,32 +23,26 @@ namespace SGI.Repositorios
                     var transaccion = new Transaccion(productoId, tipo, cantidad, DateTime.Now);
                     db.Transacciones.Add(transaccion);  // Añadir la transacción a la tabla Transacciones
 
-                    // Buscar el producto relacionado con la transacción
                     Producto p = db.Productos.FirstOrDefault(producto => producto.Id == productoId);
                     if (p == null)
                     {
                         throw new Exception($"Producto con ID {productoId} no encontrado.");
                     }
-
-                    // Actualización del stock según el tipo de transacción
                     if (tipo == TipoTransaccion.entrada)
                     {
-                        p.StockDisponible += cantidad;  // Incrementar el stock si es una entrada
+                        p.StockDisponible += cantidad; 
                     }
                     else if (tipo == TipoTransaccion.salida)
                     {
-                        p.StockDisponible -= cantidad;  // Decrementar el stock si es una salida
+                        p.StockDisponible -= cantidad;
                     }
                     else
                     {
                         throw new Exception($"Tipo de transacción no válido.");
                     }
-
-                    // Actualizar la fecha de modificación del producto
                     p.actualizarFechaMod();
 
-                    // Guardar cambios en la base de datos
-                    db.SaveChanges();  // Guarda los cambios en la base de datos
+                    db.SaveChanges(); 
                 }
             }
             catch (DbUpdateException dbEx)

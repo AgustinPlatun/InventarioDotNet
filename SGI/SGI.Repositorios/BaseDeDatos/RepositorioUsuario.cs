@@ -54,6 +54,8 @@ public class RepositorioUsuario : IUsuarioRepositorio
             var usuarioAModificar = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
             if(usuarioAModificar != null)
             {
+                usuarioAModificar.Password = password;
+                usuarioAModificar.Email = email;
                 usuarioAModificar.Nombre = nombre;
                 usuarioAModificar.Apellido = apellido;
                 db.SaveChanges();

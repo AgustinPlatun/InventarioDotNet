@@ -7,13 +7,13 @@ using SGI.Aplicacion;
 public class RepositorioContext: DbContext
 {
     
-    public DbSet<Categoria> Categorias{get; set;}
+    public DbSet<Categoria> Categorias{get; set;} = null!;
 
-    public DbSet<Usuario> Usuarios{get; set;}
+    public DbSet<Usuario> Usuarios{get; set;} = null!;
 
-    public DbSet<Producto> Productos { get; set;}
+    public DbSet<Producto>Productos { get; set;} = null!;
 
-    public DbSet <Transaccion> Transacciones {get; set;}
+    public DbSet <Transaccion> Transacciones {get; set;} = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -24,11 +24,11 @@ public class RepositorioContext: DbContext
     {
         //Usuarios
         modelBuilder.Entity<Usuario>().ToTable("Usuarios");
-        modelBuilder.Entity<Usuario>().HasKey(u => u.IdUsuario); // Definiendo la clave primaria
+        modelBuilder.Entity<Usuario>().HasKey(u => u.IdUsuario);
         modelBuilder.Entity<Usuario>()
-            .Property(u => u.Nombre) //establece la variable que va a ocupar esa columna
-            .HasMaxLength(100) //establece el maximo
-            .IsRequired(true); //establece que no puede ser null
+            .Property(u => u.Nombre)
+            .HasMaxLength(100)
+            .IsRequired(true);
 
         modelBuilder.Entity<Usuario>().Property(u => u.Apellido).HasMaxLength(100).IsRequired(true);
         modelBuilder.Entity<Usuario>().Property(u => u.Email).HasMaxLength(100).IsRequired();
@@ -36,12 +36,11 @@ public class RepositorioContext: DbContext
         modelBuilder.Entity<Usuario>()
         .Property(u => u.Permisos)
         .HasConversion(
-            permisos => permisos != null ? string.Join(",", permisos.Select(p => p.ToString())) : "", // Convert List<Permiso.Permisos> to string
+            permisos => permisos != null ? string.Join(",", permisos.Select(p => p.ToString())) : "",
             permisosString => permisosString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                                             .Select(p => Enum.Parse<Permiso.Permisos>(p))
-                                            .ToList()                         // Convert string to List<Permiso.Permisos>
+                                            .ToList() 
         );
-
 
         // Categoria
         modelBuilder.Entity<Categoria>().ToTable("Categorias");
@@ -58,14 +57,15 @@ public class RepositorioContext: DbContext
 
         // Productos
         modelBuilder.Entity<Producto>().ToTable("Productos");
-        modelBuilder.Entity<Producto>().HasKey(p => p.Id); // Definir la clave primaria
+        modelBuilder.Entity<Producto>().HasKey(p => p.Id);
         modelBuilder.Entity<Producto>().Property(p => p.Nombre).HasMaxLength(50).IsRequired();
         modelBuilder.Entity<Producto>().Property(p => p.Descripcion).HasMaxLength(100).IsRequired();
         modelBuilder.Entity<Producto>().Property(p => p.PrecioUnitario).IsRequired();
         modelBuilder.Entity<Producto>().Property(p => p.StockDisponible).IsRequired();
         modelBuilder.Entity<Producto>().Property(p => p.FechaCreacion);
         modelBuilder.Entity<Producto>().Property(p => p.FechaUltimaModificacion);
-        modelBuilder.Entity<Producto>().Property(p => p.CategoriaId);   
+        modelBuilder.Entity<Producto>().Property(p => p.CategoriaId); 
+
         //Transaccion
         modelBuilder.Entity<Transaccion>().ToTable("Transacciones");
         modelBuilder.Entity<Transaccion>().HasKey(t => t.id); 

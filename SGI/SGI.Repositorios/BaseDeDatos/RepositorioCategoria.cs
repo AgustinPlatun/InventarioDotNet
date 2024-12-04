@@ -9,7 +9,7 @@ public class RepositorioCategoria : ICategoriaRepositorio
     {
         using (var context = new RepositorioContext())
         {
-            context.Database.EnsureCreated(); //si la base de datos no existe se crea y devuelve true
+            context.Database.EnsureCreated();
             var connection = context.Database.GetDbConnection();
             connection.Open();
             using (var command = connection.CreateCommand())

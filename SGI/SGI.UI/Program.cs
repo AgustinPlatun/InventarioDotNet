@@ -25,20 +25,20 @@ builder.Services.AddScoped<CasoDeUsoPermisoAlta>();
 builder.Services.AddScoped<CasoDeUsoPermisoBaja>(); 
 builder.Services.AddSingleton<Usuario>();
 // Servicios para Categorias
-builder.Services.AddSingleton<ICategoriaRepositorio, RepositorioCategoria>();
+builder.Services.AddScoped<ICategoriaRepositorio, RepositorioCategoria>();
 builder.Services.AddScoped<DarAltaCategoria>();
 builder.Services.AddScoped<DarBajaCategoria>();
 builder.Services.AddScoped<ModificarCategoria>();
 builder.Services.AddScoped<MostrarCategorias>();
 // Servicios para Productos
-builder.Services.AddSingleton<IProductoRepositorio,RepositorioProducto>();
-builder.Services.AddScoped <DarAltaProducto>();
+builder.Services.AddScoped<IProductoRepositorio,RepositorioProducto>();
+builder.Services.AddScoped<DarAltaProducto>();
 builder.Services.AddScoped<DarBajaProducto>();
 builder.Services.AddScoped<ModificarProducto>();
 builder.Services.AddScoped<ProductoValidador>();
 builder.Services.AddScoped<ListarProductos>();
 // Servicios para Transacciones
-builder.Services.AddSingleton<ITransaccionRepositorio, RepositorioTransaccion>();
+builder.Services.AddScoped<ITransaccionRepositorio, RepositorioTransaccion>();
 builder.Services.AddScoped<RepositorioTransaccion>();
 builder.Services.AddScoped<DarAltaTransaccion>();
 builder.Services.AddScoped<DarBajaTransaccion>();
