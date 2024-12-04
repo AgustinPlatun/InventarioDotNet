@@ -8,13 +8,21 @@
     "net8.0": []
   },
   "packageFolders": {
+<<<<<<< HEAD
+    "C:\\Users\\Santiago\\.nuget\\packages\\": {}
+=======
     "C:\\Users\\agusp\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
+=======
       "projectUniqueName": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
       "projectName": "SGI.Aplicacion",
       "projectPath": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
       "packagesPath": "C:\\Users\\agusp\\.nuget\\packages\\",
@@ -24,9 +32,13 @@
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
+        "C:\\Users\\Santiago\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
         "C:\\Users\\agusp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -80,7 +92,11 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
+      "message": "Problem reading the cache file C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
       "message": "Problema al leer el archivo de caché C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
     }
   ]
 }

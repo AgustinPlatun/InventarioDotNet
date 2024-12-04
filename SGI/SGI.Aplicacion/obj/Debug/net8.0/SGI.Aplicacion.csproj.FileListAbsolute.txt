@@ -10,18 +10,6 @@ C:\Users\franb\Desktop\InventarioDotnet.v0.0.2\InventarioDotNet\SGI\SGI.Aplicaci
 C:\Users\franb\Desktop\InventarioDotnet.v0.0.2\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\refint\SGI.Aplicacion.dll
 C:\Users\franb\Desktop\InventarioDotnet.v0.0.2\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.pdb
 C:\Users\franb\Desktop\InventarioDotnet.v0.0.2\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\ref\SGI.Aplicacion.dll
-C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.AssemblyInfoInputs.cache
-C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.AssemblyInfo.cs
-C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.csproj.CoreCompileInputs.cache
-C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.sourcelink.json
-C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.dll
-C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\refint\SGI.Aplicacion.dll
-C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.pdb
-C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\bin\Debug\net8.0\SGI.Aplicacion.deps.json
-C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\bin\Debug\net8.0\SGI.Aplicacion.dll
-C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\bin\Debug\net8.0\SGI.Aplicacion.pdb
-C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\ref\SGI.Aplicacion.dll
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.Aplicacion\bin\Debug\net8.0\SGI.Aplicacion.deps.json
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.Aplicacion\bin\Debug\net8.0\SGI.Aplicacion.dll
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.Aplicacion\bin\Debug\net8.0\SGI.Aplicacion.pdb
@@ -34,6 +22,20 @@ C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\refint\SGI.Aplicacion.dll
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.pdb
 C:\Users\franb\Desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\ref\SGI.Aplicacion.dll
+<<<<<<< HEAD
+C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\bin\Debug\net8.0\SGI.Aplicacion.deps.json
+C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\bin\Debug\net8.0\SGI.Aplicacion.dll
+C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\bin\Debug\net8.0\SGI.Aplicacion.pdb
+C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.AssemblyInfoInputs.cache
+C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.AssemblyInfo.cs
+C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.csproj.CoreCompileInputs.cache
+C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.sourcelink.json
+C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.dll
+C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\refint\SGI.Aplicacion.dll
+C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.pdb
+C:\Users\Santiago\desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\ref\SGI.Aplicacion.dll
+=======
 C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.Aplicacion\bin\Debug\net8.0\SGI.Aplicacion.deps.json
 C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.Aplicacion\bin\Debug\net8.0\SGI.Aplicacion.dll
 C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.Aplicacion\bin\Debug\net8.0\SGI.Aplicacion.pdb
@@ -46,3 +48,4 @@ C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.
 C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\refint\SGI.Aplicacion.dll
 C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\SGI.Aplicacion.pdb
 C:\Users\agusp\Desktop\InventarioDotNet\SGI\SGI.Aplicacion\obj\Debug\net8.0\ref\SGI.Aplicacion.dll
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e

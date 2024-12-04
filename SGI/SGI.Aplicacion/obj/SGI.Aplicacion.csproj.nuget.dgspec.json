@@ -1,7 +1,11 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj": {}
+=======
     "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj": {}
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
   },
   "projects": {
     "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj": {
@@ -17,9 +21,13 @@
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\Santiago\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
           "C:\\Users\\agusp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
         ],
         "originalTargetFrameworks": [
           "net8.0"

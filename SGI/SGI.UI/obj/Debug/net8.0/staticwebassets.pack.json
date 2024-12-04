@@ -1,7 +1,11 @@
 {
   "Files": [
     {
+<<<<<<< HEAD
+      "Id": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGI.UI.bundle.scp.css",
+=======
       "Id": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGI.UI.bundle.scp.css",
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
       "PackagePath": "staticwebassets\\SGI.UI.bundle.scp.css"
     },
     {
@@ -17,7 +21,11 @@
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
+<<<<<<< HEAD
+      "Id": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\favicon.png",
+=======
       "Id": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.UI\\wwwroot\\favicon.png",
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {

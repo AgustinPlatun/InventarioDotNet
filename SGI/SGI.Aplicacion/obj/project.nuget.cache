@@ -1,15 +1,25 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "uSjE9xjHXqc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
+=======
   "dgSpecHash": "jZDeJQ++ryE=",
   "success": true,
   "projectFilePath": "C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\SGI.Aplicacion.csproj",
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
   "expectedPackageFiles": [],
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
+      "message": "Problem reading the cache file C:\\Users\\Santiago\\desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
       "message": "Problema al leer el archivo de caché C:\\Users\\agusp\\Desktop\\InventarioDotNet\\SGI\\SGI.Aplicacion\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> 9c1eac9fb574d5f50f6440256d213fa326b7379e
     }
   ]
 }
