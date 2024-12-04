@@ -145,7 +145,6 @@
         {
             try {
                 productoAlta.Ejecutar(usuarioActual.IdUsuario,_nombre, _descripcion, _precioUnitario, _stockDisponible,_idCategoria);
-                Navigation.NavigateTo("/");  // Redirige después de dar de alta
             }
             catch (Exception ex){
                 ErrorMensaje = ex.Message;
@@ -171,7 +170,6 @@
     {
         try {
             productoModificar.Ejecutar(_idProducto, _nuevoNombre, _nuevaDesc, _nuevoPrecio, _nuevoStock, _nuevaCategoria);
-            Navigation.NavigateTo("/");  // Redirige después de modificar
         } catch (Exception ex) {
             ErrorMensaje = ex.Message;
         }
