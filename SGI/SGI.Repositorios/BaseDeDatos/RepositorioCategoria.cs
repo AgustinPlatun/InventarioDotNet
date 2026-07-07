@@ -7,18 +7,6 @@ public class RepositorioCategoria : ICategoriaRepositorio
 
     public RepositorioCategoria()
     {
-        using (var context = new RepositorioContext())
-        {
-            context.Database.EnsureCreated();
-            var connection = context.Database.GetDbConnection();
-            connection.Open();
-            using (var command = connection.CreateCommand())
-            {
-                command.CommandText = "PRAGMA journal_mode=DELETE;";
-                command.ExecuteNonQuery();
-            }
-        }
-
     }
     
     public void CategoriaAlta(string nombre, string descripcion) 

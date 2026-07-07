@@ -1,8 +1,11 @@
 using SGI.UI;
 using SGI.Aplicacion;
 using SGI.Repositorios;
+using Microsoft.EntityFrameworkCore; 
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+RepositorioContext.ConnectionString = connectionString;
 
 // Registrar servicios para Razor Components
 builder.Services.AddRazorComponents()
@@ -57,5 +60,10 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
+
+  using (var context = new RepositorioContext())
+{
+    context.Database.EnsureCreated();
+}
 
 app.Run();

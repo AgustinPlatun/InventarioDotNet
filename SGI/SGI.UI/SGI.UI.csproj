@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
     <ProjectReference Include="..\SGI.Aplicacion\SGI.Aplicacion.csproj" />
@@ -9,6 +9,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>cf22086b-8f40-4381-a786-6e23bddd9162</UserSecretsId>
   </PropertyGroup>
 
 </Project>

@@ -7,6 +7,7 @@
 @inject ListarProductos productoListar
 @inject ProductoValidador validador
 @inject Usuario usuarioActual
+@inject MostrarCategorias listadoCategorias
 
 <PageTitle>Gestión de Productos</PageTitle>
 
@@ -32,9 +33,6 @@
                 </div>
                 <div class="elemento-input">
                     <input type="text" @bind="_descripcion" id="input-descripcion" placeholder="Descripción" required>
-                </div>
-                <div class="elemento-input">
-                    <input type="number" @bind="_precioUnitario" id="input-precioUnitario" placeholder="Precio Unitario" required>
                 </div>
                 <div class="elemento-input">
                     <input type="number" @bind="_stockDisponible" id="input-stockDisponible" placeholder="Stock Disponible" required>
@@ -69,9 +67,6 @@
                     <input type="text" @bind="_nuevaDesc" id="input-nuevaDesc" placeholder="Nueva Descripción" required>
                 </div>
                 <div class="elemento-input">
-                    <input type="number" @bind="_nuevoPrecio" id="input-nuevoPrecio" placeholder="Nuevo Precio" required>
-                </div>
-                <div class="elemento-input">
                     <input type="number" @bind="_nuevoStock" id="input-nuevoStock" placeholder="Nuevo Stock" required>
                 </div>
                 <div class="elemento-input">
@@ -98,6 +93,16 @@
     }
 
     <section class="lista-productos">
+        <div class="elemento-input">
+            <label for="filtro-categoria">Filtrar por categoría:</label>
+            <select id="filtro-categoria" @bind="_categoriaFiltro">
+                <option value="0">Todas las categorías</option>
+                @foreach (var cat in _categorias)
+                {
+                    <option value="@cat.Id">@cat.Nombre</option>
+                }
+            </select>
+        </div>
         <h2>Productos Disponibles</h2>
         <table class="tabla-productos">
             <thead>
@@ -111,7 +116,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var prod in productoListar.Ejecutar()) 
+                @foreach (var prod in productoListar.Ejecutar().Where(p => _categoriaFiltro == 0 || p.CategoriaId == _categoriaFiltro)) 
                 {
                     <tr>
                         <td>@prod.Id</td>
@@ -119,7 +124,7 @@
                         <td>@prod.Descripcion</td>
                         <td>@prod.PrecioUnitario</td>
                         <td>@prod.StockDisponible</td>
-                        <td>@prod.CategoriaId</td>
+                        <td>@_categorias.FirstOrDefault(c => c.Id == prod.CategoriaId)?.Nombre ?? prod.CategoriaId.ToString()</td>
                     </tr>
                 }
             </tbody>
@@ -141,7 +146,14 @@
     private string MensajeNotificacion { get; set; }
     private string TipoNotificacion { get; set; }
 
-    private int _accionSeleccionada = 0;  
+    private int _accionSeleccionada = 0;
+    private int _categoriaFiltro = 0;
+    private List<Categoria> _categorias = new();
+
+    protected override void OnInitialized()
+    {
+        _categorias = listadoCategorias.Ejecutar();
+    }
 
     private void DarAlta()
     {
@@ -149,6 +161,7 @@
         {
             try
             {
+                _precioUnitario=0; 
                 validador.ValidarNombre(_nombre);
                 validador.ValidarPrecioUnitario(_precioUnitario);
                 validador.ValidarStockDisponible(_stockDisponible);
@@ -188,6 +201,7 @@
     {
         try
         {
+            _precioUnitario=0; 
             validador.ValidarNombre(_nuevoNombre);
             validador.ValidarPrecioUnitario(_nuevoPrecio);
             validador.ValidarStockDisponible(_nuevoStock);

@@ -14,17 +14,12 @@
 
 <div class="contenedor">
     <h1>Gestión de Usuarios</h1>
-<<<<<<< HEAD
-    <button class="btn btn-primary" @onclick="AbrirFormularioAgregarUsuario">Agregar Usuario</button>
-    <table>
-=======
     
     <!-- Botón para agregar un nuevo usuario -->
     <button class="btn btn-success" @onclick="AbrirFormularioAgregarUsuario">+</button>
 
     <!-- Lista de usuarios -->
     <table class="table-compact">
->>>>>>> ab4ddfc1f373a50913545a616110b035b81248a4
         <thead>
             <tr>
                 <th>ID</th>
@@ -217,10 +212,7 @@ private bool mostrarModificar = false;
     private int idUsuario;
     private int idAct;
     private List<Permiso.Permisos> permisos = new List<Permiso.Permisos>();
-<<<<<<< HEAD
-=======
     private List<Permiso.Permisos> permisosDisponibles = new List<Permiso.Permisos>();
->>>>>>> ab4ddfc1f373a50913545a616110b035b81248a4
     private string? errorMessage;
     private string? nombreNuevoUsuario;
     private string? apellidoNuevoUsuario;
@@ -228,28 +220,10 @@ private bool mostrarModificar = false;
     private string? passwordNuevaUsuario; // Contraseña para el nuevo usuario
     private string? mensajePopup;
     private string colorPopup = "green"; // Valor por defecto: verde para éxito
-<<<<<<< HEAD
-    private List<Permiso.Permisos> permisosDisponibles = new List<Permiso.Permisos>(); // Lista de permisos disponibles para agregar
 
     // Lista de todos los permisos posibles
     List<Permiso.Permisos> todosLosPermisos = new List<Permiso.Permisos>((Permiso.Permisos[])Enum.GetValues(typeof(Permiso.Permisos)));
-=======
 
-    private List<Permiso.Permisos> todosLosPermisos = new List<Permiso.Permisos>
-    {
-        Permiso.Permisos.categoriaalta,
-        Permiso.Permisos.productoalta,
-        Permiso.Permisos.categoriabaja,
-        Permiso.Permisos.categoriamodificacion,
-        Permiso.Permisos.productobaja,
-        Permiso.Permisos.productomodificacion,
-        Permiso.Permisos.transaccionalta,
-        Permiso.Permisos.transaccionbaja,
-        Permiso.Permisos.usuarioalta,
-        Permiso.Permisos.usuariobaja,
-        Permiso.Permisos.usuariomodificacion
-    };
->>>>>>> ab4ddfc1f373a50913545a616110b035b81248a4
 
     private void AbrirFormularioAgregarUsuario()
     {
@@ -363,52 +337,12 @@ private bool mostrarModificar = false;
     }
 
     private void EliminarPermiso(Permiso.Permisos permiso)
-<<<<<<< HEAD
 {
     permisos.Remove(permiso);
     permisoBaja.Ejecutar(permisos,idAct);
     CerrarModalEliminarPermiso();
 }
 
-  private void DarDeAltaUsuario()
-    {
-        try
-        {
-            // Validación simple de contraseña
-            if (string.IsNullOrEmpty(passwordNuevaUsuario))
-            {
-                errorMessage = "La contraseña es obligatoria.";
-                return;
-            }
-
-            usuarioAlta.Ejecutar(nombreNuevoUsuario, apellidoNuevoUsuario, emailNuevoUsuario, passwordNuevaUsuario);
-            mostrarAgregarUsuario = false; // Cierra el formulario después de guardar el usuario
-        }
-        catch (Exception ex)
-        {
-            errorMessage = ex.Message;
-        }
-    }
-
     
-    private void AbrirFormularioAgregarUsuario()
-    {
-        mostrarAgregarUsuario = true; // Muestra el formulario de agregar usuario cuando se hace clic en el botón "+"
-    }
-
-    private void CerrarFormularioAgregarUsuario()
-    {
-        mostrarAgregarUsuario = false; 
-    }
-
 }
 
-
-=======
-    {
-        permisos.Remove(permiso);
-        permisoBaja.Ejecutar(permisos, idAct);
-        CerrarModalEliminarPermiso();
-    }
-}
->>>>>>> ab4ddfc1f373a50913545a616110b035b81248a4
