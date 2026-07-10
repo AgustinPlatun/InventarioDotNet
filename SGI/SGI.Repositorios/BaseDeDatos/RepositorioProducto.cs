@@ -2,42 +2,41 @@ using SGI.Aplicacion;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace SGI.Repositorios;
 
 public class RepositorioProducto : IProductoRepositorio
 {
-        public RepositorioProducto()
-        {
-            using (var context = new RepositorioContext())
-            {
-                context.Database.EnsureCreated();
-            }
-        }
+    private readonly ILogger<RepositorioProducto> _logger;
 
-        // Método para dar de alta un producto
-        public void ProductoAlta(string nombre, string descripcion, double precioUnitario, int stockDisponible,int idCategoria)
-        {
-            try
-            {
-                
-                using (var db = new RepositorioContext())
-                {
-                    var categoria = db.Categorias.FirstOrDefault(c => c.Id == idCategoria);
-                    if (categoria == null) {
-                        throw new Exception("No hay ninguna categoria asociada al ID ingresado.");
-                    }
-                    var producto = new Producto(nombre, descripcion, precioUnitario, stockDisponible, idCategoria);
-                    db.Productos.Add(producto);  // Asegura que el producto se agregue a la tabla Productos
-                    db.SaveChanges(); // Guarda los cambios en la base de datos
+    public RepositorioProducto(ILogger<RepositorioProducto> logger)
+    {
+        _logger = logger;
+    }
 
+    // Método para dar de alta un producto
+    public void ProductoAlta(string nombre, string descripcion, double precioUnitario, int stockDisponible,int idCategoria)
+    {
+        try
+        {
+            using (var db = new RepositorioContext())
+            {
+                var categoria = db.Categorias.FirstOrDefault(c => c.Id == idCategoria);
+                if (categoria == null) {
+                    throw new Exception("No hay ninguna categoria asociada al ID ingresado.");
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error al agregar el producto: {ex}");
+                var producto = new Producto(nombre, descripcion, precioUnitario, stockDisponible, idCategoria);
+                db.Productos.Add(producto);
+                db.SaveChanges();
             }
         }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error al agregar el producto {Nombre}", nombre);
+            throw; // Re-throw para que la UI también pueda manejarlo
+        }
+    }
 
         // Método para dar de baja un producto
         public void ProductoBaja(int idProducto)
