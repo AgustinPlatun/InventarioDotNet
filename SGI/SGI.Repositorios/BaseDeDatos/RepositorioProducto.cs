@@ -33,11 +33,9 @@ public class RepositorioProducto : IProductoRepositorio
 
                 }
             }
-            catch (DbUpdateException dbEx)
+            catch (Exception ex)
             {
-                Console.WriteLine($"Error al agregar el producto: {dbEx.Message}");
-                Console.WriteLine($"Inner Exception: {dbEx.InnerException?.Message}");
-                Console.WriteLine($"Stack Trace: {dbEx.StackTrace}");
+                Console.WriteLine($"Error al agregar el producto: {ex}");
             }
         }
 
